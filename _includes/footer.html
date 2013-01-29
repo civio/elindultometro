@@ -1,1 +1,65 @@
-this is the footer
+<!-- Page Footer -->
+<footer class="section" id="footer" role="contentinfo">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span4">
+        <h3>Contacta con nosotros</h3>
+        <p>
+          La Fundación Ciudadana Civio es una organización sin ánimo de lucro...
+        </p>
+        <ul class="icons">
+          <li>
+            <i class="icon-envelope"></i>
+            <a href="mailto:contacto@civio.es">contacto@civio.es</a>
+          </li>
+          <li>
+            <i class="icon-twitter"></i>
+            <a href="http://twitter.com/civio/" target="_blank">@civio</a>
+          </li>
+          <li>
+            <i class="icon-facebook"></i>
+            <a href="http://facebook.com/fundacioncivio" target="_blank">Civio</a>
+          </li>
+        </ul>
+      </div>
+      <div class="span4">
+        <h3>El indultómetro</h3>
+        <p>
+          Un proyecto de @dcabo y @jjelosua para Civio... Pilla el código aquí...
+        </p>
+        </ul>
+      </div>
+      <div class="span4">
+        <h3>Noticias</h3>
+        <ul class="unstyled">
+          {% for post in site.posts limit:3 %}
+          <li>
+            <h4>
+              <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            </h4>
+            <p>
+              <small>{{ post.date | localize: "%d de %B de %Y" }}</small>
+            </p>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="javascripts/jquery.min.js" type="text/javascript"></script>
+<script src="javascripts/bootstrap.js" type="text/javascript"></script>
+<script src="javascripts/script.js" type="text/javascript"></script>
+<script type="text/javascript">
+if (typeof gaJsHost == 'undefined') {
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("#########");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
