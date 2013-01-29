@@ -1,3 +1,8 @@
+---
+layout: base
+title: El indultometro
+---
+
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -44,7 +49,7 @@
             <div class="nav-collapse collapse">
               <ul class="nav pull-right">
                 <li class="active"><a href="index.html">Inicio</a></li>
-                <li class=""><a href="blog.html">10.000 indultos</a></li>
+                <li class=""><a href="indultos.html">10.000 indultos</a></li>
                 <li class=""><a href="blog.html">Los más sonados</a></li>
                 <li class=""><a href="blog.html">Noticias</a></li>
                 <li class=""><a href="contact.html">¿Qué es esto?</a></li>
@@ -278,53 +283,25 @@
             </ul>
           </div>
           <div class="span4">
-            <h3>Noticias</h3>
-            <ul class="icons">
-              <li>
-                <p><i class="icon-twitter"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  <small>
-                    by
-                    <a href="#">oxygenna.com</a>
-                  </small>
-                </p>
-              </li>
-              <li>
-                <p><i class="icon-twitter"></i>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                  <small>
-                    by
-                    <a href="#">oxygenna.com</a>
-                  </small>
-                </p>
-              </li>
+            <h3>El indultómetro</h3>
+            <p>
+              Un proyecto de @dcabo y @jjelosua para Civio... Pilla el código aquí...
+            </p>
             </ul>
           </div>
           <div class="span4">
-            <h3>Latest posts</h3>
+            <h3>Noticias</h3>
             <ul class="unstyled">
+              {% for post in site.posts limit:3 %}
               <li>
                 <h4>
-                  <a href="#">A responsive business theme</a>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                 </h4>
                 <p>
-                  <small>November 12, 2012</small>
+                  <small>{{ post.date | localize: "%d de %B de %Y" }}</small>
                 </p>
               </li>
-              <li>
-                <h4>
-                  <a href="#">Designed for big and small screens</a>
-                </h4>
-                <p>
-                  <small>August 23, 2012</small>
-                </p>
-              </li>
-              <li>
-                <h4>
-                  <a href="#">Based on bootstrap framework</a>
-                </h4>
-                <p>
-                  <small>July 22, 2011</small>
-                </p>
-              </li>
+              {% endfor %}
             </ul>
           </div>
         </div>
