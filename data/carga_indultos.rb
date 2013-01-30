@@ -1,15 +1,19 @@
 # encoding: utf-8
 
-require './csv_loader'
-require '../app/model'
+require File.dirname(__FILE__) + '/csv_loader'
+require File.dirname(__FILE__) + '/../app/model'
 
-filename = 'indultos.csv'
+module Indultos
 
-puts "Borrando indultos de la base de datos..."
-Indulto.destroy
+  def self.carga_indultos(filename)
+    puts "Borrando indultos de la base de datos..."
+    Indulto.destroy
 
-puts "Cargando indultos de #{filename}..."
-CSVLoader.parseCSV(filename) do |line|
-  next if line[0] =~ /^#/   # Ignore comments
-  Indulto.create(:id => line[0], :year => line[1], :delito => line[2])
+    puts "Cargando indultos de #{filename}..."
+    CSVLoader.parseCSV(filename) do |line|
+      next if line[0] =~ /^#/   # Ignore comments
+      Indulto.create(:id => line[0], :year => line[1], :delito => line[2])
+    end
+  end
+
 end
