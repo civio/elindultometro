@@ -1,0 +1,47 @@
+---
+title: Noticias
+---
+
+{% include header.html %}
+<!-- Main Content -->
+<div id="content" role="main">
+<section class="section alt" id="promo">
+  <div class="container">
+    <div class="hero-unit">
+      <h1>Noticias</h1>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span9">
+        {% for post in site.posts %}
+        <article class="blog-post">
+          <header class="blog-header">
+            <h2>
+              <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+              <small>{{ post.date | localize: "%d de %B de %Y" }}</small>
+            </h2>
+          </header>
+          <figure class="thumbnail-figure">
+            <a href="{{ post.url }}">
+              <img alt="" src="{{ post.image }}" />
+            </a>
+            <figcaption class="thumbnail-title">
+              <h3>
+                <a href="{{ post.url }}"><span>{{ post.lead }}</span></a>
+              </h3>
+            </figcaption>
+          </figure>
+        </article>
+        {% endfor %}
+      </div>
+      <aside class="span3 sidebar">
+        {% include latest_posts.html %}
+      </aside>
+    </div>
+  </div>
+</section>
+</div>
+{% include footer.html %}
