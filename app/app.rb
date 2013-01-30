@@ -8,8 +8,9 @@ require './app/model'
 class IndultometroApp < Sinatra::Base
   
   get '/' do
-    # Indulto.all()
     content_type :json
-    { :key1 => 'value1', :key2 => 'value2' }.to_json    
+
+    indultos = Indulto.all()
+    indultos.to_json
   end
 end
