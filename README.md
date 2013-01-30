@@ -1,7 +1,7 @@
-El indultometro
+El indultometro 
 ============
 
-#### Instalación
+#### Instalación del front-end
 
  * [Instalar Jekyll][1]
         
@@ -11,7 +11,7 @@ El indultometro
 
 [1]: http://jekyllbootstrap.com/usage/jekyll-quick-start.html
 
-#### Despliegue
+#### Despliegue del front-end
 
  * Github Pages: no está permitido usar plugins, pero necesito de i18n de Jekyll
  
@@ -22,3 +22,13 @@ El indultometro
  * Amazon S3
 
  * Slice
+
+#### Instalación del back-end
+
+ * `bundle install`
+ 
+ * Crear base de datos Postgres, 'indultometro': `createdb indultometro`
+ 
+ * Cargar datos: TO DO
+ 
+ * Arrancar el servidor: `./server`
