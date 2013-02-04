@@ -4,7 +4,7 @@ require 'data_mapper'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/indultometro")
 
-class Indulto
+class Pardon
   include DataMapper::Resource
 
   property :id,           String, :length => 20, :key => true

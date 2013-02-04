@@ -5,7 +5,7 @@ require File.dirname(__FILE__) + '/../app/model'
 
 require 'date'
 
-module Indultos
+module Pardons
 
   @@fields = {}
 
@@ -24,9 +24,9 @@ module Indultos
     value.nil? ? nil : Date.strptime(value, '%Y-%m-%d')
   end
 
-  def self.carga_indultos(filename)
+  def self.load_pardons(filename)
     puts "Borrando indultos de la base de datos..."
-    Indulto.destroy
+    Pardon.destroy
 
     puts "Cargando indultos de #{filename}..."
     CSVLoader.parseCSV(filename) do |line|
@@ -37,7 +37,7 @@ module Indultos
         next
       end
 
-      Indulto.create( :id => field(line, 'BOE'), 
+      Pardon.create( :id => field(line, 'BOE'), 
                       :pardon_date => date_field(line, 'Fecha_BOE'),
                       :ministry => field(line, 'Departamento'),
                       :gender => field(line, 'Género'),

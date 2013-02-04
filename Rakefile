@@ -1,12 +1,12 @@
 # encoding: utf-8
 
-require './data/carga_indultos'
+require './data/pardon_loader'
 
-namespace 'indultos' do
+namespace 'pardons' do
 
   desc "Carga información sobre indultos a la base de datos"
   task :load do
-    Indultos::carga_indultos('data/indultos.csv')
+    Pardons::load_pardons('data/indultos.csv')
   end
 
 end
