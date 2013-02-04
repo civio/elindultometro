@@ -1467,12 +1467,9 @@
         this.offsets = $([])
         this.targets = $([])
 
-        console.log( this.selector );
-
         $targets = this.$body
           .find(this.selector)
           .map(function () {
-            console.log(this);
             var $el = $(this)
               , href = $el.data('target') || $el.attr('href')
               , $href = /^#\w/.test(href) && $(href)
@@ -1488,7 +1485,6 @@
       }
 
     , process: function () {
-        console.log('proccess',this.targets);
         var scrollTop = this.$scrollElement.scrollTop() + this.options.offset
           , scrollHeight = this.$scrollElement[0].scrollHeight || this.$body[0].scrollHeight
           , maxScroll = scrollHeight - this.$scrollElement.height()
@@ -1574,7 +1570,6 @@
 
   $(window).on('load', function () {
     $('[data-spy="scroll"]').each(function () {
-        console.log(this);
       var $spy = $(this)
       $spy.scrollspy($spy.data())
     })
