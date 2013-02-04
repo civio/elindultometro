@@ -54,17 +54,21 @@ subtitle: This is the lead
 </section>
 </div>
 
+<script type='text/javascript'>
+  // http://samsaffron.com/archive/2012/02/17/stop-paying-your-jquery-tax
+  window.q=[];window.$=function(f){q.push(f)}
+</script>
 <script> 
-  $(document).ready(function() {
+  $(function() {
     $.ajax({
       url: '/api/?callback=?',
       dataType: "jsonp",
       jsonpCallback: "onLoad",
-      cache: true
+      cache: false  // FIXME: development
     }).success(function(data) {
       var items = [];
       $.each(data, function(key, val) {
-        items.push('<tr><td>' + val.id + '</td><td>' + val.year + '</td><td>' + val.delito + '</td></tr>');
+        items.push('<tr><td>' + val.id + '</td><td>' + val.pardon_date + '</td><td>' + val.crime + '</td></tr>');
       });
 
       $(items.join('')).appendTo('#indultos tbody');

@@ -3,7 +3,26 @@
 require File.dirname(__FILE__) + '/csv_loader'
 require File.dirname(__FILE__) + '/../app/model'
 
+require 'date'
+
 module Indultos
+
+  @@fields = {}
+
+  def self.parse_header(header)
+    header.each_with_index do |field, i|
+      @@fields[field] = i  
+    end
+  end
+
+  def self.field(line, field)
+    line[@@fields[field]]
+  end
+
+  def self.date_field(line, field)
+    value = field(line, field)
+    value.nil? ? nil : Date.strptime(value, '%Y-%m-%d')
+  end
 
   def self.carga_indultos(filename)
     puts "Borrando indultos de la base de datos..."
@@ -12,7 +31,32 @@ module Indultos
     puts "Cargando indultos de #{filename}..."
     CSVLoader.parseCSV(filename) do |line|
       next if line[0] =~ /^#/   # Ignore comments
-      Indulto.create(:id => line[0], :year => line[1], :delito => line[2])
+
+      if line[0] == 'BOE'       # Parse header
+        parse_header(line)
+        next
+      end
+
+      Indulto.create( :id => field(line, 'BOE'), 
+                      :pardon_date => date_field(line, 'Fecha_BOE'),
+                      :ministry => field(line, 'Departamento'),
+                      :gender => field(line, 'Género'),
+                      :court => field(line, 'Tribunal'),
+                      :court_type => field(line, 'Tipo_Tribunal'),
+                      :region => field(line, 'idCCAA_Tribunal'),
+                      :trial_date => date_field(line, 'Fecha_Condena'),
+                      :role => field(line, 'Papel'),
+                      :crime => field(line, 'Crimen_Sentencia'),
+                      :crime_start => field(line, 'Año_Inicio_Crimen'),
+                      :crime_end => field(line, 'Año_Fin_Crimen'),
+                      :pardon_type => field(line, 'Tipo_Indulto'),
+                      :pardon => field(line, 'Reducción/Nueva_Condena'),
+                      :caveats => field(line, 'Condición'),
+                      :pardon_date => date_field(line, 'Fecha Concesión'),
+                      :pardon_year => field(line, 'Año_Concesión'),
+                      :signature => field(line, 'Ministro')
+                      )
+
     end
   end
 
