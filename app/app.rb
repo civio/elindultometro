@@ -15,7 +15,7 @@ class IndultometroApp < Sinatra::Base
     redirect '/index.html'
   end
 
-  get '/api/' do
+  get '/api/pardons' do
     # TODO: Improve caching with ETags http://www.sinatrarb.com/intro#Cache%20Control
     cache_control :public, :must_revalidate, :max_age => 3600
 

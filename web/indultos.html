@@ -62,7 +62,7 @@ subtitle: This is the lead
 <script> 
   $(function() {
     $.ajax({
-      url: '/api/?callback=?',
+      url: '/api/pardons?callback=?',
       dataType: "jsonp",
       jsonpCallback: "onLoad",
       cache: false  // FIXME: development
@@ -77,7 +77,6 @@ subtitle: This is the lead
         });
         fragments.push('</tr>');
       });
-
       $(fragments.join('')).appendTo('#indultos tbody');
     });
   });

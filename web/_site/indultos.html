@@ -113,7 +113,7 @@
 <script> 
   $(function() {
     $.ajax({
-      url: '/api/?callback=?',
+      url: '/api/pardons?callback=?',
       dataType: "jsonp",
       jsonpCallback: "onLoad",
       cache: false  // FIXME: development
@@ -128,7 +128,6 @@
         });
         fragments.push('</tr>');
       });
-
       $(fragments.join('')).appendTo('#indultos tbody');
     });
   });
