@@ -11,20 +11,20 @@ class Pardon
   property :boe_date,     Date
   property :ministry,     String, :length => 30
   property :gender,       String, :length => 1
-  property :court,        String, :length => 70
-  property :court_type,   String, :length => 50
+  property :court,        String, :length => 140
+  property :court_type,   String, :length => 80
   property :region,       String, :length => 2
   property :trial_date,   Date
-  property :role,         String, :length => 10
-  property :crime,        String, :length => 200
+  property :role,         String, :length => 40
+  property :crime,        String, :length => 1500
   property :crime_start,  String, :length => 4
   property :crime_end,    String, :length => 4
-  property :pardon_type,  String, :length => 10
-  property :pardon,       String, :length => 100
-  property :caveats,      String, :length => 100
+  property :pardon_type,  String, :length => 15
+  property :pardon,       String, :length => 800
+  property :caveats,      String, :length => 650
   property :pardon_date,  Date
-  property :pardon_year,  String, :length => 40       # convenient
-  property :signature,    String, :length => 40
+  property :pardon_year,  String, :length => 4       # convenient
+  property :signature,    String, :length => 70
 end
 
 DataMapper.auto_upgrade!

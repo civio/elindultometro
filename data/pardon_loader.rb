@@ -37,8 +37,8 @@ module Pardons
         next
       end
 
-      Pardon.create( :id => field(line, 'BOE'), 
-                      :pardon_date => date_field(line, 'Fecha_BOE'),
+      Pardon.create!( :id => field(line, 'BOE'), 
+                      :boe_date => date_field(line, 'Fecha_BOE'),
                       :ministry => field(line, 'Departamento'),
                       :gender => field(line, 'Género'),
                       :court => field(line, 'Tribunal'),
