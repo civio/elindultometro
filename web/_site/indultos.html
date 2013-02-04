@@ -89,6 +89,7 @@
                   <tr>
                     <th>Id</th>
                     <th>Año</th>
+                    <th>Rol</th>
                     <th>Delito</th>
                   </tr>
                 </thead>
@@ -117,12 +118,18 @@
       jsonpCallback: "onLoad",
       cache: false  // FIXME: development
     }).success(function(data) {
-      var items = [];
-      $.each(data, function(key, val) {
-        items.push('<tr><td>' + val.id + '</td><td>' + val.pardon_date + '</td><td>' + val.crime + '</td></tr>');
+      var fragments = [];
+      $.each(data, function(key, pardon) {
+        fragments.push('<tr>');
+        $.each(['id', 'pardon_date', 'role', 'crime'], function(i, field_name) {
+          fragments.push('<td>');
+          fragments.push(pardon[field_name]);
+          fragments.push('</td>');
+        });
+        fragments.push('</tr>');
       });
 
-      $(items.join('')).appendTo('#indultos tbody');
+      $(fragments.join('')).appendTo('#indultos tbody');
     });
   });
 </script>
