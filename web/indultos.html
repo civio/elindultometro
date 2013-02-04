@@ -33,35 +33,16 @@ subtitle: This is the lead
           </p>
           <div class="row-fluid">
             <div class="span10 offset1">
-              <table class="table table-bordered table-striped">
+              <table class="table table-bordered table-striped" id="indultos">
                 <thead>
                   <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Hometown</th>
+                    <th>Id</th>
+                    <th>Año</th>
+                    <th>Delito</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Johnny</td>
-                    <td>Appleseed</td>
-                    <td>New York, NY</td>
-                  </tr>
-                  <tr>
-                    <td>Marty</td>
-                    <td>McFly</td>
-                    <td>Hill Valley, CA</td>
-                  </tr>
-                  <tr>
-                    <td>Tucan</td>
-                    <td>Sam</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>Darth</td>
-                    <td>Vader</td>
-                    <td>Tatooine</td>
-                  </tr>
+
                 </tbody>
               </table>
             </div>
@@ -72,5 +53,23 @@ subtitle: This is the lead
   </div>
 </section>
 </div>
+
+<script> 
+  $(document).ready(function() {
+    $.ajax({
+      url: 'http://127.0.0.1:3000?callback=?',
+      dataType: "jsonp",
+      jsonpCallback: "onLoad",
+      cache: true
+    }).success(function(data) {
+      var items = [];
+      $.each(data, function(key, val) {
+        items.push('<tr><td>' + val.id + '</td><td>' + val.year + '</td><td>' + val.delito + '</td></tr>');
+      });
+
+      $(items.join('')).appendTo('#indultos tbody');
+    });
+  });
+</script>
 
 {% include footer.html %}
