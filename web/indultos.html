@@ -35,6 +35,9 @@ subtitle: This is the lead
             <div class="span10 offset1" id="summary-viz">
             </div>
             <div class="span10 offset1">
+              <p>Se firmaron <span id="pardon-count-legend"></span> indultos en el año <span id="pardon-year-legend"></span></p>
+            </div>
+            <div class="span10 offset1">
               <table class="table table-bordered table-striped" id="indultos">
                 <thead>
                   <tr>
@@ -83,6 +86,12 @@ subtitle: This is the lead
 <script> 
   $(function() {
     // FIXME: Move this to separate file
+
+    function onHover(d) {
+      $("#pardon-count-legend").text(d.count);
+      $("#pardon-year-legend").text(d.year);
+    }
+
     var margin = {top: 20, right: 20, bottom: 30, left: 60},
         width = 800 - margin.left - margin.right,
         height = 300 - margin.top - margin.bottom;
@@ -135,6 +144,7 @@ subtitle: This is the lead
           .attr("x", function(d) { return x(d.year); })
           .attr("width", x.rangeBand())
           .attr("y", function(d) { return y(d.count); })
+          .on("mouseover", onHover)
           .attr("height", function(d) { return height - y(d.count); });
     });
 
