@@ -32,12 +32,17 @@ subtitle: This is the lead
             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <div class="row-fluid">
-            <!-- FIXME: Add search -->
-            <div class="span10 offset1" id="summary-viz">
-            </div>
             <div class="span10 offset1">
+              <form class="pull-left" id="search-form">
+                <input type="text" class="span7" id="search-form-query">
+                <button type="submit" class="btn">Buscar</button>
+              </form>
+            </div>
+            <div class="span10 offset1">            
               <p>Se firmaron <span id="pardon-count-legend"></span> indultos en el año <span id="pardon-year-legend"></span>.
                 Haz click para verlos en detalle.</p>
+            </div>
+            <div class="span10 offset1" id="summary-viz">
             </div>
             <div class="span10 offset1">
               <small>
@@ -118,6 +123,13 @@ subtitle: This is the lead
       }).success(renderResults);      
     }
 
+    function doSearch(query) {
+      $.ajax({
+        url: '/api/search',
+        data: {q: query},
+      }).success(renderResults);      
+    }
+
     function onHover(d) {
       $("#pardon-count-legend").text(d.count);
       $("#pardon-year-legend").text(d.year);
@@ -185,6 +197,12 @@ subtitle: This is the lead
     });
 
     displayYear('2007');
+
+    $("#search-form").submit(function() {
+      doSearch($("#search-form-query").val());
+      // FIXME: Update viz with results summary
+      return false;
+    });
   });
 </script>
 
