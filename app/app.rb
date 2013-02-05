@@ -24,20 +24,40 @@ class IndultometroApp < Sinatra::Base
       result.push({ :year => item.pardon_year.to_i, :count => item.count })
     end
 
-    send_response(response, result.to_json, params)
+    send_response(response, result, params)
   end
 
   get '/api/pardons' do
     set_cache_headers
 
     year = params['year'] || '2013'
-    pardons = Pardon.all(:pardon_year => year, :fields => [:id, :pardon_date, :role, :crime])
-    result = pardons.to_json
-    
+    pardons = Pardon.all(:pardon_year => year)
+    # Keep only a summary of the data. I tried using DataMapper's field option, but didn't work (!?)
+    result = pardons.map {|pardon| pardon_summary(pardon) }
+
     send_response(response, result, params)
   end
 
   get '/api/search' do
+    set_cache_headers
+    result = []
+
+    # Get the query string, return nothing if none given
+    query = params['q']
+    if query
+      result = repository(:default).adapter.select("SELECT * FROM pardons WHERE to_tsvector(crime) @@ to_tsquery(?)", query)
+      result.collect! {|pardon| pardon_summary(pardon) }
+    end
+
+    send_response(response, result, params)
+  end
+
+  def pardon_summary(pardon)
+    summary = {}
+    [:id, :pardon_date, :role, :crime].each do |field|
+      summary[field] = pardon[field]
+    end
+    summary
   end
 
   def set_cache_headers
@@ -52,10 +72,10 @@ class IndultometroApp < Sinatra::Base
       # FIXME response.headers['Access-Control-Max-Age'] = '3600'
       response.headers['Access-Control-Allow-Methods'] = 'GET'
 
-      "#{params['callback']}(#{result})"
+      "#{params['callback']}(#{result.to_json})"
     else
       content_type :json
-      result
+      result.to_json
     end
   end
 end
