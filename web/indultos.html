@@ -93,6 +93,21 @@ subtitle: This is the lead
   $(function() {
     // FIXME: Move this to separate file
 
+    function renderResults(data) {
+      $('#indultos tbody').empty();
+      var fragments = [];
+      $.each(data, function(key, pardon) {
+        fragments.push('<tr>');
+        $.each(['id', 'pardon_date', 'role', 'crime'], function(i, field_name) {
+          fragments.push('<td>');
+          fragments.push(pardon[field_name]);
+          fragments.push('</td>');
+        });
+        fragments.push('</tr>');
+      });
+      $(fragments.join('')).appendTo('#indultos tbody');
+    }
+
     function displayYear(year) {
       $.ajax({
         url: '/api/pardons?callback=?',
@@ -100,20 +115,7 @@ subtitle: This is the lead
         dataType: "jsonp",
         jsonpCallback: "onLoad",
         cache: false  // FIXME: development
-      }).success(function(data) {
-        $('#indultos tbody').empty();
-        var fragments = [];
-        $.each(data, function(key, pardon) {
-          fragments.push('<tr>');
-          $.each(['id', 'pardon_date', 'role', 'crime'], function(i, field_name) {
-            fragments.push('<td>');
-            fragments.push(pardon[field_name]);
-            fragments.push('</td>');
-          });
-          fragments.push('</tr>');
-        });
-        $(fragments.join('')).appendTo('#indultos tbody');
-      });      
+      }).success(renderResults);      
     }
 
     function onHover(d) {
