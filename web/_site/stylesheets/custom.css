@@ -1,0 +1,10 @@
+.front-page-picture {
+  border: 10px solid white;
+  box-shadow: 5px 5px 12px 3px #344;
+
+  transform:rotate(-2deg);
+  -ms-transform:rotate(-2deg); /* IE 9 */
+  -moz-transform:rotate(-2deg); /* Firefox */
+  -webkit-transform:rotate(-2deg); /* Safari and Chrome */
+  -o-transform:rotate(-2deg); /* Opera */
+}
