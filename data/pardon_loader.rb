@@ -37,6 +37,8 @@ module Pardons
         next
       end
 
+      # FIXME: Remove year 1995
+
       Pardon.create!( :id => field(line, 'BOE'), 
                       :boe_date => date_field(line, 'Fecha_BOE'),
                       :ministry => field(line, 'Departamento'),

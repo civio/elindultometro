@@ -16,10 +16,10 @@ class IndultometroApp < Sinatra::Base
   end
 
   get '/api/summary' do
-    count = repository(:default).adapter.select('SELECT pardon_year, count(pardon_year) FROM pardons GROUP BY pardon_year')
-    result = {}
+    count = repository(:default).adapter.select('SELECT pardon_year, count(pardon_year) FROM pardons GROUP BY pardon_year ORDER BY pardon_year ASC')
+    result = []
     count.each do |item| 
-      result[item.pardon_year] = item.count
+      result.push({ :year => item.pardon_year.to_i, :count => item.count })
     end
     send_response(response, result.to_json, params)
   end
