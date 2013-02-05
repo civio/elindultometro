@@ -86,7 +86,8 @@
             <div class="span10 offset1" id="summary-viz">
             </div>
             <div class="span10 offset1">
-              <p>Se firmaron <span id="pardon-count-legend"></span> indultos en el año <span id="pardon-year-legend"></span></p>
+              <p>Se firmaron <span id="pardon-count-legend"></span> indultos en el año <span id="pardon-year-legend"></span>.
+                Haz click para verlos en detalle.</p>
             </div>
             <div class="span10 offset1">
               <table class="table table-bordered table-striped" id="indultos">
@@ -96,6 +97,8 @@
                     <th>Año</th>
                     <th>Rol</th>
                     <th>Delito</th>
+                    <!-- FIXME: Add link to BOE -->
+                    <!-- FIXME: Add link to detail page -->
                   </tr>
                 </thead>
                 <tbody>
@@ -138,9 +141,36 @@
   $(function() {
     // FIXME: Move this to separate file
 
+    function displayYear(year) {
+      $.ajax({
+        url: '/api/pardons?callback=?',
+        data: {year: year},
+        dataType: "jsonp",
+        jsonpCallback: "onLoad",
+        cache: false  // FIXME: development
+      }).success(function(data) {
+        $('#indultos tbody').empty();
+        var fragments = [];
+        $.each(data, function(key, pardon) {
+          fragments.push('<tr>');
+          $.each(['id', 'pardon_date', 'role', 'crime'], function(i, field_name) {
+            fragments.push('<td>');
+            fragments.push(pardon[field_name]);
+            fragments.push('</td>');
+          });
+          fragments.push('</tr>');
+        });
+        $(fragments.join('')).appendTo('#indultos tbody');
+      });      
+    }
+
     function onHover(d) {
       $("#pardon-count-legend").text(d.count);
       $("#pardon-year-legend").text(d.year);
+    }
+
+    function onClick(d) {
+      displayYear(d.year);
     }
 
     var margin = {top: 20, right: 20, bottom: 30, left: 60},
@@ -196,30 +226,11 @@
           .attr("width", x.rangeBand())
           .attr("y", function(d) { return y(d.count); })
           .on("mouseover", onHover)
+          .on("click", onClick)
           .attr("height", function(d) { return height - y(d.count); });
     });
 
-
-
-
-    $.ajax({
-      url: '/api/pardons?callback=?',
-      dataType: "jsonp",
-      jsonpCallback: "onLoad",
-      cache: false  // FIXME: development
-    }).success(function(data) {
-      var fragments = [];
-      $.each(data, function(key, pardon) {
-        fragments.push('<tr>');
-        $.each(['id', 'pardon_date', 'role', 'crime'], function(i, field_name) {
-          fragments.push('<td>');
-          fragments.push(pardon[field_name]);
-          fragments.push('</td>');
-        });
-        fragments.push('</tr>');
-      });
-      $(fragments.join('')).appendTo('#indultos tbody');
-    });
+    displayYear('2007');
   });
 </script>
 

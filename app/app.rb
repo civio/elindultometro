@@ -28,7 +28,8 @@ class IndultometroApp < Sinatra::Base
     # TODO: Improve caching with ETags http://www.sinatrarb.com/intro#Cache%20Control
     cache_control :public, :must_revalidate, :max_age => 3600
 
-    pardons = Pardon.all(:pardon_year => '2013', :fields => [:id, :pardon_date, :role, :crime])
+    year = params['year'] || '2013'
+    pardons = Pardon.all(:pardon_year => year, :fields => [:id, :pardon_date, :role, :crime])
     result = pardons.to_json
     send_response(response, result, params)
   end
