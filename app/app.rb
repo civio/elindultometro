@@ -54,7 +54,7 @@ class IndultometroApp < Sinatra::Base
 
   def pardon_summary(pardon)
     summary = {}
-    [:id, :pardon_date, :role, :crime].each do |field|
+    [:id, :pardon_date, :role, :crime, :pardon_year].each do |field|
       summary[field] = pardon[field]
     end
     summary
