@@ -1,13 +1,13 @@
 El indultometro 
 ============
 
+TODO: Documentar esto mucho mejor :/
+
 #### Instalación del front-end
 
  * [Instalar Jekyll][1]
         
  * Arrancar Jekyll: `jekyll --serve --auto`
- 
- * Opcionalmente, copiar los ficheros generados por Jekyll (`_site`) a Dropbox y hacer público con site44 por ejemplo
 
 [1]: http://jekyllbootstrap.com/usage/jekyll-quick-start.html
 
@@ -21,14 +21,15 @@ El indultometro
  
  * Amazon S3
 
- * Slice
-
 #### Instalación del back-end
 
  * `bundle install`
  
  * Crear base de datos Postgres, 'indultometro': `createdb indultometro`
  
- * Cargar datos: TO DO
+ * Cargar datos: 
+
+       $ rake crime_categories:load
+       $ rake pardons:load
  
  * Arrancar el servidor: `./server`
