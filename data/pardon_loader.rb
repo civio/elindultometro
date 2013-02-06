@@ -32,33 +32,33 @@ module Pardons
     CSVLoader.parseCSV(filename) do |line|
       next if line[0] =~ /^#/   # Ignore comments
 
-      if line[0] == 'BOE'       # Parse header
+      if line[0] == 'boe'       # Parse header
         parse_header(line)
         next
       end
+      
+      pYear = field(line, 'pardon_year')
+      next if pYear.eql?"1995"  
 
-      # FIXME: Remove year 1995
-
-      Pardon.create!( :id => field(line, 'BOE'), 
-                      :boe_date => date_field(line, 'Fecha_BOE'),
-                      :ministry => field(line, 'Departamento'),
-                      :gender => field(line, 'Género'),
-                      :court => field(line, 'Tribunal'),
-                      :court_type => field(line, 'Tipo_Tribunal'),
-                      :region => field(line, 'idCCAA_Tribunal'),
-                      :trial_date => date_field(line, 'Fecha_Condena'),
-                      :role => field(line, 'Papel'),
-                      :crime => field(line, 'Crimen_Sentencia'),
-                      :crime_start => field(line, 'Año_Inicio_Crimen'),
-                      :crime_end => field(line, 'Año_Fin_Crimen'),
-                      :pardon_type => field(line, 'Tipo_Indulto'),
-                      :pardon => field(line, 'Reducción/Nueva_Condena'),
-                      :caveats => field(line, 'Condición'),
-                      :pardon_date => date_field(line, 'Fecha Concesión'),
-                      :pardon_year => field(line, 'Año_Concesión'),
-                      :signature => field(line, 'Ministro')
+      Pardon.create!( :id => field(line, 'boe'), 
+                      :boe_date => date_field(line, 'boe_date'),
+                      :ministry => field(line, 'ministry'),
+                      :gender => field(line, 'gender'),
+                      :court => field(line, 'court'),
+                      :court_type => field(line, 'court_type'),
+                      :region => field(line, 'court_region_id'),
+                      :trial_date => date_field(line, 'trial_date'),
+                      :role => field(line, 'role'),
+                      :crime => field(line, 'crimes_sentences'),
+                      :crime_start => field(line, 'crime_initial_year'),
+                      :crime_end => field(line, 'crime_final_year'),
+                      :pardon_type => field(line, 'pardon_type'),
+                      :pardon => field(line, 'new_sentence'),
+                      :caveats => field(line, 'condition'),
+                      :pardon_date => date_field(line, 'pardon_date'),
+                      :pardon_year => pYear,
+                      :signature => field(line, 'signature')
                       )
-
     end
   end
 
