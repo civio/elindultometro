@@ -38,6 +38,12 @@ class IndultometroApp < Sinatra::Base
     send_response(response, result, params)
   end
 
+  get '/api/pardons/:id' do
+    set_cache_headers
+    pardon = Pardon.get(params[:id])
+    send_response(response, pardon, params)
+  end
+
   get '/api/search' do
     set_cache_headers
     result = []

@@ -8,7 +8,7 @@
   <head>
   <meta charset="utf-8" />
   <!-- %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"} -->
-  <title>En los medios</title>
+  <title>10.000 indultos</title>
   <meta content="El indultometro" name="description" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <!--[if lt IE 9]>
@@ -44,9 +44,9 @@
           </h1>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-              <li class=""><a href="/indultos.html">10.000 indultos</a></li>
+              <li class=" active "><a href="/indultos.html">10.000 indultos</a></li>
               <li class=""><a href="/famosos.html">Destacados</a></li>
-              <li class=" active "><a href="/noticias.html">En los medios</a></li>
+              <li class=""><a href="/noticias.html">En los medios</a></li>
               <li class=""><a href="/ayuda.html">¿Qué es esto?</a></li>
             </ul>
           </div>
@@ -60,57 +60,75 @@
 <section class="section alt" id="promo">
   <div class="container">
     <div class="hero-unit">
-      <h1>En los medios</h1>
+      <h1>10.000 indultos</h1>
     </div>
   </div>
 </section>
 <section class="section">
   <div class="container">
     <div class="row-fluid">
-      <div class="span9">
-        
+      <div class="span12">
         <article class="blog-post">
           <header class="blog-header">
             <h2>
-              <a href="/2013/01/29/hello-world.html" title="Hello world">Hello world</a>
-              <small>29 de enero de 2013</small>
+              This is the lead
             </h2>
           </header>
-          <figure class="thumbnail-figure">
-            <a href="/2013/01/29/hello-world.html">
-              <img alt="" src="/images/assets/city1-870x300.jpeg" />
-            </a>
-            <figcaption class="thumbnail-title">
-              <h3>
-                <a href="/2013/01/29/hello-world.html"><span>great lead to post</span></a>
-              </h3>
-            </figcaption>
-          </figure>
+          <div class="row-fluid">
+            </div>
+            <div class="span10 offset1">
+              <small>
+                <table class="table table-bordered table-striped" id="indultos">
+                  <tbody>
+                  </tbody>
+                </table>
+              </small>
+            </div>
+          </div>
         </article>
-        
       </div>
-      <aside class="span3 sidebar">
-        <div class="sidebar-widget">
-  <h2 class="sidebar-header">Recent posts</h2>
-  <ul class="unstyled">
-    
-    <li>
-      <h4>
-        <a href="/2013/01/29/hello-world.html" title="Hello world">Hello world</a>
-      </h4>
-      <p>
-        <small>29 de enero de 2013</small>
-      </p>
-    </li>
-    
-  </ul>
-</div>
-
-      </aside>
     </div>
   </div>
 </section>
 </div>
+
+<script type='text/javascript'>
+  // http://samsaffron.com/archive/2012/02/17/stop-paying-your-jquery-tax
+  window.q=[];window.$=function(f){q.push(f)}
+</script>
+<script> 
+  $(function() {
+    function renderResults(data) {
+      $('#indultos tbody').empty();
+      var fragments = [];
+      fragments.push('<tr><td>Id BOE</td><td>'+data['id']+'</td></tr>');
+      fragments.push('<tr><td>Fecha del BOE</td><td>'+data['boe_date']+'</td></tr>');
+      fragments.push('<tr><td>Ministerio</td><td>'+data['ministry']+'</td></tr>');
+      fragments.push('<tr><td>Genero</td><td>'+data['gender']+'</td></tr>');
+      fragments.push('<tr><td>Tribunal sentenciador</td><td>'+data['court']+'</td></tr>');
+      fragments.push('<tr><td>Fecha de sentencia</td><td>'+data['trial_date']+'</td></tr>');
+      fragments.push('<tr><td>Rol del acusado</td><td>'+data['role']+'</td></tr>');
+      fragments.push('<tr><td>Crimen</td><td>'+data['crime']+'</td></tr>');
+      fragments.push('<tr><td>Año del crimen (inicio)</td><td>'+data['crime_start']+'</td></tr>');
+      fragments.push('<tr><td>Año del crimen (final)</td><td>'+data['crime_end']+'</td></tr>');
+      fragments.push('<tr><td>Tipo de indulto</td><td>'+data['pardon_type']+'</td></tr>');
+      fragments.push('<tr><td>Indulto</td><td>'+data['pardon']+'</td></tr>');
+      fragments.push('<tr><td>Condiciones adicionales</td><td>'+data['caveats']+'</td></tr>');
+      fragments.push('<tr><td>Fecha del indulto</td><td>'+data['pardon_date']+'</td></tr>');
+      fragments.push('<tr><td>Ministro responsable</td><td>'+data['signature']+'</td></tr>');
+      $(fragments.join('')).appendTo('#indultos tbody');
+    }
+
+    var id = URI.parseQuery(window.location.search)['id'];
+    $.ajax({
+      url: '/api/pardons/'+encodeURIComponent(id)+'?callback=?',  // FIXME
+      dataType: "jsonp",
+      jsonpCallback: "onLoad",
+      cache: false  // FIXME: development
+    }).success(renderResults);      
+  });
+</script>
+
 <!-- Page Footer -->
 <footer class="section" id="footer" role="contentinfo">
   <div class="container">
