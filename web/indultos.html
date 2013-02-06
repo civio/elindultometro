@@ -39,9 +39,9 @@ nav_section: all_pardons
                 <button type="submit" class="btn">Buscar</button>
               </form>
             </div>
-            <div class="span10 offset1">            
-              <p>Se firmaron <span id="pardon-count-legend"></span> indultos en el año <span id="pardon-year-legend"></span>.
-                Haz click para verlos en detalle.</p>
+            <div id="pop-up">
+              <div id="pop-up-title"></div>
+              <div id="pop-up-content">Haga click para verlos en detalle</div>
             </div>
             <div class="span10 offset1" id="summary-viz">
             </div>
@@ -90,17 +90,64 @@ nav_section: all_pardons
 }
 
 .bar {
-  fill: steelblue;
+  fill: #41B7D8;
+}
+
+rect.hovered {
+  fill: #666666;
+}
+
+rect.selected {
+  fill: #000000;
+}
+
+.bar:hover {
+  cursor: pointer;
+  cursor: hand;
 }
 
 .x.axis path {
   display: none;
+}
+
+.x.axis text {
+  font-size: 12px;
+}
+
+.y.axis text {
+  font-size: 12px;
+}
+
+div#pop-up {
+  display: none;
+  position:absolute;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 5px 10px 5px 10px;
+  -moz-border-radius: 8px 8px;
+  border-radius: 8px 8px;
+  pointer-events: none;
+}
+div#pop-up-title {
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: bolder;
+}
+div#pop-up-content {
+  font-size: 12px;
 }
 </style>
 <script> 
   $(function() {
     // FIXME: Move this to separate file
 
+    function renderSearchResults(data) {
+      renderResults(data)
+      updateData = summarizeData(data)
+      redraw(updateData)
+
+    }
+    
     function renderResults(data) {
       $('#indultos tbody').empty();
       var fragments = [];
@@ -130,15 +177,65 @@ nav_section: all_pardons
       $.ajax({
         url: '/api/search',
         data: {q: query},
-      }).success(renderResults);      
+      }).success(renderSearchResults);      
+    }
+    
+    function summarizeData(data) {
+      auxData = d3.nest()
+        .key(function(d) {return d.pardon_year;})
+        .sortKeys(d3.ascending)
+        .rollup(function (a) {return a.length})
+        .map(data);
+      newData = [];
+      years = d3.range(1996,2014,1);
+      years.forEach(function(el) {
+        o = {}
+        o.year = el
+        o.count = auxData[el] ? auxData[el] : 0
+        newData.push(o)
+      });
+      return newData;
+    }
+    
+    function redraw(data) {
+      // Update…
+      y.domain([0, d3.max(data, function(d) { return d.count; })]);       
+      svg.select("g.y")
+          .call(yAxis);
+      
+      svg.selectAll("rect")
+           .data(data)
+           .transition()
+           .duration(1000)
+           .attr("y", function(d) { return y(d.count); })
+           .attr("height", function(d) { return height - y(d.count); })
+
     }
 
-    function onHover(d) {
-      $("#pardon-count-legend").text(d.count);
-      $("#pardon-year-legend").text(d.year);
+    function onMouseOver(d) {
+      if (!d3.select(this).classed("selected"))
+        d3.select(this).classed("hovered",true);
+      $("#pop-up-title").html(d.year + ": " + d.count + " Indultos")
+      var popLeft = d3.event.pageX - $("div#pop-up").width() / 2;
+      var popTop = d3.event.pageY - $("div#pop-up").height() -350;
+      $("div#pop-up").css({"left":popLeft,"top":popTop}).show();
+
+    }
+    
+    function onMouseOut(d) {
+      d3.select(this).classed("hovered",false);
+      $("div#pop-up").hide();  
     }
 
-    function onClick(d) {
+    function onMouseClick(d) {
+      if (d3.select(this).classed("selected")) {
+        d3.select(this).classed("selected",false)
+      }
+      else {
+        d3.selectAll("rect").classed("selected",false)
+        d3.select(this).classed("selected",true)
+      }
+      $("#search-form-query").val()
       displayYear(d.year);
     }
 
@@ -179,6 +276,7 @@ nav_section: all_pardons
 
       svg.append("g")
           .attr("class", "y axis")
+          .attr("transform", "translate(-10," + 0 + ")")
           .call(yAxis)
         .append("text")
           .attr("transform", "rotate(-90)")
@@ -191,15 +289,19 @@ nav_section: all_pardons
           .data(data)
         .enter().append("rect")
           .attr("class", "bar")
+          .attr("id", function(d) { return "a_"+d.year; })
           .attr("x", function(d) { return x(d.year); })
           .attr("width", x.rangeBand())
           .attr("y", function(d) { return y(d.count); })
-          .on("mouseover", onHover)
-          .on("click", onClick)
-          .attr("height", function(d) { return height - y(d.count); });
+          .attr("height", function(d) { return height - y(d.count); })
+          .on("mouseover", onMouseOver)
+          .on("mouseout", onMouseOut)
+          .on("click", onMouseClick);
     });
 
-    displayYear('2007');
+    displayYear('2013');
+    //FIXME: Not working needs probably a delay
+    prueba = d3.select("rect#a_2013").classed("selected",true);
 
     $("#search-form").submit(function() {
       doSearch($("#search-form-query").val());
