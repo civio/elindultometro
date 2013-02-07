@@ -26,6 +26,22 @@ class IndultometroApp < Sinatra::Base
 
     send_response(response, result, params)
   end
+  
+  get '/api/cat_summary' do
+    set_cache_headers
+    count = repository(:default).adapter.select('SELECT pcc.crime_cat, cc.description, count(*) as count 
+    FROM pardon_crime_categories as pcc, crime_categories as cc
+    WHERE pcc.crime_cat = cc.crime_cat
+    and cc.crime_sub_cat IS NULL
+    GROUP BY pcc.crime_cat,cc.description 
+    ORDER BY pcc.crime_cat')
+    result = []
+    count.each do |item| 
+      result.push({ :crime_cat => item.crime_cat.to_i, :description => item.description, :count => item.count })
+    end
+
+    send_response(response, result, params)
+  end
 
   get '/api/pardons' do
     set_cache_headers
