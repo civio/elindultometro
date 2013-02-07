@@ -22,7 +22,6 @@ nav_section: media
           <header class="blog-header">
             <h2>
               <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-              <small>{{ post.date | localize: "%d de %B de %Y" }}</small>
             </h2>
           </header>
           <figure class="thumbnail-figure">
@@ -30,11 +29,15 @@ nav_section: media
               <img alt="" src="{{ post.image }}" />
             </a>
             <figcaption class="thumbnail-title">
-              <h3>
-                <a href="{{ post.url }}"><span>{{ post.lead }}</span></a>
-              </h3>
+              <h5>
+                <a href="{{ page.url }}"><span>
+                por {{ post.author }},
+                {{ post.date | localize: "%d de %B de %Y" }}.
+                </span></a>
+              </h5>
             </figcaption>
           </figure>
+          <p><big>{{ post.lead }}</big></p>
         </article>
         {% endfor %}
       </div>
