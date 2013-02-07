@@ -7,7 +7,7 @@
         <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </h4>
       <p>
-        <small>{{ post.date | localize: "%d de %B de %Y" }}</small>
+        <small>{{ post.author }}. {{ post.date | localize: "%d de %B de %Y" }}</small>
       </p>
     </li>
     {% endfor %}
