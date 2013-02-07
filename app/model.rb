@@ -25,7 +25,6 @@ class Pardon
   property :pardon_date,  Date
   property :pardon_year,  String, :length => 4       # convenient
   property :signature,    String, :length => 70
-  has n, :pardon_crime_categories
 end
 
 class PardonCrimeCategory
@@ -36,7 +35,6 @@ class PardonCrimeCategory
   property :crime,          String, :length => 100
   property :crime_cat,      String, :length => 2
   property :crime_sub_cat,  String, :length => 3
-  belongs_to :pardon  # defaults to :required => true
 end
 
 class CrimeCategory
