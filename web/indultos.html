@@ -50,12 +50,11 @@ nav_section: all_pardons
                 <table class="table table-bordered table-striped footable" id="indultos">
                   <thead>
                     <tr>
-                      <th data-class="expand">Id</th>
+                      <th data-class="expand" data-sort-ignore="true">Detalle</th>
                       <th data-sort-initial="true">Fecha</th>
-                      <th data-hide="phone">Rol</th>
+                      <th data-hide="phone">Tipo</th>
                       <th data-hide="phone">Delito</th>
-                      <th data-sort-ignore="true">Detalle</th>
-                      <!-- FIXME: Cambiar los campos: quitar rol... -->
+                      <th data-sort-ignore="true">BOE</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -156,11 +155,11 @@ input#search-form-query {
       var fragments = [];
       $.each(data, function(key, pardon) {
         fragments.push('<tr>');
-        fragments.push('<td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+pardon['id']+'">'+pardon['id']+'</td>')
-        fragments.push('<td>'+pardon['pardon_date']+'</td>')
-        fragments.push('<td>'+pardon['role']+'</td>')
-        fragments.push('<td>'+pardon['crime']+'</td>')
         fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">&rarr;</td>')
+        fragments.push('<td>'+pardon['pardon_date']+'</td>')
+        fragments.push('<td>'+pardon['pardon_type']+'</td>')
+        fragments.push('<td>'+pardon['crime']+'</td>')
+        fragments.push('<td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+pardon['id']+'">'+pardon['id']+'</td>')
         fragments.push('</tr>');
       });
       $(fragments.join('')).appendTo('#indultos tbody');
