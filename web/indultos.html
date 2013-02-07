@@ -47,17 +47,15 @@ nav_section: all_pardons
             </div>
             <div class="span10 offset1">
               <small>
-                <table class="table table-bordered table-striped" id="indultos">
+                <table class="table table-bordered table-striped footable" id="indultos">
                   <thead>
                     <tr>
-                      <th>Id</th>
+                      <th data-class="expand">Id</th>
                       <th>Fecha</th>
-                      <th>Rol</th>
-                      <th>Delito</th>
+                      <th data-hide="phone">Rol</th>
+                      <th data-hide="phone">Delito</th>
                       <th></th>
-                      <!-- FIXME: Quito Rol, -->
-                      <!-- FIXME: Add link to BOE -->
-                      <!-- FIXME: Add link to detail page -->
+                      <!-- FIXME: Cambiar los campos: quitar rol... -->
                     </tr>
                   </thead>
                   <tbody>
@@ -161,6 +159,7 @@ div#pop-up-content {
         fragments.push('</tr>');
       });
       $(fragments.join('')).appendTo('#indultos tbody');
+      $('.footable').footable();
     }
 
     function displayYear(year) {
