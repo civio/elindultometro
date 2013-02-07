@@ -205,7 +205,7 @@ input#search-form-query {
       var fragments = [];
       $.each(data, function(key, pardon) {
         fragments.push('<tr>');
-        fragments.push('<td><a href="http://www.boe.es/diario_boe/txt.php?id='+pardon['id']+'">'+pardon['id']+'</td>')
+        fragments.push('<td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+pardon['id']+'">'+pardon['id']+'</td>')
         fragments.push('<td>'+pardon['pardon_date']+'</td>')
         fragments.push('<td>'+pardon['role']+'</td>')
         fragments.push('<td>'+pardon['crime']+'</td>')
@@ -358,7 +358,6 @@ input#search-form-query {
 
     $("#search-form").submit(function() {
       doSearch($("#search-form-query").val());
-      // FIXME: Update viz with results summary
       return false;
     });
   });
