@@ -39,4 +39,13 @@ class PardonCrimeCategory
   belongs_to :pardon  # defaults to :required => true
 end
 
+class CrimeCategory
+  include DataMapper::Resource
+
+  property :id,             Serial, :key => true
+  property :crime_cat,      String, :length => 2
+  property :crime_sub_cat,  String, :length => 3
+  property :description,    String, :length => 100
+end
+
 DataMapper.auto_upgrade!

@@ -1,0 +1,108 @@
+crime_cat,crime_sub_cat,description
+1,,Homicidio y sus formas
+2,,Aborto
+3,,Lesiones
+4,,Lesiones al feto
+6,,Contra la libertad
+6,1,Detenciones ilegales y secuestro
+6,2,De las amenazas
+6,3,De las coacciones
+7,,Torturas e integridad moral
+7,BIS,Trata de seres humanos
+8,,Contra la libertad e indemnidad sexuales
+8,1,Agresiones sexuales
+8,2,Abusos sexuales
+8,3,Acoso sexual
+8,4,Exhibicionismo y provocación sexual
+8,5,Prostitución y corrupción menores
+9,,Omisión del deber de socorro
+10,,"Contra la intimidad, derecho a la propia imagen"
+10,1,Descubrimientos y revelación de secretos
+10,2,Allanamiento de morada
+11,,Contra el honor
+11,1,De la calumnia
+11,2,De la injuria
+12,,Contra las relaciones familiares
+12,1,Matrimonios ilegales
+12,2,Suposición de parto y alteración de la paternidad
+12,3,Contra los derechos y deberes familiares
+13,,Contra el patrimonio y orden socioeconómico
+13,1,De los hurtos
+13,2,De los robos
+13,3,De la extorsión
+13,4,Robo y hurto vehículos de motor
+13,5,De la usurpación
+13,6,De las defraudaciones
+13,7,Insolvencia punible
+13,8,Alteración de precios en concursos y subastas públicas
+13,9,Daños
+13,11,Propiedad intelectual e industrial
+13,12,De la sustracción de cosa propia a su utilidad social o cultural
+13,13,Delitos societarios
+13,14,De la receptación y el blanqueo de capitales
+14,,Contra la Hacienda Pública y Seguridad Social
+15,,Contra los derechos de los trabajadores
+15,BIS,Contra los derechos de ciudadanos extranjeros
+16,,"Ordenación del territorio, urbanismo, protección patrimonio histórico y medio ambiente"
+16,1,Ordenación del territorio y el urbanismo
+16,2,Patrimonio histórico
+16,3,Recursos naturales y medio ambiente
+16,4,"Protección flora, fauna y animales domésticos"
+17,,Contra la seguridad colectiva
+17,1,Delitos riesgo catastrófico
+17,2,De los incendios
+17,3,Contra la salud pública
+17,4,Contra la seguridad vial
+18,,De las falsedades
+18,1,Falsificación de moneda y timbre
+18,2,Falsedades documentales
+18,4,Usurpación del estado civil
+18,5,Usurpación de funciones públicas
+19,,Contra la Administración Pública
+19,1,Prevaricación de los funcionarios públicos
+19,2,Abandono destino
+19,3,Desobediencia y denegación auxilio
+19,4,Infidelidad custodia documentos
+19,5,Cohecho
+19,7,De la malversación
+19,8,De los fraudes y exacciones ilegales
+19,9,Negociaciones prohibidas a los funcionarios
+20,,Contra la Administración de Justicia
+20,1,Prevaricación
+20,2,Omisión del deber de impedir delitos
+20,3,Del encubrimiento
+20,4,Realización arbitraria del propio derecho
+20,5,Acusación y denuncia falsa
+20,6,Falso testimonio
+20,7,Obstrucción a la justicia
+20,8,Quebrantamiento de condena
+20,9,Contra la Admón. de Justicia de la Corte Penal Internacional
+21,,Contra la Constitución
+21,1,Rebelión
+21,2,Contra la corona
+21,3,Contra las Instituciones del Estado
+21,4,Ejercicio de los derechos fundamentales
+21,5,Cometidos por funcionarios contra libertad individual
+21,6,De los ultrajes a España
+22,,Contra el orden público
+22,1,Sedición
+22,2,Atentados contra la autoridad
+22,3,Desórdenes públicos
+22,5,"Tenencia, tráfico, depósito armas, explosivos"
+22,6,Organizaciones y grupos criminales
+22,7,Organizaciones y grupos terroristas y delitos de terrorismo
+23,,"Traición, contra la paz y defensa nacional"
+23,1,Traición
+23,2,Contra la paz e indepencia del estado
+23,3,Descubrimiento y revelación de secretos
+24,,Contra la Comunidad Internacional
+24,1,Contra el derecho de gentes
+24,2,Genocidio
+24,3,Contra las personas o bienes protegidos en caso de conflicto armado
+25,,Faltas
+25,1,Contra las personas
+25,2,Contra el patrimonio
+25,3,Contra los intereses generales
+25,4,Contra el orden público
+90,,Código Penal Militar
+99,,Otros
