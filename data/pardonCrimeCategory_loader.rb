@@ -36,6 +36,9 @@ module PardonCrimeCategories
         parse_header(line)
         next
       end  
+      
+      pYear = field(line, 'pardon_year')
+      next if pYear.eql?"1995"
 
       PardonCrimeCategory.create!( :boe => field(line, 'boe'), 
                       :crime => field(line, 'crime'),
