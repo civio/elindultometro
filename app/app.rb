@@ -42,6 +42,24 @@ class IndultometroApp < Sinatra::Base
 
     send_response(response, result, params)
   end
+  
+  get '/api/cat_pardons' do
+    set_cache_headers
+    result = []
+
+    # Get the category, return nothing if none given
+    cat = params['crime_cat']
+    if cat
+      result = repository(:default).adapter.select("SELECT * FROM pardons as p, pardon_crime_categories as pcc
+      WHERE p.id = pcc.boe
+      and pcc.crime_cat = ?
+      order by p.pardon_year",cat)
+      result.collect! {|pardon| pardon_summary(pardon) }
+    end
+
+    send_response(response, result, params)
+    
+  end
 
   get '/api/pardons' do
     set_cache_headers
