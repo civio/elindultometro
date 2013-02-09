@@ -102,7 +102,6 @@ class IndultometroApp < Sinatra::Base
   # Search for pardons fulfilling a variable number of criteria
   get '/api/search' do
     set_cache_headers
-    result = []
 
     # Define basic query. We need custom SQL for free-text stuff
     sql_arguments = []
@@ -127,8 +126,9 @@ class IndultometroApp < Sinatra::Base
       sql_arguments.push params['category']
     end
 
-    # Run the query and return the results
-    result = repository(:default).adapter.select(sql, *sql_arguments)
+    # Run the query and return the results. Return nothing if no parameters are sent
+    result = []
+    result = repository(:default).adapter.select(sql, *sql_arguments) unless sql_arguments.empty?
     result.collect! {|pardon| pardon_summary(pardon) }
     send_response(response, result, params)
   end
