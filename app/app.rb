@@ -77,27 +77,7 @@ class IndultometroApp < Sinatra::Base
     send_response(response, result, params)
   end
 
-  # Return all pardons for a given category  
-  get '/api/categories/:category/pardons' do
-    set_cache_headers
-
-    result = repository(:default).adapter.select("
-      SELECT
-        p.id, p.pardon_date, p.pardon_type, p.crime, p.pardon_year        
-      FROM 
-        pardons as p,
-        pardon_crime_categories as pcc
-      WHERE 
-        p.id = pcc.boe AND
-        pcc.crime_cat = ?
-      ORDER BY 
-        p.pardon_year", params['category'])
-    result.collect! {|pardon| pardon_summary(pardon) }
-
-    send_response(response, result, params)
-    
-  end
-
+  # Return all pardons for a given year
   get '/api/pardons/year/:year' do
     set_cache_headers
 
@@ -112,31 +92,44 @@ class IndultometroApp < Sinatra::Base
     send_response(response, result, params)
   end
 
+  # Return all known details for a given pardon id
   get '/api/pardons/:id' do
     set_cache_headers
     pardon = Pardon.get(params[:id])
     send_response(response, pardon, params)
   end
 
+  # Search for pardons fulfilling a variable number of criteria
   get '/api/search' do
     set_cache_headers
     result = []
 
-    # Get the query string, return nothing if none given
-    query = params['q']
-    if query
-      result = repository(:default).adapter.select("
-        SELECT
-          id, pardon_date, pardon_type, crime, pardon_year
-        FROM 
-          pardons 
-        WHERE 
-          to_tsvector('unaccent_spa', crime) @@ plainto_tsquery('unaccent_spa',?)", query)
-      # NOTE: Needs to create the unaccent dictionary and search configuration, as
+    # Define basic query. We need custom SQL for free-text stuff
+    sql_arguments = []
+    sql = "SELECT
+            p.id, p.pardon_date, p.pardon_type, p.crime, p.pardon_year
+          FROM 
+            pardons p,
+            pardon_crime_categories as pcc
+          WHERE 
+            p.id = pcc.boe"
+
+    # Add extra conditions, if present
+    unless params['q'].nil? or params['q']==''
+      # NOTE: You'll need to create the unaccent dictionary and search configuration, as
       # described in the documentation added spanish stemming.
-      result.collect! {|pardon| pardon_summary(pardon) }
+      sql += " AND to_tsvector('unaccent_spa', p.crime) @@ plainto_tsquery('unaccent_spa', ?)"
+      sql_arguments.push params['q']
     end
 
+    unless params['category'].nil? or params['category']==''
+      sql += " AND pcc.crime_cat = ?"
+      sql_arguments.push params['category']
+    end
+
+    # Run the query and return the results
+    result = repository(:default).adapter.select(sql, *sql_arguments)
+    result.collect! {|pardon| pardon_summary(pardon) }
     send_response(response, result, params)
   end
 
