@@ -18,7 +18,14 @@ class IndultometroApp < Sinatra::Base
   get '/api/summary' do
     set_cache_headers
 
-    count = repository(:default).adapter.select('SELECT pardon_year, count(pardon_year) FROM pardons GROUP BY pardon_year ORDER BY pardon_year ASC')
+    count = repository(:default).adapter.select('
+      SELECT 
+        pardon_year, 
+        count(pardon_year) 
+      FROM 
+        pardons 
+      GROUP BY pardon_year 
+      ORDER BY pardon_year ASC')
     result = []
     count.each do |item| 
       result.push({ :year => item.pardon_year.to_i, :count => item.count })
@@ -29,12 +36,22 @@ class IndultometroApp < Sinatra::Base
   
   get '/api/cat_summary' do
     set_cache_headers
-    count = repository(:default).adapter.select('SELECT pcc.crime_cat, cc.description, count(*) as count 
-    FROM pardon_crime_categories as pcc, crime_categories as cc
-    WHERE pcc.crime_cat = cc.crime_cat
-    and cc.crime_sub_cat IS NULL
-    GROUP BY pcc.crime_cat,cc.description 
-    ORDER BY pcc.crime_cat')
+    count = repository(:default).adapter.select('
+      SELECT 
+        pcc.crime_cat, 
+        cc.description, 
+        count(*) as count 
+      FROM 
+        pardon_crime_categories as pcc, 
+        crime_categories as cc
+      WHERE 
+        pcc.crime_cat = cc.crime_cat AND
+        cc.crime_sub_cat IS NULL
+      GROUP BY 
+        pcc.crime_cat,
+        cc.description 
+      ORDER BY 
+        pcc.crime_cat')
     result = []
     count.each do |item| 
       result.push({ :crime_cat => item.crime_cat.to_i, :description => item.description, :count => item.count })
@@ -43,6 +60,7 @@ class IndultometroApp < Sinatra::Base
     send_response(response, result, params)
   end
   
+  # TODO: Rename this method
   get '/api/cat_pardons' do
     set_cache_headers
     result = []
@@ -50,10 +68,17 @@ class IndultometroApp < Sinatra::Base
     # Get the category, return nothing if none given
     cat = params['crime_cat']
     if cat
-      result = repository(:default).adapter.select("SELECT * FROM pardons as p, pardon_crime_categories as pcc
-      WHERE p.id = pcc.boe
-      and pcc.crime_cat = ?
-      order by p.pardon_year",cat)
+      # TODO: Use DataMapper instead?
+      result = repository(:default).adapter.select("
+        SELECT * 
+        FROM 
+          pardons as p, 
+          pardon_crime_categories as pcc
+        WHERE 
+          p.id = pcc.boe AND
+          pcc.crime_cat = ?
+        ORDER BY 
+          p.pardon_year", cat)
       result.collect! {|pardon| pardon_summary(pardon) }
     end
 
@@ -64,9 +89,10 @@ class IndultometroApp < Sinatra::Base
   get '/api/pardons' do
     set_cache_headers
 
-    year = params['year'] || '2013'
+    year = params['year'] || '2013'   # FIXME hardcoded year
     pardons = Pardon.all(:pardon_year => year)
-    # Keep only a summary of the data. I tried using DataMapper's field option, but didn't work (!?)
+    # Keep only a summary of the data. I tried using DataMapper's field option, 
+    # but didn't work, it kept populating the JSON with all the fields (!?)
     result = pardons.map {|pardon| pardon_summary(pardon) }
 
     send_response(response, result, params)
@@ -85,7 +111,12 @@ class IndultometroApp < Sinatra::Base
     # Get the query string, return nothing if none given
     query = params['q']
     if query
-      result = repository(:default).adapter.select("SELECT * FROM pardons WHERE to_tsvector(crime) @@ to_tsquery(?)", query)
+      result = repository(:default).adapter.select("
+        SELECT * 
+        FROM 
+          pardons 
+        WHERE 
+          to_tsvector(crime) @@ to_tsquery(?)", query)
       result.collect! {|pardon| pardon_summary(pardon) }
     end
 
