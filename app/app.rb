@@ -98,14 +98,16 @@ class IndultometroApp < Sinatra::Base
     
   end
 
-  get '/api/pardons' do
+  get '/api/pardons/year/:year' do
     set_cache_headers
 
-    year = params['year'] || '2013'   # FIXME hardcoded year
-    pardons = Pardon.all(:pardon_year => year)
-    # Keep only a summary of the data. I tried using DataMapper's field option, 
-    # but didn't work, it kept populating the JSON with all the fields (!?)
-    result = pardons.map {|pardon| pardon_summary(pardon) }
+    pardons = []
+    if ( params['year'] ) # Otherwise returning the whole DB is too much
+      pardons = Pardon.all(:pardon_year => params['year'])
+      # Keep only a summary of the data. I tried using DataMapper's field option, 
+      # but didn't work, it kept populating the JSON with all the fields (!?)
+      result = pardons.map {|pardon| pardon_summary(pardon) }
+    end
 
     send_response(response, result, params)
   end

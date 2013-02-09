@@ -21,12 +21,10 @@ $(function() {
 
   function changeDisplayedYear(year) {
     var currentPill = $('.tab-pane.active').first().attr('id');
-    if ( currentPill == 'by_year' ) {
-      // Fetch new data
+    if ( currentPill == 'by_year' ) { // Fetch new data
       $("#waiting-indicator").show();
       $.ajax({
-        url: '/api/pardons?callback=?',
-        data: {year: year},
+        url: '/api/pardons/year/'+year+'?callback=?',
         dataType: "jsonp",
         jsonpCallback: "onLoad",
         cache: false  // FIXME: development
