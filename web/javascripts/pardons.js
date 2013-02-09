@@ -33,18 +33,6 @@ $(function() {
     }
   }
 
-  function doSearch(query) {
-    $("#waiting-indicator").show();
-    $.ajax({
-      url: '/api/search',
-      data: {q: query}
-    }).success(function(data) {
-      searchResults = data; // Save for later, when filtering by year
-      populateResultsTable(data);
-      histogram.draw(summarizeSearchResults(data));
-    });
-  }
-
   // Given a set of items, calculate the per-year count
   function summarizeSearchResults(data) {
     // Count the search results per year
@@ -92,9 +80,21 @@ $(function() {
   $('#indultos').hide();
   resetState();
 
-  // Intercept the default search
+  // Clear form
+  $('#clear-form-button').click(function(){ return false; });
+
+  // Intercept the default search form submit, and use AJAX instead
   $("#search-form").submit(function() {
-    doSearch($("#search-form-query").val());
+    // FIXME: Check we are filtering along some criteria
+    $("#waiting-indicator").show();
+    $.ajax({
+      url: '/api/search',
+      data: $("#search-form").serialize()
+    }).success(function(data) {
+      searchResults = data; // Save for later, when filtering by year
+      populateResultsTable(data);
+      histogram.draw(summarizeSearchResults(data));
+    });
     return false;
   });
 

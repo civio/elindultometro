@@ -31,31 +31,43 @@ nav_section: all_pardons
         {% include sharing.html %}
 
         <ul class="nav nav-pills">
-          <li class="active"><a href="#by_year" data-toggle="pill">Buscar por año</a></li>
-          <li><a href="#full_text" data-toggle="pill">Búsqueda libre</a></li>
-          <li><a href="#by_category" data-toggle="pill">Búsqueda por categoría</a></li>
+          <li><a href="#by_year" data-toggle="pill">Buscar por año</a></li>
+          <li class="active"><a href="#full_text" data-toggle="pill">Búsqueda libre</a></li>
           <li id="waiting-indicator" class="pull-left">
             <img src="/images/waiting.gif">
           </li>
         </ul>
-        <div class="tab-content" id="visualization-controls" style="    overflow:visible">
-          <div class="tab-pane active" id="by_year">
+        <div class="tab-content" id="visualization-controls" style="overflow:visible">
+          <div class="tab-pane" id="by_year">
             <p>Pincha en cualquier barra para ver todos los indultos de ese año</p>
           </div>
-          <div class="tab-pane" id="full_text">
-            <form id="search-form">
-              <input type="text" class="span6" id="search-form-query" style="margin-bottom: 0px;">
-              <button type="submit" class="btn">Buscar</button>
+          <div class="tab-pane active" id="full_text">
+            <form id="search-form" class="form-horizontal chosen">
+              <fieldset>
+                <div class="control-group">
+                  <label class="control-label" for="search-form-query">Texto libre</label>
+                  <div class="controls">
+                    <input name="q" class="input-xlarge" id="search-form-query" type="text" id="search-form-query" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="category">Categoría</label>
+                  <div class="controls">
+                    <select name="category" data-placeholder="Elige una categoría" class="chzn-select">
+                      <option value=""></option>
+                      <option value="1">Homicidio</option>
+                      <option value="2">Aborto</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                    <button type="submit" class="btn btn-primary">Filtrar</button>
+                    <button class="btn" id="clear-form-button">Quitar filtros</button>
+                  </div>
+                </div>
+              </fieldset>
             </form>
-          </div>
-          <div class="tab-pane" id="by_category">
-            <div class="chosen">
-              <select data-placeholder="Elige una categoría" class="chzn-select">
-                <option value=""></option>
-                <option value="1">Homicidio</option>
-                <option value="2">Aborto</option>
-              </select>
-            </div>
           </div>
         </div>
 
