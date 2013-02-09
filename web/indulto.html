@@ -1,5 +1,5 @@
 ---
-title: 10.000 indultos
+title: Detalle de un indulto
 subtitle: This is the lead
 nav_section: all_pardons
 ---
@@ -45,17 +45,12 @@ nav_section: all_pardons
   </div>
 </section>
 </div>
-
-<script type='text/javascript'>
-  // http://samsaffron.com/archive/2012/02/17/stop-paying-your-jquery-tax
-  window.q=[];window.$=function(f){q.push(f)}
-</script>
 <script> 
   $(function() {
     function renderResults(data) {
       $('#indultos tbody').empty();
       var fragments = [];
-      fragments.push('<tr><td>Id BOE</td><td>'+data['id']+'</td></tr>');
+      fragments.push('<tr><td>BOE</td><td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+ data['id']+'">'+data['id']+'</td></tr>');
       fragments.push('<tr><td>Fecha del BOE</td><td>'+data['boe_date']+'</td></tr>');
       fragments.push('<tr><td>Ministerio</td><td>'+data['ministry']+'</td></tr>');
       fragments.push('<tr><td>Genero</td><td>'+data['gender']+'</td></tr>');
