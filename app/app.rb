@@ -134,7 +134,8 @@ class IndultometroApp < Sinatra::Base
 
   def set_cache_headers
     # TODO: Improve caching with ETags http://www.sinatrarb.com/intro#Cache%20Control
-    cache_control :public, :must_revalidate, :max_age => 3600
+    # FIXME: sort out dev/prod caching
+    # cache_control :public, :must_revalidate, :max_age => 3600
   end
 
   def send_response(response, result, params)
