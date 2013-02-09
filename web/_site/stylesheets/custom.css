@@ -9,6 +9,84 @@
   transform:rotate(-2deg);
 }
 
+/* @group Social sharing */
+.social-sharing {
+  background: #ffffff;
+  margin: 0 0 1.5em;
+  padding: .5em;
+  text-align: center;
+}
+.social-sharing .title {
+  font-size: .75em;
+  font-weight: 700;
+  margin: 0 0 .5em;
+  text-transform: uppercase;
+}
+/* @end */
+
+/* @group Add this */
+.addthis_toolbox {
+  margin: 0;
+  text-align: center;
+}
+.addthis_toolbox li {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  list-style: none;
+  list-style-type: none;
+  margin: 0 .25em .25em 0;
+  vertical-align: middle;
+}
+[class^="addthis_button_"] {
+  background: #333333 url(img/social.png) no-repeat center;
+  height: 40px;
+  width: 40px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  display: block;
+  text-indent: -999em;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+  -webkit-box-shadow: 0 0 0 3px #6BC7E1, 0 0 0.25em rgba(0, 0, 0, 0.5) inset;
+  -moz-box-shadow: 0 0 0 3px #6BC7E1, 0 0 0.25em rgba(0, 0, 0, 0.5) inset;
+  box-shadow: 0 0 0 3px #6BC7E1, 0 0 0.25em rgba(0, 0, 0, 0.5) inset;
+}
+[class^="addthis_button_"] span {
+  background: none!important;
+}
+[class^="addthis_button_"]:hover {
+  background-color: #6BC7E1;
+}
+.addthis_default_style .at300b,
+.addthis_default_style .at300bo,
+.addthis_default_style .at300m {
+  padding: 0!important;
+}
+.addthis_button_twitter {
+  background-position: 0 0;
+}
+.addthis_button_facebook {
+  background-position: -51px 0;
+}
+.addthis_button_google_plusone_share {
+  background-position: -103px 0;
+}
+.addthis_button_email {
+  background-position: -154px 0;
+}
+.addthis_button_expanded {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+/* @end */
+
 /* Visualization stuff */
 .axis path,
 .axis line {
