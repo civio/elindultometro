@@ -20,8 +20,7 @@ $(function() {
   }
 
   function changeDisplayedYear(year) {
-    var currentPill = $('.tab-pane.active').first().attr('id');
-    if ( currentPill == 'by_year' ) { // Fetch new data
+    if ( searchResults == null ) { // We're not filtering existing results, just browsing
       $("#waiting-indicator").show();
       $.ajax({
         url: '/api/pardons/year/'+year
@@ -53,9 +52,12 @@ $(function() {
   }
 
   function resetState() {
+    $("#search-form-query").val("");  // Clean search form
+    $("#search-form-category").val('').trigger("liszt:updated");
+
     $('#indultos').fadeOut();         // Hide the results table
     histogram.clearSelection();       // Clean histogram selection
-    $("#search-form-query").val("");  // Clean search form
+    searchResults = null;
 
     // Get yearly summary from server, as a starting point
     if ( summaryData == null )
@@ -69,24 +71,20 @@ $(function() {
   }
 
   $("#waiting-indicator").hide();
+  $('#indultos').hide();
   summaryData = null;
   searchResults = null;
   histogram = new Histogram('#histogram', changeDisplayedYear);
-
-  // Init work every time tabs are displayed, and at the beginning
-  $('a[data-toggle="pill"]').on('show', function (e) {
-    resetState();
-  });
-  $('#indultos').hide();
   resetState();
 
-  // Clear form
-  $('#clear-form-button').click(function(){ return false; });
+  // Implement button to clear form
+  $('#clear-form-button').click(function(){ resetState(); return false; });
 
   // Intercept the default search form submit, and use AJAX instead
   $("#search-form").submit(function() {
     // FIXME: Check we are filtering along some criteria
     $("#waiting-indicator").show();
+    histogram.clearSelection();
     $.ajax({
       url: '/api/search',
       data: $("#search-form").serialize()
