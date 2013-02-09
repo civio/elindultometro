@@ -1,9 +1,8 @@
 $(function() {
   function renderSearchResults(data) {
-    renderResults(data)
-    updateData = summarizeData(data)
-    redraw(updateData)
-
+    renderResults(data);
+    updateData = summarizeData(data);
+    redraw(updateData);
   }
   
   function renderResults(data) {
@@ -11,11 +10,11 @@ $(function() {
     var fragments = [];
     $.each(data, function(key, pardon) {
       fragments.push('<tr>');
-      fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">&rarr;</td>')
-      fragments.push('<td>'+pardon['pardon_date']+'</td>')
-      fragments.push('<td>'+pardon['pardon_type']+'</td>')
-      fragments.push('<td>'+pardon['crime']+'</td>')
-      fragments.push('<td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+pardon['id']+'">'+pardon['id']+'</td>')
+      fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">&rarr;</td>');
+      fragments.push('<td>'+pardon['pardon_date']+'</td>');
+      fragments.push('<td>'+pardon['pardon_type']+'</td>');
+      fragments.push('<td>'+pardon['crime']+'</td>');
+      fragments.push('<td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+pardon['id']+'">'+pardon['id']+'</td>');
       fragments.push('</tr>');
     });
     $(fragments.join('')).appendTo('#indultos tbody');
@@ -29,36 +28,36 @@ $(function() {
       dataType: "jsonp",
       jsonpCallback: "onLoad",
       cache: false  // FIXME: development
-    }).success(renderResults);      
+    }).success(renderResults);
   }
 
   function doSearch(query) {
     $.ajax({
       url: '/api/search',
-      data: {q: query},
-    }).success(renderSearchResults);      
+      data: {q: query}
+    }).success(renderSearchResults);
   }
   
   function summarizeData(data) {
     auxData = d3.nest()
-      .key(function(d) {return d.pardon_year;})
+      .key(function(d) { return d.pardon_year; })
       .sortKeys(d3.ascending)
-      .rollup(function (a) {return a.length})
+      .rollup(function (a) { return a.length; })
       .map(data);
     newData = [];
     years = d3.range(1996,2014,1);
     years.forEach(function(el) {
-      o = {}
-      o.year = el
-      o.count = auxData[el] ? auxData[el] : 0
-      newData.push(o)
+      o = {};
+      o.year = el;
+      o.count = auxData[el] ? auxData[el] : 0;
+      newData.push(o);
     });
     return newData;
   }
   
   function redraw(data) {
-    // Update…
-    y.domain([0, d3.max(data, function(d) { return d.count; })]);       
+    // Update...
+    y.domain([0, d3.max(data, function(d) { return d.count; })]);
     svg.select("g.y")
         .call(yAxis);
     
@@ -67,34 +66,32 @@ $(function() {
          .transition()
          .duration(1000)
          .attr("y", function(d) { return y(d.count); })
-         .attr("height", function(d) { return height - y(d.count); })
-
+         .attr("height", function(d) { return height - y(d.count); });
   }
 
   function onMouseOver(d) {
     if (!d3.select(this).classed("selected"))
       d3.select(this).classed("hovered",true);
-    $("#pop-up-title").html(d.year + ": " + d.count + " Indultos")
+    $("#pop-up-title").html(d.year + ": " + d.count + " Indultos");
     var popLeft = d3.event.pageX - $("div#pop-up").width() / 2;
-    var popTop = d3.event.pageY - $("div#pop-up").height() -350;
-    $("div#pop-up").css({"left":popLeft,"top":popTop}).show();
+    var popTop = d3.event.pageY - $("div#pop-up").height() - 350;
+    $("div#pop-up").css({ "left": popLeft, "top": popTop }).show();
 
   }
   
   function onMouseOut(d) {
     d3.select(this).classed("hovered",false);
-    $("div#pop-up").hide();  
+    $("div#pop-up").hide();
   }
 
   function onMouseClick(d) {
     if (d3.select(this).classed("selected")) {
-      d3.select(this).classed("selected",false)
+      d3.select(this).classed("selected",false);
+    } else {
+      d3.selectAll("rect").classed("selected",false);
+      d3.select(this).classed("selected",true);
     }
-    else {
-      d3.selectAll("rect").classed("selected",false)
-      d3.select(this).classed("selected",true)
-    }
-    $("#search-form-query").val()
+    $("#search-form-query").val();
     displayYear(d.year);
   }
 
@@ -103,7 +100,7 @@ $(function() {
       height = 300 - margin.top - margin.bottom;
 
   var x = d3.scale.ordinal()
-      .rangeRoundBands([0, width], .1);
+      .rangeRoundBands([0, width], 0.1);
 
   var y = d3.scale.linear()
       .range([height, 0]);
