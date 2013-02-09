@@ -104,11 +104,11 @@ function Histogram(container, onClickCallback) {
   function onMouseClick(d) {
     if (d3.select(this).classed("selected")) {
       d3.select(this).classed("selected",false);
+      onClickCallback();
     } else {
       d3.selectAll("rect").classed("selected",false);
       d3.select(this).classed("selected",true);
+      onClickCallback(d.year);
     }
-    $("#search-form-query").val();
-    onClickCallback(d.year);
   }
 }

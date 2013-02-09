@@ -1,29 +1,39 @@
 $(function() {
-  function populateResultsTable(data) {
+  function populateResultsTable(data, selectedYear) {
     $('#indultos tbody').empty();
     var fragments = [];
     $.each(data, function(key, pardon) {
-      fragments.push('<tr>');
-      fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">&rarr;</td>');
-      fragments.push('<td>'+pardon['pardon_date']+'</td>');
-      fragments.push('<td>'+pardon['pardon_type']+'</td>');
-      fragments.push('<td>'+pardon['crime']+'</td>');
-      fragments.push('<td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+pardon['id']+'">'+pardon['id']+'</td>');
-      fragments.push('</tr>');
+      if ( typeof(selectedYear)=='undefined' || selectedYear===null || selectedYear==pardon['pardon_year'] ) {
+        fragments.push('<tr>');
+        fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">&rarr;</td>');
+        fragments.push('<td>'+pardon['pardon_date']+'</td>');
+        fragments.push('<td>'+pardon['pardon_type']+'</td>');
+        fragments.push('<td>'+pardon['crime']+'</td>');
+        fragments.push('<td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+pardon['id']+'">'+pardon['id']+'</td>');
+        fragments.push('</tr>');
+      }
     });
     $(fragments.join('')).appendTo('#indultos tbody');
     $('#indultos').fadeIn();
     $('.footable').footable();
   }
 
-  function fetchDataForYear(year) {
-    $.ajax({
-      url: '/api/pardons?callback=?',
-      data: {year: year},
-      dataType: "jsonp",
-      jsonpCallback: "onLoad",
-      cache: false  // FIXME: development
-    }).success(populateResultsTable);
+  function changeDisplayedYear(year) {
+    var currentPill = $('.tab-pane.active').first().attr('id');
+    if ( currentPill == 'by_year' )
+      // Fetch new data
+      $.ajax({
+        url: '/api/pardons?callback=?',
+        data: {year: year},
+        dataType: "jsonp",
+        jsonpCallback: "onLoad",
+        cache: false  // FIXME: development
+      }).success(function(data) {
+        populateResultsTable(data);
+      });
+    else {
+      populateResultsTable(searchResults, year);
+    }
   }
 
   function doSearch(query) {
@@ -31,6 +41,7 @@ $(function() {
       url: '/api/search',
       data: {q: query}
     }).success(function(data) {
+      searchResults = data; // Save for later, when filtering by year
       populateResultsTable(data);
       histogram.draw(summarizeSearchResults(data));
     });
@@ -72,7 +83,8 @@ $(function() {
   }
 
   summaryData = null;
-  histogram = new Histogram('#histogram', fetchDataForYear);
+  searchResults = null;
+  histogram = new Histogram('#histogram', changeDisplayedYear);
 
   // Init work every time tabs are displayed, and at the beginning
   $('a[data-toggle="pill"]').on('show', function (e) {
