@@ -12,6 +12,7 @@ $(function() {
       fragments.push('</tr>');
     });
     $(fragments.join('')).appendTo('#indultos tbody');
+    $('#indultos').show();
     $('.footable').footable();
   }
 
@@ -31,7 +32,7 @@ $(function() {
       data: {q: query}
     }).success(function(data) {
       populateResultsTable(data);
-      histogram.redraw(summarizeSearchResults(data));
+      histogram.draw(summarizeSearchResults(data));
     });
   }
 
@@ -53,18 +54,30 @@ $(function() {
     return histogramData;
   }
 
+  function resetState() {
+    $('#indultos').hide();            // Hide the results table
+    histogram.clearSelection();       // Clean histogram selection
+    $("#search-form-query").val("");  // Clean search form
+
+    // Get yearly summary from server, as a starting point
+    if ( summaryData == null )
+      d3.json("/api/summary", function(error, data) {
+        if (error) return console.warn(error);
+        summaryData = data;
+        histogram.draw(data);
+      });
+    else
+      histogram.draw(summaryData);
+  }
+
+  summaryData = null;
   histogram = new Histogram('#histogram', fetchDataForYear);
 
-  // Get yearly summary from server, as a starting point
-  d3.json("/api/summary", function(error, data) {
-    if (error) return console.warn(error);
-    histogram.setData(data);
+  // Init work every time tabs are displayed, and at the beginning
+  $('a[data-toggle="pill"]').on('show', function (e) {
+    resetState();
   });
-
-  // Select last year as the starting point
-  fetchDataForYear('2013');  // TODO: Remove hardcoded year
-  // Highlight selected year FIXME: Not working needs probably a delay
-  // d3.select("rect#a_2013").classed("selected",true);
+  resetState();
 
   // Intercept the default search
   $("#search-form").submit(function() {

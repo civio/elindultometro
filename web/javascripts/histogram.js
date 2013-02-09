@@ -24,8 +24,22 @@ function Histogram(container, onClickCallback) {
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  
-  this.setData = function(data) {
+
+  var data = null;
+
+  this.draw = function(data) {
+    if ( this.data == null )
+      createBars(data);
+    else
+      updateBars(data);
+    this.data = data;  // Save for later
+  };
+
+  this.clearSelection = function() {
+    d3.selectAll("rect").classed("selected",false);
+  };
+
+  function createBars(data) {
     x.domain(data.map(function(d) { return d.year; }));
     y.domain([0, d3.max(data, function(d) { return d.count; })]);
 
@@ -57,10 +71,9 @@ function Histogram(container, onClickCallback) {
         .on("mouseover", onMouseOver)
         .on("mouseout", onMouseOut)
         .on("click", onMouseClick);
-  };
+  }
 
-  this.redraw = function(data) {
-    // Update...
+  function updateBars(data) {
     y.domain([0, d3.max(data, function(d) { return d.count; })]);
     svg.select("g.y")
         .call(yAxis);
@@ -71,7 +84,7 @@ function Histogram(container, onClickCallback) {
          .duration(1000)
          .attr("y", function(d) { return y(d.count); })
          .attr("height", function(d) { return height - y(d.count); });
-  };
+  }
 
   function onMouseOver(d) {
     if (!d3.select(this).classed("selected"))
