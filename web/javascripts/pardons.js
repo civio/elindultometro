@@ -24,10 +24,7 @@ $(function() {
     if ( currentPill == 'by_year' ) { // Fetch new data
       $("#waiting-indicator").show();
       $.ajax({
-        url: '/api/pardons/year/'+year+'?callback=?',
-        dataType: "jsonp",
-        jsonpCallback: "onLoad",
-        cache: false  // FIXME: development
+        url: '/api/pardons/year/'+year
       }).success(function(data) {
         populateResultsTable(data);
       });
