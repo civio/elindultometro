@@ -112,11 +112,12 @@ class IndultometroApp < Sinatra::Base
     query = params['q']
     if query
       result = repository(:default).adapter.select("
-        SELECT * 
+        SELECT
+          id, pardon_date, pardon_type, crime, pardon_year
         FROM 
           pardons 
         WHERE 
-          to_tsvector(crime) @@ to_tsquery(?)", query)
+          to_tsvector(crime) @@ plainto_tsquery(?)", query)
       result.collect! {|pardon| pardon_summary(pardon) }
     end
 
