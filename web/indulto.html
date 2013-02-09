@@ -10,7 +10,7 @@ nav_section: all_pardons
 <section class="section alt" id="promo">
   <div class="container">
     <div class="hero-unit">
-      <h1>{{ page.title }}</h1>
+      <h1 id="h1_pardon"></h1>
     </div>
   </div>
 </section>
@@ -19,13 +19,9 @@ nav_section: all_pardons
     <div class="row-fluid">
       <div class="span12">
         <article class="blog-post">
-          <header class="blog-header">
-            <h2>
-              {{ page.subtitle }}
-            </h2>
-          </header>
           <div class="row-fluid">
             <div class="span10 offset1">
+              {% include sharing.html %}
               <small>
                 <table class="table table-bordered table-striped" id="indultos">
                   <tbody>
@@ -47,11 +43,13 @@ nav_section: all_pardons
 </div>
 <script> 
   $(function() {
+    var id = URI.parseQuery(window.location.search)['id'];
+    $("#h1_pardon").html('Indulto: <a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+
+    id+'">'+id+'</td></tr>')
     function renderResults(data) {
       $('#indultos tbody').empty();
       var fragments = [];
-      fragments.push('<tr><td>BOE</td><td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+ data['id']+'">'+data['id']+'</td></tr>');
-      fragments.push('<tr><td>Fecha del BOE</td><td>'+data['boe_date']+'</td></tr>');
+      fragments.push('<tr><td>Fecha publicación</td><td>'+data['boe_date']+'</td></tr>');
       fragments.push('<tr><td>Ministerio</td><td>'+data['ministry']+'</td></tr>');
       fragments.push('<tr><td>Genero</td><td>'+data['gender']+'</td></tr>');
       fragments.push('<tr><td>Tribunal sentenciador</td><td>'+data['court']+'</td></tr>');
