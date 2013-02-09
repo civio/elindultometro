@@ -31,24 +31,26 @@ $(function() {
       data: {q: query}
     }).success(function(data) {
       populateResultsTable(data);
-      histogram.redraw(summarizeData(data));
+      histogram.redraw(summarizeSearchResults(data));
     });
   }
 
   // Given a set of items, calculate the per-year count
-  function summarizeData(data) {
-    count = d3.nest()
+  function summarizeSearchResults(data) {
+    // Count the search results per year
+    resultCount = d3.nest()
       .key(function(d) { return d.pardon_year; })
       .sortKeys(d3.ascending)
       .rollup(function (a) { return a.length; })
       .map(data);
 
-    return $.map( count, function( value, index ) {
-      return {
-        'year': index,
-        'count': value
-      };
+    // We need to return an exhaustive list (with zeroes when nothing is
+    // found for a year), so the histogram is updated correctly
+    histogramData = [];
+    d3.range(1996, 2014, 1).forEach(function(year) {
+      histogramData.push({ 'year': year, 'count': resultCount[year] ? resultCount[year] : 0 });
     });
+    return histogramData;
   }
 
   histogram = new Histogram('#histogram', fetchDataForYear);
