@@ -12,7 +12,7 @@ $(function() {
       fragments.push('</tr>');
     });
     $(fragments.join('')).appendTo('#indultos tbody');
-    $('#indultos').show();
+    $('#indultos').fadeIn();
     $('.footable').footable();
   }
 
@@ -47,6 +47,7 @@ $(function() {
 
     // We need to return an exhaustive list (with zeroes when nothing is
     // found for a year), so the histogram is updated correctly
+    // TODO: Remove hardcoded year range
     histogramData = [];
     d3.range(1996, 2014, 1).forEach(function(year) {
       histogramData.push({ 'year': year, 'count': resultCount[year] ? resultCount[year] : 0 });
@@ -55,7 +56,7 @@ $(function() {
   }
 
   function resetState() {
-    $('#indultos').hide();            // Hide the results table
+    $('#indultos').fadeOut();         // Hide the results table
     histogram.clearSelection();       // Clean histogram selection
     $("#search-form-query").val("");  // Clean search form
 
@@ -77,6 +78,7 @@ $(function() {
   $('a[data-toggle="pill"]').on('show', function (e) {
     resetState();
   });
+  $('#indultos').hide();
   resetState();
 
   // Intercept the default search

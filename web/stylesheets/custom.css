@@ -68,3 +68,6 @@ rect.selected {
   font-size: 12px;
 }
 
+#visualization-controls {
+  height: 60px;
+}
