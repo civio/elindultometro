@@ -1,5 +1,6 @@
 $(function() {
   function populateResultsTable(data, selectedYear) {
+    $("#waiting-indicator").hide();
     $('#indultos tbody').empty();
     var fragments = [];
     $.each(data, function(key, pardon) {
@@ -20,8 +21,9 @@ $(function() {
 
   function changeDisplayedYear(year) {
     var currentPill = $('.tab-pane.active').first().attr('id');
-    if ( currentPill == 'by_year' )
+    if ( currentPill == 'by_year' ) {
       // Fetch new data
+      $("#waiting-indicator").show();
       $.ajax({
         url: '/api/pardons?callback=?',
         data: {year: year},
@@ -31,12 +33,13 @@ $(function() {
       }).success(function(data) {
         populateResultsTable(data);
       });
-    else {
+    } else {
       populateResultsTable(searchResults, year);
     }
   }
 
   function doSearch(query) {
+    $("#waiting-indicator").show();
     $.ajax({
       url: '/api/search',
       data: {q: query}
@@ -82,6 +85,7 @@ $(function() {
       histogram.draw(summaryData);
   }
 
+  $("#waiting-indicator").hide();
   summaryData = null;
   searchResults = null;
   histogram = new Histogram('#histogram', changeDisplayedYear);
