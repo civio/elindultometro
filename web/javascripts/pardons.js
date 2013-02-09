@@ -98,4 +98,6 @@ $(function() {
     doSearch($("#search-form-query").val());
     return false;
   });
+
+  $(".chzn-select").chosen();
 });

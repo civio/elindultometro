@@ -15,6 +15,7 @@ class IndultometroApp < Sinatra::Base
     redirect '/index.html'
   end
 
+  # Return a yearly pardon count
   get '/api/summary' do
     set_cache_headers
 
@@ -34,6 +35,7 @@ class IndultometroApp < Sinatra::Base
     send_response(response, result, params)
   end
   
+  # TODO: This is for treemap only. Remove if not used
   get '/api/cat_summary' do
     set_cache_headers
     count = repository(:default).adapter.select('
@@ -59,28 +61,38 @@ class IndultometroApp < Sinatra::Base
 
     send_response(response, result, params)
   end
-  
-  # TODO: Rename this method
-  get '/api/cat_pardons' do
-    set_cache_headers
-    result = []
 
-    # Get the category, return nothing if none given
-    cat = params['crime_cat']
-    if cat
-      # TODO: Use DataMapper instead?
-      result = repository(:default).adapter.select("
-        SELECT * 
-        FROM 
-          pardons as p, 
-          pardon_crime_categories as pcc
-        WHERE 
-          p.id = pcc.boe AND
-          pcc.crime_cat = ?
-        ORDER BY 
-          p.pardon_year", cat)
-      result.collect! {|pardon| pardon_summary(pardon) }
+  # Return all categories and subcategories
+  get '/api/categories' do
+    set_cache_headers
+
+    categories = CrimeCategory.all(:crime_sub_cat => nil)
+    result = categories.collect do |category|
+      { 
+        :category => category.crime_cat,
+        :description => category.description
+      }
     end
+
+    send_response(response, result, params)
+  end
+
+  # Return all pardons for a given category  
+  get '/api/categories/:category/pardons' do
+    set_cache_headers
+
+    result = repository(:default).adapter.select("
+      SELECT
+        p.id, p.pardon_date, p.pardon_type, p.crime, p.pardon_year        
+      FROM 
+        pardons as p,
+        pardon_crime_categories as pcc
+      WHERE 
+        p.id = pcc.boe AND
+        pcc.crime_cat = ?
+      ORDER BY 
+        p.pardon_year", params['category'])
+    result.collect! {|pardon| pardon_summary(pardon) }
 
     send_response(response, result, params)
     

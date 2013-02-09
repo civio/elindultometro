@@ -23,6 +23,7 @@
   <link href="/stylesheets/custom.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/footable-0.1.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/footable.sortable.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/jquery.chosen.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body class="theme-pattern-concrete-wall" >
   <!-- Page Header -->
@@ -77,20 +78,31 @@
         </p>
 
         <ul class="nav nav-pills">
-          <li class="active"><a id="by_year_pill" href="#by_year" data-toggle="pill">Buscar por año</a></li>
-          <li><a id="full_text_pill" href="#full_text" data-toggle="pill">Búsqueda libre</a></li>
+          <li class="active"><a href="#by_year" data-toggle="pill">Buscar por año</a></li>
+          <li><a href="#full_text" data-toggle="pill">Búsqueda libre</a></li>
+          <li><a href="#by_category" data-toggle="pill">Búsqueda por categoría</a></li>
         </ul>
-        <div class="tab-content" id="visualization-controls">
+        <div class="tab-content" id="visualization-controls" style="    overflow:visible">
           <div class="tab-pane active" id="by_year">
             <p>Pincha en cualquier barra para ver todos los indultos de ese año</p>
           </div>
           <div class="tab-pane" id="full_text">
             <form id="search-form">
               <input type="text" class="span6" id="search-form-query" style="margin-bottom: 0px;">
-              <button type="submit" class="btn">Buscar delito</button>
+              <button type="submit" class="btn">Buscar</button>
             </form>
           </div>
+          <div class="tab-pane" id="by_category">
+            <div class="chosen">
+              <select data-placeholder="Elige una categoría" class="chzn-select">
+                <option value=""></option>
+                <option value="1">Homicidio</option>
+                <option value="2">Aborto</option>
+              </select>
+            </div>
+          </div>
         </div>
+
         <div id="histogram"></div>
 
         <div id="pop-up">
@@ -199,6 +211,7 @@
   </div>
 </footer>
 <script src="/javascripts/jquery.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.chosen.min.js" type="text/javascript"></script>
 <script src="/javascripts/bootstrap.js" type="text/javascript"></script>
 <script src="/javascripts/script.js" type="text/javascript"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
