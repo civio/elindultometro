@@ -2,9 +2,69 @@
   border: 10px solid white;
   box-shadow: 5px 5px 12px 3px #344;
 
-  transform:rotate(-2deg);
   -ms-transform:rotate(-2deg); /* IE 9 */
   -moz-transform:rotate(-2deg); /* Firefox */
   -webkit-transform:rotate(-2deg); /* Safari and Chrome */
   -o-transform:rotate(-2deg); /* Opera */
+  transform:rotate(-2deg);
 }
+
+/* Visualization stuff */
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: #41B7D8;
+}
+
+rect.hovered {
+  fill: #666666;
+}
+
+rect.selected {
+  fill: #000000;
+}
+
+.bar:hover {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.x.axis text {
+  font-size: 12px;
+}
+
+.y.axis text {
+  font-size: 12px;
+}
+
+#pop-up {
+  display: none;
+  position:absolute;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 5px 10px 5px 10px;
+  -webkit-border-radius: 8px 8px;
+  -moz-border-radius: 8px 8px;
+  border-radius: 8px 8px;
+  pointer-events: none;
+}
+
+#pop-up-title {
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: bolder;
+}
+
+#pop-up-content {
+  font-size: 12px;
+}
+
