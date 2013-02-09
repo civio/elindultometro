@@ -129,9 +129,9 @@ class IndultometroApp < Sinatra::Base
         FROM 
           pardons 
         WHERE 
-          to_tsvector('unaccent', crime) @@ plainto_tsquery(?)", query)
+          to_tsvector('unaccent_spa', crime) @@ plainto_tsquery('unaccent_spa',?)", query)
       # NOTE: Needs to create the unaccent dictionary and search configuration, as
-      # described in the documentation
+      # described in the documentation added spanish stemming.
       result.collect! {|pardon| pardon_summary(pardon) }
     end
 
