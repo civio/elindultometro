@@ -34,3 +34,17 @@ TODO: Documentar esto mucho mejor :/
        $ rake pardons:load
  
  * Arrancar el servidor: `./server`
+ 
+#### Configuración de la búsqueda en PostgreSQL
+
+Para poder hacer búsquedas sin tener en cuenta los acentos, vía la consola de PostgreSQL (`psql` o `heroku pg:psql`):
+
+     $ CREATE EXTENSION unaccent;
+     
+     $ CREATE TEXT SEARCH CONFIGURATION unaccent ( COPY = pg_catalog.simple );
+
+     $ ALTER TEXT SEARCH CONFIGURATION unaccent
+        ALTER MAPPING FOR hword, hword_part, word
+        WITH unaccent, simple;
+
+via [esto](https://devcenter.heroku.com/articles/heroku-postgres-extensions-postgis-full-text-search#full-text-search-dictionaries) y [esto](http://domas.monkus.lt/full-text-search-postgresql)
