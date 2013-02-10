@@ -58,6 +58,7 @@ GEM
     json_pure (1.7.6)
     multi_json (1.5.0)
     newrelic_rpm (3.4.1)
+    pg (0.14.0)
     rack (1.5.1)
     rack-protection (1.3.2)
       rack
@@ -81,5 +82,6 @@ DEPENDENCIES
   dm-postgres-adapter
   json
   newrelic_rpm
+  pg
   sinatra
   thin
