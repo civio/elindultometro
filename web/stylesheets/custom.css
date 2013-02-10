@@ -1,12 +1,21 @@
 .front-page-picture {
   border: 10px solid white;
   box-shadow: 5px 5px 12px 3px #344;
+  margin-left: 30px;
 
   -ms-transform:rotate(-2deg); /* IE 9 */
   -moz-transform:rotate(-2deg); /* Firefox */
   -webkit-transform:rotate(-2deg); /* Safari and Chrome */
   -o-transform:rotate(-2deg); /* Opera */
   transform:rotate(-2deg);
+}
+
+#myCarousel a {
+  color: #333333;
+}
+
+#myCarousel .hero-unit {
+  padding-bottom: 30px;
 }
 
 #search-form .control-group {
