@@ -20,12 +20,17 @@ $(function() {
 
   function changeDisplayedYear(year) {
     if ( searchResults == null ) { // We're not filtering existing results, just browsing
-      $("#waiting-indicator").show();
-      $.ajax({
-        url: '/api/pardons/year/'+year
-      }).success(function(data) {
-        populateResultsTable(data);
-      });
+      var deselecting = ( typeof(year)==='undefined' );
+      if ( deselecting ) {
+        $('#indultos').fadeOut();
+      } else {
+        $("#waiting-indicator").show();
+        $.ajax({
+          url: '/api/pardons/year/'+year
+        }).success(function(data) {
+          populateResultsTable(data);
+        });
+      }
     } else {
       populateResultsTable(searchResults, year);
     }
@@ -62,6 +67,7 @@ $(function() {
   function resetState() {
     $("#search-form-query").val("");  // Clean search form
     $("#search-form-category").val('').trigger("liszt:updated");
+    $("#search-form-region").val('').trigger("liszt:updated");
 
     $('#indultos').fadeOut();         // Hide the results table
     histogram.clearSelection();       // Clean histogram selection
@@ -84,7 +90,7 @@ $(function() {
   searchResults = null;
   histogram = new Histogram('#histogram', changeDisplayedYear);
   resetState();
-  $(".chzn-select").chosen();
+  $(".chzn-select").chosen({ allow_single_deselect: true });
 
   // Populate the categories dropdown
   $.ajax({

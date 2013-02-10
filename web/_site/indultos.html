@@ -108,7 +108,9 @@
               <div class="control-group">
                 <label class="control-label" for="search-form-query">Texto libre</label>
                 <div class="controls">
-                  <input name="q" class="input-xlarge" id="search-form-query" type="text" id="search-form-query" />
+                  <input name="q" class="input-xlarge" id="search-form-query" type="text" id="search-form-query">
+                    <span class="help-inline">No incluye el nombre del indultado. <a href="/ayuda.html#LOPD">¿Por qué?</a></span>
+                  </input>
                 </div>
               </div>
               <div class="control-group">
@@ -116,6 +118,34 @@
                 <div class="controls">
                   <select name="category" data-placeholder="Elige una categoría" id="search-form-category" class="chzn-select">
                     <option value=""></option>
+                  </select>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="region">Comunidad</label>
+                <div class="controls">
+                  <select name="region" data-placeholder="Elige una comunidad autónoma" id="search-form-region" class="chzn-select">
+                    <option value=""></option>
+                    <option value="01">Andalucía</option>
+                    <option value="02">Aragón</option>
+                    <option value="03">Asturias</option>
+                    <option value="04">Baleares</option>
+                    <option value="05">Canarias</option>
+                    <option value="06">Cantabria</option>
+                    <option value="07">Castilla y León</option>
+                    <option value="08">Castilla La Mancha</option>
+                    <option value="09">Cataluña</option>
+                    <option value="10">Comunidad Valenciana</option>
+                    <option value="11">Extremadura</option>
+                    <option value="12">Galicia</option>
+                    <option value="13">Madrid</option>
+                    <option value="14">Murcia</option>
+                    <option value="15">Navarra</option>
+                    <option value="16">País Vasco</option>
+                    <option value="17">La Rioja</option>
+                    <option value="18">Ceuta</option>
+                    <option value="19">Melilla</option>
+                    <option value="NULL">Otros</option>
                   </select>
                 </div>
               </div>

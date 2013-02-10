@@ -31,11 +31,11 @@ nav_section: help
           <div class="accordion" id="accordion">
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#qOne">
+                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#que-es">
                   <strong>1. ¿Qué es un indulto?</strong>
                 </a>
               </div>
-              <div class="accordion-body collapse" id="qOne">
+              <div class="accordion-body collapse" id="que-es">
                 <div class="accordion-inner">
                   Es una medida de gracia, de carácter excepcional, consistente en la remisión total o parcial de las penas de los condenados por sentencia firme, que otorga el Rey, a propuesta del Ministro de Justicia, previa deliberación del Consejo de Ministros
                 </div>
@@ -43,11 +43,11 @@ nav_section: help
             </div>
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#qTwo">
+                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#quien-puede">
                   <strong>2. ¿Quienes pueden ser indultados?</strong>
                 </a>
               </div>
-              <div class="accordion-body collapse" id="qTwo">
+              <div class="accordion-body collapse" id="quien-puede">
                 <div class="accordion-inner">
                   Los reos de toda clase de delitos.
                 </div>
@@ -55,11 +55,11 @@ nav_section: help
             </div>
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#qThree">
+                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#efectos">
                   <strong>3. ¿Cuáles son los efectos del indulto?</strong>
                 </a>
               </div>
-              <div class="accordion-body collapse" id="qThree">
+              <div class="accordion-body collapse" id="efectos">
                 <div class="accordion-inner">
                  La extinción de la responsabilidad penal. No cancela los antecedentes penales.
                 </div>
@@ -67,11 +67,11 @@ nav_section: help
             </div>
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#qFour">
+                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#no-puede">
                   <strong>4. ¿Quiénes no pueden ser indultados?</strong>
                 </a>
               </div>
-              <div class="accordion-body collapse" id="qFour">
+              <div class="accordion-body collapse" id="no-puede">
                 <div class="accordion-inner">
                   <ul>
                     <li>Quienes estén siendo procesados criminalmente pero aún no hayan sido condenados por sentencia firme.</li>
@@ -83,11 +83,11 @@ nav_section: help
             </div>
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#qFive">
+                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#tipos">
                   <strong>5. ¿Qué tipos de indulto existen?</strong>
                 </a>
               </div>
-              <div class="accordion-body collapse" id="qFive">
+              <div class="accordion-body collapse" id="tipos">
                 <div class="accordion-inner">
                   El indulto puede ser:
                   <ul>
@@ -193,12 +193,22 @@ nav_section: help
                 </div>
               </div>
             </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#LOPD">
+                  <strong>13. ¿Por qué no mostráis los nombres de los indultados?</strong>
+                </a>
+              </div>
+              <div class="accordion-body collapse" id="LOPD">
+                <div class="accordion-inner">
+                  <p>Estamos analizando la relevancia de la Ley de Protección de Datos a la hora de tratar la información de indultos. Mientras tanto hemos decidido no trabajar <strong>en ningún momento</strong> con los nombres de los indultados en ningún paso de nuestro proceso.</p>
+
+                  <p>En el año 2000 la Asociación Contra La Tortura fue condenada a pagar <a href="http://contencioso.es/2008/07/18/el-tribunal-supremo-confirma-la-millonaria-sancion-a-la-asociacion-contra-la-tortura-por-divulgar-datos-personales-de-policias-y-politicos-a-traves-de-la-web/">60 millones de pesetas de multa</a> (360.000€ del año 2000) por crear una lista de policías y funcionarios de prisiones condenados y/o acusados de torturas. La Audiencia Nacional afirma en <a href="http://www.agpd.es/portalwebAGPD/canaldocumentacion/sentencias/common/Sentencia-de-la-Audiencia-Nacional-de28.pdf">la sentencia</a> que sólo la Administración puede crear una base de datos de "infracciones penales o administrativas", "con independencia del origen público o privado del dato".</p>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
-              <!-- FIXME: Add thanks section -->
-              <!--
-              photo credit: <a href="http://www.flickr.com/photos/_ilkin_/2819569421/">ilkin.</a> via <a href="http://photopin.com">photopin</a> <a href="http://creativecommons.org/licenses/by-nc-nd/2.0/">cc</a>
-              -->
       </div>
       <aside class="span3 sidebar">
         <div class="sidebar-widget">
@@ -213,4 +223,10 @@ nav_section: help
   </div>
 </section>
 </div>
+<script type="text/javascript">
+$(function () {
+  // Unfold the linked accordion element in the URL
+  location.hash && $(location.hash + '.collapse').collapse('show');
+});
+</script>
 {% include footer.html %}
