@@ -57,6 +57,7 @@ GEM
     json (1.7.6)
     json_pure (1.7.6)
     multi_json (1.5.0)
+    newrelic_rpm (3.4.1)
     rack (1.5.1)
     rack-protection (1.3.2)
       rack
@@ -79,5 +80,6 @@ DEPENDENCIES
   data_mapper
   dm-postgres-adapter
   json
+  newrelic_rpm
   sinatra
   thin

@@ -5,6 +5,11 @@ require 'sinatra/base'
 require 'json'
 require './app/model'
 
+# Enable New Relic plugin
+configure :production do
+  require 'newrelic_rpm'
+end
+
 class IndultometroApp < Sinatra::Base
 
   # Enable serving of static files
