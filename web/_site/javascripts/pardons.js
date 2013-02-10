@@ -20,12 +20,17 @@ $(function() {
 
   function changeDisplayedYear(year) {
     if ( searchResults == null ) { // We're not filtering existing results, just browsing
-      $("#waiting-indicator").show();
-      $.ajax({
-        url: '/api/pardons/year/'+year
-      }).success(function(data) {
-        populateResultsTable(data);
-      });
+      var deselecting = ( typeof(year)==='undefined' );
+      if ( deselecting ) {
+        $('#indultos').fadeOut();
+      } else {
+        $("#waiting-indicator").show();
+        $.ajax({
+          url: '/api/pardons/year/'+year
+        }).success(function(data) {
+          populateResultsTable(data);
+        });
+      }
     } else {
       populateResultsTable(searchResults, year);
     }
