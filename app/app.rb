@@ -120,7 +120,9 @@ class IndultometroApp < Sinatra::Base
     unless params['q'].nil? or params['q']==''
       # NOTE: You'll need to create the unaccent dictionary and search configuration, as
       # described in the documentation added spanish stemming.
-      sql += " AND to_tsvector('unaccent_spa', p.crime) @@ plainto_tsquery('unaccent_spa', ?)"
+      sql += " AND (to_tsvector('unaccent_spa', p.crime) @@ plainto_tsquery('unaccent_spa', ?) OR \
+                  to_tsvector('unaccent_spa', p.signature) @@ plainto_tsquery('unaccent_spa', ?))"
+      sql_arguments.push params['q']
       sql_arguments.push params['q']
     end
 
