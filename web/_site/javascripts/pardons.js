@@ -90,7 +90,7 @@ $(function() {
   searchResults = null;
   histogram = new Histogram('#histogram', changeDisplayedYear);
   resetState();
-  $(".chzn-select").chosen();
+  $(".chzn-select").chosen({ allow_single_deselect: true });
 
   // Populate the categories dropdown
   $.ajax({
