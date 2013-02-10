@@ -2,6 +2,7 @@
   border: 10px solid white;
   box-shadow: 5px 5px 12px 3px #344;
   margin-left: 30px;
+  margin-bottom: 30px;
 
   -ms-transform:rotate(-2deg); /* IE 9 */
   -moz-transform:rotate(-2deg); /* Firefox */
@@ -10,7 +11,7 @@
   transform:rotate(-2deg);
 }
 
-#myCarousel a {
+#myCarousel a.muted {
   color: #333333;
 }
 
