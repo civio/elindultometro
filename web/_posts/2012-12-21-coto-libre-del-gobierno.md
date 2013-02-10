@@ -3,7 +3,7 @@ layout: post
 title: Los indultos, coto libre del gobierno
 author: Eva Belmonte
 lead: El ejecutivo de Rajoy ha concedido más de 400 indultos en once meses. Entre los afortunados, varios políticos condenados por prevaricar y desviar dinero público.
-image: /images/assets/city1-870x300.jpeg
+image: /images/posts/ministerio-justicia-870x300.jpg
 ---
 
 _(Artículo publicado originalmente en el número 1 de <a href="http://www.lamarea.com">La Marea</a>, 21 de Diciembre del 2012.)_
