@@ -6,11 +6,10 @@ $(function() {
     $.each(data, function(key, pardon) {
       if ( typeof(selectedYear)=='undefined' || selectedYear===null || selectedYear==pardon['pardon_year'] ) {
         fragments.push('<tr>');
-        fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">&rarr;</td>');
         fragments.push('<td>'+pardon['pardon_date']+'</td>');
         fragments.push('<td>'+pardon['pardon_type']+'</td>');
         fragments.push('<td>'+pardon['crime']+'</td>');
-        fragments.push('<td><a target="_blank" href="http://www.boe.es/diario_boe/txt.php?id='+pardon['id']+'">'+pardon['id']+'</td>');
+        fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">Más &rarr;</td>');
         fragments.push('</tr>');
       }
     });
