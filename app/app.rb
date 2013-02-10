@@ -124,6 +124,11 @@ class IndultometroApp < Sinatra::Base
       sql_arguments.push params['q']
     end
 
+    unless params['region'].nil? or params['region']==''
+      sql += " AND p.region = ?"
+      sql_arguments.push params['region']
+    end
+
     unless params['category'].nil? or params['category']==''
       sql += " AND pcc.crime_cat = ?"
       sql_arguments.push params['category']
