@@ -44,8 +44,9 @@ function Histogram(container, onClickCallback) {
   };
 
   function createBars(data) {
+    var totalCount = 0;
     x.domain(data.map(function(d) { return d.year; }));
-    y.domain([0, d3.max(data, function(d) { return d.count; })]);
+    y.domain([0, d3.max(data, function(d) { totalCount += d.count; return d.count; })]);
 
     svg.append("g")
         .attr("class", "x axis")
@@ -75,19 +76,31 @@ function Histogram(container, onClickCallback) {
         .on("mouseover", onMouseOver)
         .on("mouseout", onMouseOut)
         .on("click", onMouseClick);
+
+    svg.append("text")
+        .attr("y", 6)
+        .attr("transform", "translate("+width+",0)")
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .attr("class", "total-count")
+        .text("Total: "+totalCount+" indultos");
   }
 
   function updateBars(data) {
-    y.domain([0, d3.max(data, function(d) { return d.count; })]);
+    var totalCount = 0;
+    y.domain([0, d3.max(data, function(d) { totalCount += d.count; return d.count; })]);
     svg.select("g.y")
         .call(yAxis);
     
     svg.selectAll("rect")
-         .data(data)
-         .transition()
-         .duration(1000)
-         .attr("y", function(d) { return y(d.count); })
-         .attr("height", function(d) { return height - y(d.count); });
+        .data(data)
+        .transition()
+        .duration(1000)
+        .attr("y", function(d) { return y(d.count); })
+        .attr("height", function(d) { return height - y(d.count); });
+
+    svg.selectAll(".total-count")
+        .text("Total: "+totalCount+" indultos");
   }
 
   function onMouseOver(d) {
