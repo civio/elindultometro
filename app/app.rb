@@ -117,7 +117,9 @@ class IndultometroApp < Sinatra::Base
             p.id = pcc.boe"
 
     # Add extra conditions, if present
+    full_database = true
     unless params['q'].nil? or params['q']==''
+      full_database = false
       # NOTE: You'll need to create the unaccent dictionary and search configuration, as
       # described in the documentation added spanish stemming.
       sql += " AND (to_tsvector('unaccent_spa', p.crime) @@ plainto_tsquery('unaccent_spa', ?) OR \
@@ -127,18 +129,25 @@ class IndultometroApp < Sinatra::Base
     end
 
     unless params['region'].nil? or params['region']==''
-      sql += " AND p.region = ?"
-      sql_arguments.push params['region']
+      full_database = false
+      # TODO: This handling of NULLs is a hack: we should set a special value in the loader
+      if ( params['region'] == 'NULL' )
+        sql += " AND p.region IS NULL"
+      else
+        sql += " AND p.region = ?"
+        sql_arguments.push params['region']
+      end
     end
 
     unless params['category'].nil? or params['category']==''
+      full_database = false
       sql += " AND pcc.crime_cat = ?"
       sql_arguments.push params['category']
     end
 
     # Run the query and return the results. Return nothing if no parameters are sent
     result = []
-    result = repository(:default).adapter.select(sql, *sql_arguments) unless sql_arguments.empty?
+    result = repository(:default).adapter.select(sql, *sql_arguments) unless full_database
     result.collect! {|pardon| pardon_summary(pardon) }
     send_response(response, result, params)
   end
