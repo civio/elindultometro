@@ -3,7 +3,7 @@ layout: post
 title: Indulta, que nada queda (TeG)
 author: Rodrigo Tena Arregui
 lead: Uno de los ejemplos más chocantes del deterioro institucional que padecemos es, sin duda, el de la actual práctica del indulto.
-image: /images/assets/city1-870x300.jpeg
+image: /images/posts/carcel-870x300.jpg
 ---
 
 Recientemente, doscientos jueces de toda España han firmado [un manifiesto][1] con el expresivo título “El indulto como fraude. En defensa de la independencia judicial y de la dignidad”. Denuncian especialmente el caso del indulto de cuatro mossos d´esquadra indultados (dos veces) por un delito de torturas. Afirman que "*al instrumentalizar el indulto para la consecución de fines ajenos a los que lo justifican, el Gobierno dinamita la división de Poderes y usurpa el papel del Poder Judicial*", lo que es especialmente criticable en el caso de la tortura, "*uno de los peores actos realizables contra la dignidad de la persona*".

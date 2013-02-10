@@ -6,7 +6,7 @@ lead: El ejecutivo de Rajoy ha concedido más de 400 indultos en once meses. Ent
 image: /images/assets/city1-870x300.jpeg
 ---
 
-_(Artículo publicado originalmente en el número 1 de <a href="http://www.lamarea.com">La Marea</a>, Enero 2013.)_
+_(Artículo publicado originalmente en el número 1 de <a href="http://www.lamarea.com">La Marea</a>, 21 de Diciembre del 2012.)_
 
 Alcalde del PP en Valle de Abdalajís (Málaga), condenado a más de diez años de cárcel por 12 delitos de prevaricación urbanística. Indulto. La pena queda en dos años y evita la prisión. También sus tres concejales condenados. Alto cargo de la Generalitat de Catalunya de Pujol, condenado a cuatro años y medio de cárcel por desviar dinero público a empresas afines. Indulto. La pena queda en dos años y tanto él como el empresario agraciado evaden la cárcel. Cuatro Mossos d'Esquadra condenados por torturar a un detenido por error, al que amenazaron, golpearon y metieron una pistola en la boca para obligarle a confesar. Indulto. La pena queda en dos años y vuelven a trabajar en el cuerpo. Pese a la rebaja, la Audiencia Provincial de Barcelona les envía a prisión por su “peligrosidad”, entre otras razones. Reindulto. La pena queda en una multa de 7.300 euros. Y estos son sólo los casos más llamativos de 2012, un año en el que el gobierno de Mariano Rajoy se ha estrenado en el ejercicio del derecho de gracia con 434 indultos sólo hasta el 30 de noviembre. 
 

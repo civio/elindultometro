@@ -3,10 +3,10 @@ layout: post
 title: Una ley provisional que cumple siglo y medio
 author: Eva Belmonte
 lead: Poco imaginarían los legisladores que redactaron la 'Ley Provisional de 18 de junio de 1870 por el que se establecen normas para el ejercicio de la gracia del indulto' que su impronta iba a permanecer, casi inalterable, hasta el año 2012.
-image: /images/assets/city1-870x300.jpeg
+image: /images/posts/gaceta-870x300.jpg
 ---
 
-_(Artículo publicado originalmente en el número 1 de <a href="http://www.lamarea.com">La Marea</a>, Enero 2013.)_
+_(Artículo publicado originalmente en el número 1 de <a href="http://www.lamarea.com">La Marea</a>, 21 de Diciembre del 2012.)_
 
 De hecho, la prerrogativa de gracia es una de las tres normas que no se pueden modificar vía Iniciativa Legislativa Popular (ILP), junto a las leyes orgánicas y las tributarias o internacionales. Herencia de la monarquía absoluta, el poder de indulto del jefe de estado se mantuvo apenas inalterable hasta la II República, que trasladó ese poder al Tribunal Supremo con una apostilla en alusión, sobre todo, a la pena de muerte: “En los delitos de extrema gravedad, podrá indultar el presidente de la república”.
 
