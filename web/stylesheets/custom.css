@@ -9,6 +9,15 @@
   transform:rotate(-2deg);
 }
 
+#search-form .control-group {
+  margin-bottom: 14px;
+}
+
+#search-form,
+#search-form .control-group:last-child {
+  margin-bottom: 0;
+}
+
 /* @group Social sharing */
 .social-sharing {
   background: #ffffff;
