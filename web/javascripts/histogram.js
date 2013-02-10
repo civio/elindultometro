@@ -1,9 +1,9 @@
 function Histogram(container, onClickCallback) {
 
-  // FIXME: hardcoded size
-  var margin = {top: 20, right: 20, bottom: 30, left: 60},
-      width = 800 - margin.left - margin.right,
-      height = 300 - margin.top - margin.bottom;
+  var totalWidth = Math.min(800, $(container).width()); // 800: max width
+  var margin = {top: 20, right: 20, bottom: 30, left: 60};
+  var width = totalWidth - margin.left - margin.right;
+  var height = (width / 2) - margin.top - margin.bottom;
 
   var x = d3.scale.ordinal()
       .rangeRoundBands([0, width], 0.1);
@@ -24,6 +24,10 @@ function Histogram(container, onClickCallback) {
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  // Make sure the container is centered if we're not using the whole width
+  var extraMargin = Math.max(0, $(container).width() - totalWidth) / 2;
+  $(container).css('margin-left', extraMargin);
 
   var data = null;
 
