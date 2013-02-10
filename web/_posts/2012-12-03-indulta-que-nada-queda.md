@@ -32,7 +32,7 @@ Pero lo que convierte estos casos en doblemente repugnantes es que en ellos el i
 
 ¿Cómo reaccionar frente a esto?  No procede eliminar esta institución, por supuesto, ya que en circunstancias normales, en un régimen menos partitocrático, podría cumplir perfectamente su función. Quizá se pueda mejorar, exigiendo al Gobierno que a la hora de indultar exponga detalladamente las razones que a su juicio justifican la medida, para que todos las podamos leer en el BOE. Pero lo verdaderamente decisivo es que la ciudadanía esté dispuesta a protestar y a castigar electoralmente este tipo de comportamientos. La desvergüenza con la que han sido realizados hasta ahora obedece a la conciencia de que salían gratis, de que tras indultar no quedaba nada, ningún coste que asumir. Quizá porque la política española es el único ámbito de la sociedad en el que todavía, desgraciadamente, Todo es Gratis (TeG).
 
-*Rodrigo Tena Arregui es notario y editor del blog [¿Hay Derecho?][6], donde fue publicado [originariamente][7] este post.*
+*Rodrigo Tena Arregui es notario, editor del blog [¿Hay Derecho?][6] - donde fue publicado [originariamente][7] este post - y patrono de la [Fundación Ciudadana Civio][8].*
 
 [1]: http://imagenes.publico.es/resources/archivos/2012/11/29/1354178567342Indulto.pdf
 [2]: http://pda.elpais.com/index.php?module=elp_pdapsp&page=elp_pda_noticia&idNoticia=20121201elpneppol_11.Tes&seccion=nac
@@ -41,3 +41,4 @@ Pero lo que convierte estos casos en doblemente repugnantes es que en ellos el i
 [5]: http://hayderecho.com/2011/12/12/honorable-por-decreto/
 [6]: http://hayderecho.com
 [7]: http://hayderecho.com/2012/12/03/indulta-que-nada-queda-teg/
+[8]: http://www.civio.es
