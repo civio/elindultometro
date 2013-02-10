@@ -67,11 +67,9 @@ class IndultometroApp < Sinatra::Base
     set_cache_headers
 
     categories = CrimeCategory.all(:crime_sub_cat => nil)
-    result = categories.collect do |category|
-      { 
-        :category => category.crime_cat,
-        :description => category.description
-      }
+    result = {}
+    categories.each do |category|
+      result[category.crime_cat] = { :description => category.description }
     end
 
     send_response(response, result, params)

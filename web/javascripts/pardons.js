@@ -51,6 +51,15 @@ $(function() {
     return histogramData;
   }
 
+  function populateCategories(categories) {
+    $.each(categories, function(key, value) {
+      $('#search-form-category')
+          .append($('<option>', { value : key })
+          .text(value.description));
+    });
+    $('#search-form-category').trigger("liszt:updated");
+  }
+
   function resetState() {
     $("#search-form-query").val("");  // Clean search form
     $("#search-form-category").val('').trigger("liszt:updated");
@@ -76,6 +85,12 @@ $(function() {
   searchResults = null;
   histogram = new Histogram('#histogram', changeDisplayedYear);
   resetState();
+  $(".chzn-select").chosen();
+
+  // Populate the categories dropdown
+  $.ajax({
+    url: '/api/categories'
+  }).success(populateCategories);
 
   // Implement button to clear form
   $('#clear-form-button').click(function(){ resetState(); return false; });
@@ -95,6 +110,4 @@ $(function() {
     });
     return false;
   });
-
-  $(".chzn-select").chosen();
 });
