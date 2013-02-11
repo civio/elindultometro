@@ -16,7 +16,7 @@ class IndultometroApp < Sinatra::Base
 
   # Enable serving of static files
   set :static, true
-  set :static_cache_control, [:public, :must_revalidate, :max_age => 600]
+  set :static_cache_control, [:public, :must_revalidate, :max_age => 3600]
   set :public_folder, 'web/_site'
   set :cache, Dalli::Client.new
 
@@ -182,14 +182,15 @@ class IndultometroApp < Sinatra::Base
 
   def set_cache_headers
     # TODO: Improve caching with ETags http://www.sinatrarb.com/intro#Cache%20Control
-    cache_control :public, :must_revalidate, :max_age => 600
+    cache_control :public, :must_revalidate, :max_age => 3600
   end
 
   def send_response(response, result, params)
     if params['callback']
       response.headers['Content-Type'] = 'text/javascript; charset=utf8'
       response.headers['Access-Control-Allow-Origin'] = '*'
-      # FIXME response.headers['Access-Control-Max-Age'] = '3600'
+      # TODO: Is this needed? Not using JSONP now anyway
+      # response.headers['Access-Control-Max-Age'] = '3600'
       response.headers['Access-Control-Allow-Methods'] = 'GET'
 
       "#{params['callback']}(#{result.to_json})"
