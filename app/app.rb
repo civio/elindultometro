@@ -19,6 +19,7 @@ class IndultometroApp < Sinatra::Base
   set :static, true
   set :static_cache_control, [:public, :must_revalidate, :max_age => 600]
   set :public_folder, 'web/_site'
+  set :cache, Dalli::Client.new
 
   get '/' do
     redirect '/index.html'
