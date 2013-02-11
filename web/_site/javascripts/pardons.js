@@ -4,11 +4,11 @@ $(function() {
     $("#too-many-results-alert").hide();
     $('#indultos tbody').empty();
     var fragments = [];
-    var tooManyResults = false;
+    var displayedResults = 0;
     $.each(data, function(i, pardon) {
       // Limit maximum number of records in table, otherwise Safari crashes
       // TODO: Could do this browser-dependent, but low priority
-      if ( i < 500 ) {
+      if ( displayedResults < 500 ) {
         if ( typeof(selectedYear)=='undefined' || selectedYear===null || selectedYear==pardon['pardon_year'] ) {
           fragments.push('<tr>');
           fragments.push('<td>'+pardon['pardon_date']+'</td>');
@@ -16,13 +16,12 @@ $(function() {
           fragments.push('<td>'+pardon['crime']+'</td>');
           fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">Más &rarr;</td>');
           fragments.push('</tr>');
+          displayedResults += 1;
         }
-      } else {
-        tooManyResults = true;
       }
     });
 
-    if ( tooManyResults )
+    if ( displayedResults == 500 )
       $('#too-many-results-alert').show();
 
     $(fragments.join('')).appendTo('#indultos tbody');
