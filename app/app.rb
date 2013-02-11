@@ -17,6 +17,7 @@ class IndultometroApp < Sinatra::Base
 
   # Enable serving of static files
   set :static, true
+  set :static_cache_control, [:public, :must_revalidate, :max_age => 600]
   set :public_folder, 'web/_site'
 
   get '/' do
