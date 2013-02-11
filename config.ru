@@ -1,9 +1,9 @@
 RACK_ENV='development' if not defined?(RACK_ENV)
 
 # Defined in ENV on Heroku. To try locally, start memcached and uncomment:
-# ENV["MEMCACHE_SERVERS"] = "localhost"
+# ENV["MEMCACHIER_SERVERS"] = "localhost"
 # see http://henrik.nyh.se/2012/07/sinatra-with-rack-cache-on-heroku/
-if memcache_servers = ENV["MEMCACHE_SERVERS"]
+if memcache_servers = ENV["MEMCACHIER_SERVERS"]
   use Rack::Cache,
     verbose: true,
     metastore:   "memcached://#{memcache_servers}",
