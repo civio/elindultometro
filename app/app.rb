@@ -67,14 +67,19 @@ class IndultometroApp < Sinatra::Base
     send_response(response, result, params)
   end
 
-  # Return all categories and subcategories
+  # Return all categories and subcategories.
+  # Subcategories are expressed in the form <category id>.<subcategory id>
   get '/api/categories' do
     set_cache_headers
 
-    categories = CrimeCategory.all(:crime_sub_cat => nil)
+    categories = CrimeCategory.all
     result = {}
     categories.each do |category|
-      result[category.crime_cat] = { :description => category.description }
+      if category.crime_sub_cat.nil?
+        result[category.crime_cat] = category.description
+      else
+        result["#{category.crime_cat}.#{category.crime_sub_cat}"] = category.description
+      end
     end
 
     send_response(response, result, params)
@@ -141,8 +146,19 @@ class IndultometroApp < Sinatra::Base
 
     unless params['category'].nil? or params['category']==''
       full_database = false
+
+      # The given argument could be a subcategory (category.subcategory), so we split along '.'
+      category, subcategory = params['category'].split('.')
+
+      # The category is always there...
       sql += " AND pcc.crime_cat = ?"
-      sql_arguments.push params['category']
+      sql_arguments.push category
+
+      # The subcategory sometimes
+      if subcategory
+        sql += " AND pcc.crime_sub_cat = ?"
+        sql_arguments.push subcategory
+      end
     end
 
     # Run the query and return the results. Return nothing if no parameters are sent

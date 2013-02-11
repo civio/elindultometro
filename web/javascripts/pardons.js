@@ -1,20 +1,32 @@
 $(function() {
   function populateResultsTable(data, selectedYear) {
     $("#waiting-indicator").hide();
+    $("#too-many-results-alert").hide();
     $('#indultos tbody').empty();
     var fragments = [];
-    $.each(data, function(key, pardon) {
-      if ( typeof(selectedYear)=='undefined' || selectedYear===null || selectedYear==pardon['pardon_year'] ) {
-        fragments.push('<tr>');
-        fragments.push('<td>'+pardon['pardon_date']+'</td>');
-        fragments.push('<td>'+pardon['pardon_type']+'</td>');
-        fragments.push('<td>'+pardon['crime']+'</td>');
-        fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">Más &rarr;</td>');
-        fragments.push('</tr>');
+    var tooManyResults = false;
+    $.each(data, function(i, pardon) {
+      // Limit maximum number of records in table, otherwise Safari crashes
+      // TODO: Could do this browser-dependent, but low priority
+      if ( i < 500 ) {
+        if ( typeof(selectedYear)=='undefined' || selectedYear===null || selectedYear==pardon['pardon_year'] ) {
+          fragments.push('<tr>');
+          fragments.push('<td>'+pardon['pardon_date']+'</td>');
+          fragments.push('<td>'+pardon['pardon_type']+'</td>');
+          fragments.push('<td>'+pardon['crime']+'</td>');
+          fragments.push('<td><a href="/indulto.html?id='+pardon['id']+'">Más &rarr;</td>');
+          fragments.push('</tr>');
+        }
+      } else {
+        tooManyResults = true;
       }
     });
+
+    if ( tooManyResults )
+      $('#too-many-results-alert').show();
+
     $(fragments.join('')).appendTo('#indultos tbody');
-    $('#indultos').fadeIn();
+    $('#search-results-container').fadeIn();
     $('.footable').footable();
   }
 
@@ -22,7 +34,7 @@ $(function() {
     if ( searchResults == null ) { // We're not filtering existing results, just browsing
       var deselecting = ( typeof(year)==='undefined' );
       if ( deselecting ) {
-        $('#indultos').fadeOut();
+        $('#search-results-container').fadeOut();
       } else {
         $("#waiting-indicator").show();
         $.ajax({
@@ -56,21 +68,34 @@ $(function() {
   }
 
   function populateCategories(categories) {
-    $.each(categories, function(key, value) {
-      $('#search-form-category')
-          .append($('<option>', { value : key })
-          .text(value.description));
+    // Chrome will not respect the order of the JSON object, so we have to sort ourselves
+    var keys = [];
+    $.each(categories, function(key, value) { keys.push(key+''); });
+
+    // And now we do populate the select
+    $.each(keys.sort(), function(i, key) {
+      if ( key.indexOf('.') == -1 ) { // We have a category...
+        $('#search-form-category')
+            .append($('<option>', { value : key })
+            .attr('style', 'font-weight: bold')
+            .text(categories[key]));
+      } else {                          // ...or a subcategory
+        $('#search-form-category')
+            .append($('<option>', { value : key })
+            .attr('style', 'margin-left: 10px')
+            .text(categories[key]));
+      }
     });
     $('#search-form-category').trigger("liszt:updated");
   }
 
   function resetState() {
-    $("#search-form-query").val("");  // Clean search form
+    $("#search-form-query").val("");            // Clean search form
     $("#search-form-category").val('').trigger("liszt:updated");
     $("#search-form-region").val('').trigger("liszt:updated");
 
-    $('#indultos').fadeOut();         // Hide the results table
-    histogram.clearSelection();       // Clean histogram selection
+    $('#search-results-container').fadeOut();   // Hide the results table
+    histogram.clearSelection();                 // Clean histogram selection
     searchResults = null;
 
     // Get yearly summary from server, as a starting point
@@ -85,7 +110,7 @@ $(function() {
   }
 
   $("#waiting-indicator").hide();
-  $('#indultos').hide();
+  $('#search-results-container').hide();
   summaryData = null;
   searchResults = null;
   histogram = new Histogram('#histogram', changeDisplayedYear);

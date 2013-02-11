@@ -116,15 +116,16 @@
               <div class="control-group">
                 <label class="control-label" for="category">Categoría</label>
                 <div class="controls">
-                  <select name="category" data-placeholder="Elige una categoría" id="search-form-category" class="chzn-select">
+                  <select name="category" data-placeholder="Elige una categoría" id="search-form-category" class="chzn-select span6">
                     <option value=""></option>
                   </select>
+                  <span class="help-inline chzn-tweak">Según el Código Penal</span>
                 </div>
               </div>
               <div class="control-group">
                 <label class="control-label" for="region">Comunidad</label>
                 <div class="controls">
-                  <select name="region" data-placeholder="Elige una comunidad autónoma" id="search-form-region" class="chzn-select">
+                  <select name="region" data-placeholder="Elige una comunidad autónoma" id="search-form-region" class="chzn-select span6">
                     <option value=""></option>
                     <option value="01">Andalucía</option>
                     <option value="02">Aragón</option>
@@ -173,20 +174,26 @@
           <div id="pop-up-title"></div>
           <div id="pop-up-content">Haz click para verlos en detalle</div>
         </div>
-        <small>
-          <table class="table table-bordered table-striped footable" id="indultos">
-            <thead>
-              <tr>
-                <th data-sort-initial="true">Fecha</th>
-                <th data-hide="phone">Tipo</th>
-                <th data-hide="phone">Delito</th>
-                <th data-class="expand" data-sort-ignore="true">Detalle</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </small>
+
+        <div id="search-results-container">
+          <small>
+            <table class="table table-bordered table-striped footable" id="indultos">
+              <thead>
+                <tr>
+                  <th data-sort-initial="true">Fecha</th>
+                  <th data-hide="phone">Tipo</th>
+                  <th data-hide="phone">Delito</th>
+                  <th data-class="expand" data-sort-ignore="true">Detalle</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <div class="alert alert-info alert-block fade in" id="too-many-results-alert">
+              <p>Nota: La tabla sólo muestra los primeros 500 resultados.</p>
+            </div>
+          </small>
+        </div>
       </div>
     </div>
   </div>
