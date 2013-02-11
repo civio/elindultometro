@@ -7,4 +7,6 @@ gem "thin"
 gem "json"
 gem 'pg'
 
+gem "dalli"
+gem "rack-cache"
 gem 'newrelic_rpm'

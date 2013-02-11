@@ -2,6 +2,9 @@ require "rubygems"
 require "bundler/setup"
 
 require 'sinatra/base'
+require 'dalli'
+require 'rack-cache'
+
 require 'json'
 require './app/model'
 
