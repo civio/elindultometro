@@ -166,8 +166,9 @@ class IndultometroApp < Sinatra::Base
     end
 
     # Run the query and return the results. Return nothing if no parameters are sent
+    # TODO: Adding the group by here is a bit of a last minute hack
     result = []
-    result = repository(:default).adapter.select(sql, *sql_arguments) unless full_database
+    result = repository(:default).adapter.select(sql+" GROUP BY p.id", *sql_arguments) unless full_database
     result.collect! {|pardon| pardon_summary(pardon) }
     send_response(response, result, params)
   end
