@@ -57,9 +57,17 @@ $(function() {
 
   function populateCategories(categories) {
     $.each(categories, function(key, value) {
-      $('#search-form-category')
-          .append($('<option>', { value : key })
-          .text(value.description));
+      if ( key.indexOf('.') == -1 ) { // We have a category...
+        $('#search-form-category')
+            .append($('<option>', { value : key })
+            .attr('style', 'font-weight: bold')
+            .text(value));
+      } else {                          // ...or a subcategory
+        $('#search-form-category')
+            .append($('<option>', { value : key })
+            .attr('style', 'margin-left: 10px')
+            .text(value));
+      }
     });
     $('#search-form-category').trigger("liszt:updated");
   }

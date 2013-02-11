@@ -28,9 +28,17 @@
   margin-bottom: 0;
 }
 
+.chzn-container {
+  margin-top: 5px;
+}
+
 .help-inline {
   color: #999;
   font-size: 12px;
+}
+
+span.help-inline.chzn-tweak {
+  margin-top: -15px;
 }
 
 /* @group Social sharing */
