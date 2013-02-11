@@ -9,4 +9,5 @@ gem 'pg'
 
 gem 'dalli'
 gem 'memcachier'
+gem 'rack-cache'
 gem 'newrelic_rpm'
