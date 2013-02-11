@@ -68,17 +68,22 @@ $(function() {
   }
 
   function populateCategories(categories) {
-    $.each(categories, function(key, value) {
+    // Chrome will not respect the order of the JSON object, so we have to sort ourselves
+    var keys = [];
+    $.each(categories, function(key, value) { keys.push(key+''); });
+
+    // And now we do populate the select
+    $.each(keys.sort(), function(i, key) {
       if ( key.indexOf('.') == -1 ) { // We have a category...
         $('#search-form-category')
             .append($('<option>', { value : key })
             .attr('style', 'font-weight: bold')
-            .text(value));
+            .text(categories[key]));
       } else {                          // ...or a subcategory
         $('#search-form-category')
             .append($('<option>', { value : key })
             .attr('style', 'margin-left: 10px')
-            .text(value));
+            .text(categories[key]));
       }
     });
     $('#search-form-category').trigger("liszt:updated");
