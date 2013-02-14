@@ -49,7 +49,7 @@ nav_section: all_pardons
 </div>
 <script> 
   $(function() {
-    var id = URI.parseQuery(window.location.search)['id'];
+    var id = URI.parseQuery(window.location.search)['id'].replace(/(<([^>]+)>)/ig,"");
     var boeURL = 'http://www.boe.es/diario_boe/txt.php?id='+id;
     $("#h1_pardon").html('Indulto <a target="_blank" href="'+boeURL+'">'+id+'</td></tr>')
     $("#boe-link").attr('href', boeURL);
