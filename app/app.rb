@@ -136,7 +136,7 @@ class IndultometroApp < Sinatra::Base
   end
   
   # Return percentiles timeDiff by crime category 
-  get '/api/pardons/categories/percentiles' do
+  get '/api/categories/percentiles' do
     set_cache_headers
 
     percentiles = repository(:default).adapter.select('
