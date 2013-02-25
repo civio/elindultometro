@@ -103,6 +103,67 @@ class IndultometroApp < Sinatra::Base
 
     send_response(response, result, params)
   end
+  
+  # Return <limit> pardons with the least timeDiff between trial and sentence dates 
+  get '/api/pardons/timediff/:limit' do
+    set_cache_headers
+
+    pardons = []
+    if ( params['limit'] ) # Otherwise returning the whole DB is too much
+      # Define basic query. We need custom SQL for free-text stuff
+      sql_arguments = []
+      sql = "SELECT 
+          p.id,
+          p.pardon_date,
+          p.pardon_type, 
+          p.crime, 
+          (p.pardon_date - p.trial_date) as diffdays
+        FROM
+          pardons as p
+        ORDER BY 
+          diffdays asc
+        LIMIT ?"
+      sql_arguments.push params['limit']
+      result = []
+      pardons = repository(:default).adapter.select(sql, *sql_arguments)
+      pardons.each do |item| 
+        result.push({ :id => item.id, :pardon_date => item.pardon_date, 
+                      :pardon_type => item.pardon_type, :crime => item.crime, :diffdays => item.diffdays})
+      end
+    end
+
+    send_response(response, result, params)
+  end
+  
+  # Return percentiles timeDiff by crime category 
+  get '/api/pardons/categories/percentiles' do
+    set_cache_headers
+
+    percentiles = repository(:default).adapter.select('
+      SELECT 
+        pcc.crime_cat as crime_cat,
+        count(*) as num_crimes, 
+        percentile_cont(array_agg(p.pardon_date - p.trial_date),0.25) as q1,
+        percentile_cont(array_agg(p.pardon_date - p.trial_date),0.50) as q2,
+        percentile_cont(array_agg(p.pardon_date - p.trial_date),0.75) as q3
+      FROM
+        pardons as p, 
+        pardon_crime_categories as pcc
+      WHERE 
+        p.id = pcc.boe AND
+        p.trial_date IS NOT NULL
+      GROUP BY 
+        pcc.crime_cat
+      ORDER BY 
+        q2 desc')
+    result = []
+    percentiles.each do |item| 
+      result.push({ :crime_cat => item.crime_cat.to_i, :count => item.num_crimes, 
+                    :q1 => item.q1, :q2 => item.q2, :q3 => item.q3})
+    end
+
+    send_response(response, result, params)
+  end
 
   # Return all known details for a given pardon id
   get '/api/pardons/:id' do
