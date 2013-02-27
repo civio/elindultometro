@@ -3,7 +3,7 @@ layout: post
 title: Los indultos más rápidos a este lado de los Pirineos
 author: Eva Belmonte y Juan Elosua
 lead: Análisis sobre el tiempo transcurrido entre la condena y el indulto por categoría de delito. Detalle de los indultos más rápidos.
-image: /images/posts/ministerio-justicia-870x300.jpg
+image: /images/posts/rapidos-870x300.jpg
 ---
 {% include billie-libs.html %}
 {% include sharing.html %}
