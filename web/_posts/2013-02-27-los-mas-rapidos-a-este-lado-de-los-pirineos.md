@@ -33,7 +33,7 @@ El número 1 es para la ya mencionada madre de Pozo Alcón, una mujer condenada 
 
 Dentro de este Top20 de los más veloces en tumbar la condena destacan dos condenados por delitos contra la seguridad del tráfico a los que el indulto levantó la prohibición de conducir durante un año y un día a la que habían sido condenados. [Uno de ellos][10] recibió la medida de gracia en 100 días y, [el otro][11], en 128, unos tiempos muy alejados de la mediana registrada en delitos contra la seguridad colectiva, que es de 889 días. También encontramos condenados por robo ([aquí][12] y [aquí][13]), lesiones ([aquí][14] y [aquí][15]), [negarse a realizar el servicio militar][16] y [quebrantamiento][17] de condena.
 
-Pero quienes engrosan esta lista de los 20 más rápidos son, sin duda, diez condenados por malversación de caudales públicos, secuestro y/o detención ilegal relacionados con los GAL. Todos ellos fueron indultados en 1998, justo 147 días después de que se dictara su sentencia. 
+**Pero quienes engrosan esta lista de los 20 más rápidos son, sin duda, diez condenados por malversación de caudales públicos, secuestro y/o detención ilegal relacionados con los GAL. Todos ellos fueron indultados en 1998, justo 147 días después de que se dictara su sentencia.** 
 <div id="sTable"></div>
 {% include sharing.html %}
 
