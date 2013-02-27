@@ -128,7 +128,7 @@ class IndultometroApp < Sinatra::Base
       pardons = repository(:default).adapter.select(sql, *sql_arguments)
       pardons.each do |item| 
         result.push({ :id => item.id, :pardon_date => item.pardon_date, 
-                      :pardon_type => item.pardon_type, :crime => item.crime, :diffdays => item.diffdays})
+                      :pardon_type => item.pardon_type, :crime => item.crime, :diffdays => item.diffdays.to_i})
       end
     end
 
