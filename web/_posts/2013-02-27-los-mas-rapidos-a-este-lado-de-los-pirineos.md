@@ -40,7 +40,7 @@ Pero quienes engrosan esta lista de los 20 más rápidos son, sin duda, diez con
     <table class="table table-bordered table-striped footable" id="indultos">
       <thead>
         <tr>
-          <th>Fecha</th>
+          <th width="70">Fecha</th>
           <th data-hide="phone">Tipo</th>
           <th data-hide="phone">Delito</th>
           <th data-hide="phone" data-type="numeric" data-sort-initial="true" width="50">Días</th>
