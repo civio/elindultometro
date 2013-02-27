@@ -6,7 +6,6 @@ lead: Análisis sobre el tiempo transcurrido entre la condena y el indulto por c
 image: /images/posts/rapidos-870x300.jpg
 ---
 {% include billie-libs.html %}
-{% include sharing.html %}
 
 ¿Cuánto tiempo pasa desde que una persona es condenada hasta que se le concede el indulto? Ésta, como muchas otras piezas que articulan la medida de gracia, no está regulada. El lapso de tiempo entre la sentencia y el decreto que la conmuta o anula depende de dos variables: lo que tarde el condenado o cualquier persona en su nombre (no es necesario contar ni tan sólo con su aprobación) en reclamar esta medida a través del [formulario][1] que [se hace llegar][2] al Ministerio de Justicia; y, sobre todo, la demora del Gobierno en tomar una decisión sobre la petición. Las única norma que lo regula, aunque sea de una forma poco precisa, es la [reforma de 1988][3], que estableció que las solicitudes en las que tribunal sentenciador, condenado y fiscal estuvieran de acuerdo se tramitarían “de forma preferente”, sin más especificaciones. También pasan primeros en la lista aquellos indultos calificados, según el criterio del gobierno de turno, “de especial urgencia o importancia”.
 
@@ -33,6 +32,8 @@ El número 1 es para la ya mencionada madre de Pozo Alcón, una mujer condenada 
 Dentro de este Top20 de los más veloces en tumbar la condena destacan dos condenados por delitos contra la seguridad del tráfico a los que el indulto levantó la prohibición de conducir durante un año y un día a la que habían sido condenados. [Uno de ellos][10] recibió la medida de gracia en 100 días y, [el otro][11], en 128, unos tiempos muy alejados de la mediana registrada en delitos contra la seguridad colectiva, que es de 889 días. También encontramos condenados por robo ([aquí][12] y [aquí][13]), lesiones ([aquí][14] y [aquí][15]), [negarse a realizar el servicio militar][16] y [quebrantamiento][17] de condena.
 
 Pero quienes engrosan esta lista de los 20 más rápidos son, sin duda, diez condenados por malversación de caudales públicos, secuestro y/o detención ilegal relacionados con los GAL. Todos ellos fueron indultados en 1998, justo 147 días después de que se dictara su sentencia. 
+
+{% include sharing.html %}
 
 <div id="results-container">
   <small>
