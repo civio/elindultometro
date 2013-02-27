@@ -10,17 +10,11 @@
 
 // Function to animate the height of carousel in case of slides with different heights
 function carouselInit() {
-    var carousel = $('#myCarousel'),
-        defaultHeight = carousel.find('.active').height();
-
-    // setting the default height
-    carousel.css('min-height', defaultHeight);
+    var carousel = $('#myCarousel');
 
     // animate the container height on any slider transitiom
     carousel.bind('slid', function() {
         var itemheight = carousel.find('.active').height();
-
-        carousel.css('min-height', itemheight);
         carousel.animate({
             height: itemheight
         }, 50 );

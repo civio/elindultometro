@@ -19,6 +19,10 @@
   padding-bottom: 30px;
 }
 
+#myCarousel {
+  min-height: 380px;
+}
+
 #search-form .control-group {
   margin-bottom: 14px;
 }
