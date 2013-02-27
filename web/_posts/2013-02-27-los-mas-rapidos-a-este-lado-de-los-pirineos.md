@@ -2,7 +2,7 @@
 layout: post
 title: Los indultos más rápidos a este lado de los Pirineos
 author: Eva Belmonte y Juan Elosua
-lead: Análisis sobre el tiempo transcurrido entre la condena y el indulto por categoría de delito. Detalle de los indultos más rápidos.
+lead: Un análisis sobre el tiempo transcurrido entre la condena y el indulto por categoría de delito y un repaso por las medidas de gracia más veloces.
 image: /images/posts/rapidos-870x300.jpg
 ---
 {% include billie-libs.html %}
@@ -23,7 +23,9 @@ La [mediana][] total es de 976 días (2,67 años), pero esta cifra varía mucho 
 
 [mediana]: http://es.wikipedia.org/wiki/Mediana_(estad%C3%ADstica)
 
-## EL TOP20 DE LOS MÁS VELOCES
+## EL [TOP20][] DE LOS MÁS VELOCES
+
+[top20]: #sTable
 
 Pero siempre existen casos dispuestos a romper las estadísticas. Entre los más rápidos, por ejemplo, podemos encontrar a un jefe de servicio de la administración autonómica en Castilla y León cuando el 2 de octubre de 1999 fue condenado por prevaricación. El 10 de mayo de ese mismo año, sólo 123 días después, el Gobierno de Aznar le concedió el [indulto][6] y suprimió la inhabilitación para cargo público de siete años que pesaba sobre él. Así, ya en 2003 [presidía ponencias][7] municipales y también le pudimos volver a ver firmar disposiciones como jefe de servicio territorial de la consejería de Medio Ambiente de Castilla y León poco después, como en [este][8] Boletín Oficial de la provincia de Salamanca de 2004.
 
@@ -32,8 +34,10 @@ El número 1 es para la ya mencionada madre de Pozo Alcón, una mujer condenada 
 Dentro de este Top20 de los más veloces en tumbar la condena destacan dos condenados por delitos contra la seguridad del tráfico a los que el indulto levantó la prohibición de conducir durante un año y un día a la que habían sido condenados. [Uno de ellos][10] recibió la medida de gracia en 100 días y, [el otro][11], en 128, unos tiempos muy alejados de la mediana registrada en delitos contra la seguridad colectiva, que es de 889 días. También encontramos condenados por robo ([aquí][12] y [aquí][13]), lesiones ([aquí][14] y [aquí][15]), [negarse a realizar el servicio militar][16] y [quebrantamiento][17] de condena.
 
 Pero quienes engrosan esta lista de los 20 más rápidos son, sin duda, diez condenados por malversación de caudales públicos, secuestro y/o detención ilegal relacionados con los GAL. Todos ellos fueron indultados en 1998, justo 147 días después de que se dictara su sentencia. 
-
+<div id="sTable"></div>
 {% include sharing.html %}
+
+## Los 20 indultos más veloces
 
 <div id="results-container">
   <small>
