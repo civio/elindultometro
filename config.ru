@@ -16,5 +16,14 @@ if memcache_servers = ENV["MEMCACHIER_SERVERS"]
     entitystore: "memcached://#{memcache_servers}"
 end
 
+# get csv files with Rack
+map "/get/rel_post_gender.csv" do
+    run Rack::File.new("./data/rel_post_gender.csv")
+end
+
+map "/get/rel_post_crime.csv" do
+    run Rack::File.new("./data/rel_post_crime.csv")
+end
+
 run IndultometroApp
  
