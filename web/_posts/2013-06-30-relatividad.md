@@ -13,7 +13,7 @@ image: /images/posts/prision_870_300.jpg
 
 ## Análisis por categoría de delito
 
-En cada listado de reales decretos de indultos publicado en el BOE destacan, por encima del resto, las medidas de gracia concedidas a condenados por delitos contra la salud pública. En total, de los 10.319 indultados desde 1996, 2.915 habían sido condenados por ese delito. Para muchos jueces, esta es una muestra del uso del indulto como paliativo contra unas penas demasiado severas en estos delitos, que a veces simplemente consisten en el menudeo de drogas. Le siguen, de cerca, los delitos por robos (2.024 indultados en las fechas que abarca el análisis de El Indultómetro). Pero estos datos tienen trampa: también son los más habituales en las listas anuales de condenados.
+En cada listado de reales decretos de indultos publicado en el BOE destacan, por encima del resto, las medidas de gracia concedidas a condenados por delitos contra la salud pública. En total, de los 10.338 indultados desde 1996, 2.922 habían sido condenados por ese delito. Para muchos jueces, esta es una muestra del uso del indulto como paliativo contra unas penas demasiado severas en estos delitos, que a veces simplemente consisten en el menudeo de drogas. Le siguen, de cerca, los delitos por robos (2.026 indultados en las fechas que abarca el análisis de El Indultómetro). Pero estos datos tienen trampa: también son los más habituales en las listas anuales de condenados.
 
 Entonces, ¿qué crímenes son los que más se indultan? Delitos contra el medio ambiente, prevaricación de funcionarios públicos, delitos cometidos por funcionarios contra la libertad individual y malversación suman los porcentajes más altos (ver [metodologia][]) de medidas de gracia por condenas. Tres de esos cuatro delitos tienen que ver, directamente, con el ejercicio de un cargo público o la sustracción de dinero de las arcas de las administraciones.
 
@@ -39,7 +39,7 @@ Junto a los delitos contra el medio ambiente, son justo aquellos cometidos por f
 
 ## Análisis por género <a id="genero"></a>
 
-Otro ejemplo de diferencias entre términos absolutos y relativos: los hombres se benefician de más indultos (935 en esos cuatro años frente a 239) porque también son mayoría aplastante entre los condenados (1.722.419 frente a 162.245). Pero, en proporción, las mujeres reciben en más ocasiones esa medida de gracia (14 de cada 10.000 condenadas frente a 5 de cada 10.000 condenados).
+Otro ejemplo de diferencias entre términos absolutos y relativos: los hombres se benefician de más indultos (939 en esos cuatro años frente a 239) porque también son mayoría aplastante entre los condenados (1.722.419 frente a 162.245). Pero, en proporción, las mujeres reciben en más ocasiones esa medida de gracia (14 de cada 10.000 condenadas frente a 5 de cada 10.000 condenados).
 <div class="graph-container">
   <div class="buttons">
     <button class="pie first active" id="abs">Absoluto</button>
@@ -54,13 +54,13 @@ _\(\*\) Los botones de la visualización permiten cambiar la vista entre valores
 
 ## METODOLOGÍA
 
-¿Por qué analizamos los condenados, precisamente, entre 2007 y 2010? ¿Cómo hemos hecho la metodología? Para realizar el análisis conjunto de los datos hemos utilizado dos fuentes: los indultos publicados en el [BOE][] hasta el 10 de diciembre de 2013 y las cifras de condenados del [INE][]. Estas últimas sufrieron una variación importante en [2007][], cuando la forma de recabar información fue modificada. Hasta entonces, la recogida de información se realizaba trimestralmente mediante un boletín en papel que cumplimentaban los órganos judiciales. Por eso analizamos los datos desde 2007, justo cuando arrancó ese sistema de medida.
+¿Por qué analizamos los condenados, precisamente, entre 2007 y 2010? ¿Cómo hemos hecho la metodología? Para realizar el análisis conjunto de los datos hemos utilizado dos fuentes: los indultos publicados en el [BOE][] hasta el 31 de diciembre de 2013 y las cifras de condenados del [INE][]. Estas últimas sufrieron una variación importante en [2007][], cuando la forma de recabar información fue modificada. Hasta entonces, la recogida de información se realizaba trimestralmente mediante un boletín en papel que cumplimentaban los órganos judiciales. Por eso analizamos los datos desde 2007, justo cuando arrancó ese sistema de medida.
 
 ¿Y por qué hasta 2010? El [periodo medio] de espera entre condena e indulto en el global de las medidas de gracia analizadas en El Indultómetro es de casi tres años el periodo de análisis con el que hemos realizado esta investigación comienza en 2010 y termina en 2007 debido al cambio metodológico en el INE.
 
 En el caso de los indultos tomamos como fecha de referencia la fecha de la sentencia del tribunal indicada en cada disposición del BOE.
 
-_Nota: La última fecha de publicación del BOE en el que hemos analizado indultos es: 10 de diciembre de 2013._
+_Nota: La última fecha de publicación del BOE en el que hemos analizado indultos es: 31 de diciembre de 2013._
 
 [Código Penal]: https://www.boe.es/buscar/act.php?id=BOE-A-1995-25444
 [metodologia]: #metod
