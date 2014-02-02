@@ -7,7 +7,7 @@ TODO: Documentar esto mucho mejor :/
 
  * [Instalar Jekyll][1]
         
- * Arrancar Jekyll: `jekyll --serve --auto`
+ * Arrancar Jekyll, desde el directorio `web`: `jekyll serve --watch`
 
 [1]: http://jekyllbootstrap.com/usage/jekyll-quick-start.html
 
