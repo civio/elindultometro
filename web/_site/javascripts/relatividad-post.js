@@ -1,5 +1,5 @@
 $(function() {
-  function loadBarChartData() {
+  function loadBarChartData(eng) {
     // Get data from server
     d3.csv("/get/rel_post_crime.csv", function(error, data) {
       if (error) return console.warn(error);
@@ -8,12 +8,12 @@ $(function() {
         d.pardoned = +d.pardoned;
         d.percentage = d.pardoned *100/ d.convicted
       });
-      hbarchart.draw(data)
-      loadPieChartData()
+      hbarchart.draw(data,eng)
+      loadPieChartData(eng)
     });
   }
   
-  function loadPieChartData() {
+  function loadPieChartData(eng) {
     // Get data from server
     var view = $("button.pie").attr("id")
     d3.csv("/get/rel_post_gender.csv", function(error, data) {
@@ -23,7 +23,7 @@ $(function() {
         d.pardoned = +d.pardoned;
         d.percentage = d.pardoned *10000/ d.convicted
       });
-      piechart.draw(data,view);
+      piechart.draw(data,view,eng);
     });
   }
   
@@ -37,5 +37,12 @@ $(function() {
   
   hbarchart = new HBarChart('#hbarchart');
   piechart = new PieChart('#piechart');
-  loadBarChartData();
+  var pathname = $(location).attr('pathname');
+  if (pathname.indexOf("relativity") != -1) {
+    loadBarChartData(true);
+  }
+  else {
+    loadBarChartData(false);
+  }
+  
 });

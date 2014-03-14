@@ -4,8 +4,11 @@ function PieChart(container) {
       height = 300,
       radius = Math.min(width, height) / 2;
   var path = null;
+  var bEnglish = false; // Check if text should go in english
 
   // accessor functions 
+  var fthousand = d3.format(",");
+  
   var color = d3.scale.ordinal()
               .range(["#41B7D8", "#E9A3C9"]);
 
@@ -17,7 +20,8 @@ function PieChart(container) {
             .outerRadius(radius - 10)
             .innerRadius(0);
   
-  this.draw = function(data,view) {
+  this.draw = function(data,view,eng) {
+    bEnglish = eng;
     createChart(data,view);
   };
   
@@ -50,7 +54,7 @@ function PieChart(container) {
 
   function onMouseOver(d) {
     d3.select(this).classed("hovered",true);
-    $("#pop-up-title").html(d.data.gender);
+    bEnglish ? $("#pop-up-title").html(d.data.gender_eng) : $("#pop-up-title").html(d.data.gender);
     $("#pop-up-content").html(popupContent(d.data)); 
 
     var popLeft = d3.event.pageX - $("div#pop-up").width() / 2;
@@ -66,12 +70,18 @@ function PieChart(container) {
   function popupContent(d) {
     var view = $("button.pie.active").attr('id')
     if (view == "abs") {
-      return "Indultados: "+d.pardoned;
+      return bEnglish ? "Pardoned: "+d.pardoned : "Indultados: "+d.pardoned
     }
     else {
-      return  formatValue(d3.round(d.percentage, 2))+" indultos por cada 10.000 condenados"+
+      if (bEnglish) {
+        return  fthousand(d3.round(d.percentage, 2))+" pardons per 10,000 convicted"+
+              "<br>Convicted: "+fthousand(d3.round(d.convicted, 2))+
+              " &rarr; Pardoned: "+fthousand(d3.round(d.pardoned, 2));
+      } else {
+        return  formatValue(d3.round(d.percentage, 2))+" indultos por cada 10.000 condenados"+
               "<br>Condenados: "+formatValue(d3.round(d.convicted, 2))+
               " &rarr; Indultados: "+formatValue(d3.round(d.pardoned, 2));
+      }
     }
   }
 

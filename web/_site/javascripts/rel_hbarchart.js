@@ -7,14 +7,17 @@ function HBarChart(container) {
   var gridLabelHeight = 18; // space reserved for gridline labels
   var gridChartOffset = 3; // space between start of grid and first bar
   var maxBarWidth = 440; // width of the bar with the max value
+  var bEnglish = false; // Check if text should go in english
 
   // accessor functions 
-  var barLabel = function(d) { return d.crime_cat; };
+  var barLabel = function(d) { return bEnglish ? d.crime_cat_eng : d.crime_cat; };
   var barValueConvicted = function(d) { return d.convicted; };
   var barValuePardoned = function(d) { return d.pardoned; };
   var barValuePercentage = function(d) { return d.percentage;};
+  var fthousand = d3.format(",");
   
-  this.draw = function(data) {
+  this.draw = function(data,eng) {
+    bEnglish = eng;
     createChart(data);
   };
 
@@ -89,9 +92,16 @@ function HBarChart(container) {
   function onMouseOver(d) {
     d3.select(this).classed("hovered",true);
     $("#pop-up-title").html(barLabel(d));
-    $("#pop-up-content").html("Porcentaje de indultos: "+formatValue(d3.round(d.percentage, 2))+" %"+
+    if (bEnglish) {
+      $("#pop-up-content").html("Pardons percentage: "+d3.round(d.percentage, 2)+" %"+
+            "<br>Convicted: "+fthousand(d3.round(d.convicted, 2))+
+            " &rarr; Pardoned: "+fthousand(d3.round(d.pardoned, 2))); 
+
+    } else {
+      $("#pop-up-content").html("Porcentaje de indultos: "+formatValue(d3.round(d.percentage, 2))+" %"+
             "<br>Condenados: "+formatValue(d3.round(d.convicted, 2))+
             " &rarr; Indultados: "+formatValue(d3.round(d.pardoned, 2))); 
+    }
 
     var popLeft = d3.event.pageX - $("div#pop-up").width() / 2;
     var popTop = d3.event.pageY - $("div#pop-up").height() - 230;
