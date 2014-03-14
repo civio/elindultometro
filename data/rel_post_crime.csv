@@ -1,11 +1,11 @@
-crime_cat,convicted,pardoned
-Cometidos por funcionarios contra libertad individual,49,3
-Recursos naturales y medio ambiente,191,10
-Prevaricación de los funcionarios públicos,138,6
-De la malversación,227,5
-Descubrimientos y revelación de secretos,308,6
-Contra la Comunidad Internacional,76,1
-Contra la salud pública,48222,550
-Delitos societarios,184,2
-Detenciones ilegales y secuestro,1701,17
-De los incendios,819,8
+crime_cat,crime_cat_eng,convicted,pardoned
+Cometidos por funcionarios contra libertad individual,Crimes committed by public officials against individual freedoms,49,3
+Recursos naturales y medio ambiente,Natural resources and environment,191,10
+Prevaricación de los funcionarios públicos,Perversion of justice,138,6
+De la malversación,Embezzlement,227,5
+Descubrimientos y revelación de secretos,Discoveries and revelations of secrets,308,6
+Contra la Comunidad Internacional,Against the international community,76,1
+Contra la salud pública,Against public health,48222,550
+Delitos societarios,Societal crimes,184,2
+Detenciones ilegales y secuestro,Illegal Detentions and kidnappings,1701,17
+De los incendios,Arson,819,8
