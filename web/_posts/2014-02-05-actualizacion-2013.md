@@ -36,5 +36,5 @@ Para adaptarse a esta nueva jurisprudencia, los indultos aprobados a partir de e
 [8]: http://www.elindultometro.es/famosos.html#22
 [9]: http://hayderecho.com/wp-content/uploads/2013/03/sentencia-saenz-12-02-131.pdf
 [10]: http://www.elindultometro.es/2013/05/06/saenz.html
-[11]: www.poderjudicial.es/stfls/SALA%20DE%20PRENSA/NOVEDADES/Sentencia-%20Kamikaze-Valencia-Pleno.pdf
+[11]: http://www.poderjudicial.es/stfls/SALA%20DE%20PRENSA/NOVEDADES/Sentencia-%20Kamikaze-Valencia-Pleno.pdf
 [12]: http://elboenuestrodecadadia.com/2014/01/31/el-gobierno-introduce-una-frase-modelo-en-los-decretos-de-indultos-para-adaptarse-a-la-sentencia-que-tumbo-el-indulto-al-kamikaze-de-valencia/
