@@ -39,7 +39,7 @@ Along with crimes against the environment, crimes committed by public officials 
 
 ## Analysis by gender <a id="genero"></a>
 
-Another example of the differences between absolute and relative terms: men benefit from more pardons than women (941 to 240, respectively, in the past four years) because they also make up the majority of offenders (1,722,419 men to 162,245 women). In proportion, however, the government more frequently pardons women than men (15 out of every 10,000 female offenders versus 5 out of every 10,000 male offenders).
+Another example of the differences between absolute and relative terms: men benefit from more pardons than women (941 to 240, respectively, in the past four years) because they also make up the majority of offenders (938,451 men to 87,387 women). In proportion, however, the government more frequently pardons women than men (27 out of every 10,000 female offenders versus 10 out of every 10,000 male offenders).
 <div class="graph-container">
   <div class="buttons">
     <button class="pie first active" id="abs">Absolute</button>
