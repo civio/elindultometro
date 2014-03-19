@@ -15,9 +15,9 @@ image: /images/posts/prision_870_300.jpg
 
 En cada listado de reales decretos de indultos publicado en el BOE destacan, por encima del resto, las medidas de gracia concedidas a condenados por delitos contra la salud pública. En total, de los 10.350 indultados desde 1996, 2.930 habían sido condenados por ese delito. Para muchos jueces, esta es una muestra del uso del indulto como paliativo contra unas penas demasiado severas en estos delitos, que a veces simplemente consisten en el menudeo de drogas. Le siguen, de cerca, los delitos por robos (2.028 indultados en las fechas que abarca el análisis de El Indultómetro). Pero estos datos tienen trampa: también son los más habituales en las listas anuales de condenados.
 
-Entonces, ¿qué crímenes son los que más se indultan? Delitos contra el medio ambiente, prevaricación de funcionarios públicos, delitos cometidos por funcionarios contra la libertad individual y malversación suman los porcentajes más altos (ver [metodologia][]) de medidas de gracia por condenas. Tres de esos cuatro delitos tienen que ver, directamente, con el ejercicio de un cargo público o la sustracción de dinero de las arcas de las administraciones.
+Entonces, ¿qué crímenes son los que más se indultan? Delitos contra el medio ambiente, prevaricación de funcionarios públicos, delitos cometidos por funcionarios contra la libertad individual y malversación suman los porcentajes más altos (ver [metodología][]) de medidas de gracia por condenas. Tres de esos cuatro delitos tienen que ver, directamente, con el ejercicio de un cargo público o la sustracción de dinero de las arcas de las administraciones.
 
-Entre 2007 y 2010 (ver [metodologia][]), 49 personas fueron condenadas por delitos cometidos por funcionarios contra la libertad individual. Tres de ellos han sido indultados hasta el momento. Este epígrafe incluye alargar ilegalmente la privación de libertad o la incomunicación de un arrestado o utilizar un “rigor” innecesario en el trato a los presos por parte de funcionarios de prisiones o trabajadores de centros de menores, tal y como se recoge en el [Código Penal][]. El porcentaje, un 6,12%, puede parecer poco determinante debido al pequeño número de casos registrados, pero veamos un delito con mayor incidencia, como la malversación de fondos públicos: cinco de los 227 condenados en esos cuatro años ya han sido indultados, un 2,2%.
+Entre 2007 y 2010 (ver [metodología][]), 49 personas fueron condenadas por delitos cometidos por funcionarios contra la libertad individual. Tres de ellos han sido indultados hasta el momento. Este epígrafe incluye alargar ilegalmente la privación de libertad o la incomunicación de un arrestado o utilizar un “rigor” innecesario en el trato a los presos por parte de funcionarios de prisiones o trabajadores de centros de menores, tal y como se recoge en el [Código Penal][]. El porcentaje, un 6,12%, puede parecer poco determinante debido al pequeño número de casos registrados, pero veamos un delito con mayor incidencia, como la malversación de fondos públicos: cinco de los 227 condenados en esos cuatro años ya han sido indultados, un 2,2%.
 
 <div id="hbarchart"></div>
 <div id="pop-up">
@@ -63,7 +63,7 @@ En el caso de los indultos tomamos como fecha de referencia la fecha de la sente
 _Nota: La última fecha de publicación del BOE en el que hemos analizado indultos es: 2 de febrero de 2014._
 
 [Código Penal]: https://www.boe.es/buscar/act.php?id=BOE-A-1995-25444
-[metodologia]: #metod
+[metodología]: #metod
 [INE]: http://www.ine.es/jaxi/menu.do?type=pcaxis&path=/t18/p466&file=inebase
 [2007]: http://www.ine.es/metodologia/t18/t1830466.htm
 [periodo medio]: /2013/02/27/los-mas-rapidos-a-este-lado-de-los-pirineos.html
