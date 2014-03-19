@@ -39,7 +39,7 @@ Junto a los delitos contra el medio ambiente, son justo aquellos cometidos por f
 
 ## Análisis por género <a id="genero"></a>
 
-Otro ejemplo de diferencias entre términos absolutos y relativos: los hombres se benefician de más indultos (941 en esos cuatro años frente a 240) porque también son mayoría aplastante entre los condenados (938.451 frente a 87.387). Pero, en proporción, las mujeres reciben en más ocasiones esa medida de gracia (27 de cada 1.0000 condenadas frente a 10 de cada 10.000 condenados).
+Otro ejemplo de diferencias entre términos absolutos y relativos: los hombres se benefician de más indultos (941 en esos cuatro años frente a 240) porque también son mayoría aplastante entre los condenados (938.451 frente a 87.387). Pero, en proporción, las mujeres reciben en más ocasiones esa medida de gracia (27 de cada 10.000 condenadas frente a 10 de cada 10.000 condenados).
 <div class="graph-container">
   <div class="buttons">
     <button class="pie first active" id="abs">Absoluto</button>
