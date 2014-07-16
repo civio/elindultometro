@@ -18,6 +18,8 @@ El cuenteo de delitos contra la seguridad vial de los años analizados tampoco c
 
 Este caso demuestra la **importancia de conocer la metodología para poder dar por buenos unos datos**. O, al menos, para poder verificar que son exactos. En marzo, el Ministro de Justicia, Alberto Ruiz Gallardón, afirmó que este gobierno no había concedido ningún indulto en casos de corrupción. **No era cierto**. Entre malversación y prevaricación, dos delitos que se incluyen en esta categoría, ya sumaban ocho, como ya [demostramos entonces][11]. Tras estos desmentidos, matizó sus palabras y [dijo][12] que se refería a políticos condenados que se hubieran enriquecido económicamente de forma directa con dinero público, una categoría de delito que no existe más allá que en la mente del ministro.
 
+*(Foto: <a href="http://www.flickr.com/photos/omnipunctum/303806299/">Omnipunctum</a> via <a href="http://photopin.com">photopin</a> <a href="http://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND</a>)*
+
 [1]: http://www.elconfidencial.com/espana/2014-05-20/zapatero-16-indultos-por-violencia-de-genero-rajoy-ninguno-y-ocho-por-trafico_133076/
 [2]: http://www.congreso.es/portal/page/portal/Congreso/PopUpCGI?CMD=VERLST&CONF=BRSPUB.cnf&BASE=PU10&PIECE=PUWC&DOCS=1-1&FMT=PUWTXDTU.fmt&OPDEF=Y&QUERY=BOCG-10-D-454.CODI.
 [3]: http://elindultometro.es/metodologia.html
