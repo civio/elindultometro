@@ -13,11 +13,11 @@ image: /images/posts/prision_870_300.jpg
 
 ## Análisis por categoría de delito
 
-En cada listado de reales decretos de indultos publicado en el BOE destacan, por encima del resto, las medidas de gracia concedidas a condenados por delitos contra la salud pública. En total, de los 10.350 indultados desde 1996, 2.930 habían sido condenados por ese delito. Para muchos jueces, esta es una muestra del uso del indulto como paliativo contra unas penas demasiado severas en estos delitos, que a veces simplemente consisten en el menudeo de drogas. Le siguen, de cerca, los delitos por robos (2.028 indultados en las fechas que abarca el análisis de El Indultómetro). Pero estos datos tienen trampa: también son los más habituales en las listas anuales de condenados.
+En cada listado de reales decretos de indultos publicado en el BOE destacan, por encima del resto, las medidas de gracia concedidas a condenados por delitos contra la salud pública. En total, de los 10.437 indultados desde 1996, 2.971 habían sido condenados por ese delito. Para muchos jueces, esta es una muestra del uso del indulto como paliativo contra unas penas demasiado severas en estos delitos, que a veces simplemente consisten en el menudeo de drogas. Le siguen, de cerca, los delitos por robos (2.040 indultados en las fechas que abarca el análisis de El Indultómetro). Pero estos datos tienen trampa: también son los más habituales en las listas anuales de condenados.
 
-Entonces, ¿qué crímenes son los que más se indultan? Delitos contra el medio ambiente, prevaricación de funcionarios públicos, delitos cometidos por funcionarios contra la libertad individual y malversación suman los porcentajes más altos (ver [metodología][]) de medidas de gracia por condenas. Tres de esos cuatro delitos tienen que ver, directamente, con el ejercicio de un cargo público o la sustracción de dinero de las arcas de las administraciones.
+Entonces, ¿qué crímenes son los que más se indultan? Delitos contra el medio ambiente, delitos cometidos por funcionarios contra la libertad individual, prevaricación de funcionarios públicos y malversación suman los porcentajes más altos (ver [metodología][]) de medidas de gracia por condenas. Tres de esos cuatro delitos tienen que ver, directamente, con el ejercicio de un cargo público o la sustracción de dinero de las arcas de las administraciones.
 
-Entre 2007 y 2010 (ver [metodología][]), 49 personas fueron condenadas por delitos cometidos por funcionarios contra la libertad individual. Tres de ellos han sido indultados hasta el momento. Este epígrafe incluye alargar ilegalmente la privación de libertad o la incomunicación de un arrestado o utilizar un “rigor” innecesario en el trato a los presos por parte de funcionarios de prisiones o trabajadores de centros de menores, tal y como se recoge en el [Código Penal][]. El porcentaje, un 6,12%, puede parecer poco determinante debido al pequeño número de casos registrados, pero veamos un delito con mayor incidencia, como la malversación de fondos públicos: cinco de los 227 condenados en esos cuatro años ya han sido indultados, un 2,2%.
+Entre 2007 y 2011 (ver [metodología][]), 51 personas fueron condenadas por delitos cometidos por funcionarios contra la libertad individual. Tres de ellos han sido indultados hasta el momento. Este epígrafe incluye alargar ilegalmente la privación de libertad o la incomunicación de un arrestado o utilizar un “rigor” innecesario en el trato a los presos por parte de funcionarios de prisiones o trabajadores de centros de menores, tal y como se recoge en el [Código Penal][]. El porcentaje, un 5,88%, puede parecer poco determinante debido al pequeño número de casos registrados, pero veamos un delito con mayor incidencia, como la malversación de fondos públicos: siete de los 267 condenados en esos cinco años ya han sido indultados, un 2,62%.
 
 <div id="hbarchart"></div>
 <div id="pop-up">
@@ -25,13 +25,13 @@ Entre 2007 y 2010 (ver [metodología][]), 49 personas fueron condenadas por deli
   <div id="pop-up-content"></div>
 </div>
 
-_\(\*\) Top 10 categorías de delito según el código penal con mayor porcentaje de indultos respecto a condenados para el periodo 2007-2010_
+_\(\*\) Top 10 categorías de delito según el código penal con mayor porcentaje de indultos respecto a condenados para el periodo 2007-2011_
 
-Otra de las categorías con mayor porcentaje de indultados es la que engloba los delitos de prevaricación de los funcionarios públicos (emitir una resolución o nombrar a alguien para un cargo de manera arbitraria a sabiendas de que es injusto). Seis de los 138 condenados entre 2007 y 2010 han sido indultados a día de hoy, un 4,35%.
+Otra de las categorías con mayor porcentaje de indultados es la que engloba los delitos de prevaricación de los funcionarios públicos (emitir una resolución o nombrar a alguien para un cargo de manera arbitraria a sabiendas de que es injusto). Seis de los 171 condenados entre 2007 y 2011 han sido indultados a día de hoy, un 3,51%.
 
-Durante esos mismos años, fuera ya del ámbito de las administraciones públicas, un total 191 personas fueron condenadas por delitos contra los recursos naturales y el medio ambiente. Hasta el momento, diez de ellas han sido indultadas, un 5,24%. Se trata de condenas por provocar o realizar emisiones, vertidos, radiaciones, extracciones o ruidos que puedan “perjudicar gravemente el equilibrio de los sistemas naturales”.
+Durante esos mismos años, fuera ya del ámbito de las administraciones públicas, un total 235 personas fueron condenadas por delitos contra los recursos naturales y el medio ambiente. Hasta el momento, quince de ellas han sido indultadas, un 6,38%. Se trata de condenas por provocar o realizar emisiones, vertidos, radiaciones, extracciones o ruidos que puedan “perjudicar gravemente el equilibrio de los sistemas naturales”.
 
-Todos estos crímenes recibieron la medida de gracia en un porcentaje de casos superior al 1,14% (550 indultos sobre 48.222 condenas) de los delitos contra la salud pública. En casos especialmente llamativos, como los de las torturas, encontramos porcentajes mucho menores pero que muestran el uso de esta prerrogativa: de las 10.046 condenados por torturas entre 2007 y 2010, 22 han sido indultados a día de hoy (un 0,22%).
+Todos estos crímenes recibieron la medida de gracia en un porcentaje de casos superior al 1,04% (646 indultos sobre 62.013 condenas) de los delitos contra la salud pública. En casos especialmente llamativos, como los de las torturas, encontramos porcentajes mucho menores pero que muestran el uso de esta prerrogativa: de las 12.575 condenados por torturas entre 2007 y 2011, 22 han sido indultados a día de hoy (un 0,22%).
 
 Junto a los delitos contra el medio ambiente, son justo aquellos cometidos por funcionarios públicos los que han sido indultados en una proporción más alta que que cualquier otro crimen. Son aquellos en los que la administración, desde el poder Ejecutivo, se perdona a sí misma sus faltas.
 
@@ -39,7 +39,7 @@ Junto a los delitos contra el medio ambiente, son justo aquellos cometidos por f
 
 ## Análisis por género <a id="genero"></a>
 
-Otro ejemplo de diferencias entre términos absolutos y relativos: los hombres se benefician de más indultos (941 en esos cuatro años frente a 240) porque también son mayoría aplastante entre los condenados (938.451 frente a 87.387). Pero, en proporción, las mujeres reciben en más ocasiones esa medida de gracia (27 de cada 10.000 condenadas frente a 10 de cada 10.000 condenados).
+Otro ejemplo de diferencias entre términos absolutos y relativos: los hombres se benefician de más indultos (1.092 en esos cinco años frente a 290) porque también son mayoría aplastante entre los condenados (1.186.617 frente a 113.186). Pero, en proporción, las mujeres reciben en más ocasiones esa medida de gracia (26 de cada 10.000 condenadas frente a 9 de cada 10.000 condenados).
 <div class="graph-container">
   <div class="buttons">
     <button class="pie first active" id="abs">Absoluto</button>
@@ -48,19 +48,19 @@ Otro ejemplo de diferencias entre términos absolutos y relativos: los hombres s
   <div id="piechart"></div>
 </div>
 <div id="metod"></div>
-_\(\*\) Los botones de la visualización permiten cambiar la vista entre valores absolutos y relativos, por defecto se muestra la distribución en números absolutos de indultos en el periodo 2007-2010_
+_\(\*\) Los botones de la visualización permiten cambiar la vista entre valores absolutos y relativos, por defecto se muestra la distribución en números absolutos de indultos en el periodo 2007-2011_
 
 ***
 
 ## METODOLOGÍA
 
-¿Por qué analizamos los condenados, precisamente, entre 2007 y 2010? ¿Cómo hemos hecho la metodología? Para realizar el análisis conjunto de los datos hemos utilizado dos fuentes: los indultos publicados en el [BOE][] hasta el 2 de febrero de 2014 y las cifras de condenados del [INE][]. Estas últimas sufrieron una variación importante en [2007][], cuando la forma de recabar información fue modificada. Hasta entonces, la recogida de información se realizaba trimestralmente mediante un boletín en papel que cumplimentaban los órganos judiciales. Por eso analizamos los datos desde 2007, justo cuando arrancó ese sistema de medida.
+¿Por qué analizamos los condenados, precisamente, entre 2007 y 2011? ¿Cómo hemos hecho la metodología? Para realizar el análisis conjunto de los datos hemos utilizado dos fuentes: los indultos publicados en el [BOE][] hasta el 9 de febrero de 2015 y las cifras de condenados del [INE][]. Estas últimas sufrieron una variación importante en [2007][], cuando la forma de recabar información fue modificada. Hasta entonces, la recogida de información se realizaba trimestralmente mediante un boletín en papel que cumplimentaban los órganos judiciales. Por eso analizamos los datos desde 2007, justo cuando arrancó ese sistema de medida.
 
-¿Y por qué hasta 2010? El [periodo medio] de espera entre condena e indulto en el global de las medidas de gracia analizadas en El Indultómetro es de casi tres años el periodo de análisis con el que hemos realizado esta investigación comienza en 2010 y termina en 2007 debido al cambio metodológico en el INE.
+¿Y por qué hasta 2011? El [periodo medio] de espera entre condena e indulto en el global de las medidas de gracia analizadas en El Indultómetro es de casi tres años el periodo de análisis con el que hemos realizado esta investigación comienza en 2011 y termina en 2007 debido al cambio metodológico en el INE.
 
 En el caso de los indultos tomamos como fecha de referencia la fecha de la sentencia del tribunal indicada en cada disposición del BOE.
 
-_Nota: La última fecha de publicación del BOE en el que hemos analizado indultos es: 2 de febrero de 2014._
+_Nota: La última fecha de publicación del BOE en el que hemos analizado indultos es: 9 de febrero de 2015._
 
 [Código Penal]: https://www.boe.es/buscar/act.php?id=BOE-A-1995-25444
 [metodología]: #metod
