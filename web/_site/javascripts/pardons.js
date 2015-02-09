@@ -60,7 +60,7 @@ $(function() {
     // found for a year), so the histogram is updated correctly
     // TODO: Remove hardcoded year range
     histogramData = [];
-    d3.range(1996, 2014, 1).forEach(function(year) {
+    d3.range(1996, 2015, 1).forEach(function(year) {
       histogramData.push({ 'year': year, 'count': resultCount[year] ? resultCount[year] : 0 });
     });
     return histogramData;
