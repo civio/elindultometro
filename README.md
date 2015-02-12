@@ -9,6 +9,8 @@ TODO: Documentar esto mucho mejor :/
         
  * Arrancar Jekyll, desde el directorio `web`: `jekyll serve --watch`
 
+**NOTA (@dcabo)**: Por algún motivo que no he sido capaz de descubrir Jekyll usa el locale correcto (`:es`) para generar las páginas la primera vez, pero cuando detecta cambios y regenera las páginas parece usar `:en`. El problema es que entonces no encuentra los nombres de los meses y sólo muestra [una letra](http://stackoverflow.com/a/12765715/541280). Podría copiar el contenido de `locale/es.yml` a `locale/en.yml`, pero sería una guarrería, así que de momento simplemente arrancamos Jekyll, regeneramos la web y paramos. :/
+
 [1]: http://jekyllbootstrap.com/usage/jekyll-quick-start.html
 
 #### Instalación del back-end
