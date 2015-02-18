@@ -2,7 +2,7 @@
 layout: post
 title: Pardons vs. Convictions
 author: Eva Belmonte & Juan Elosua
-lead: "Perversion of justice, embezzlement and crimes against the environment: the most frequently pardoned crimes."
+lead: "Perversion of justice, embezzlement and crimes against the environment: the most frequently pardoned crimes"
 image: /images/posts/prision_870_300.jpg
 ---
 {% include relatividad-libs.html %}

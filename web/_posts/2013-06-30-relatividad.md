@@ -2,7 +2,7 @@
 layout: post
 title: Indultos vs. Condenados
 author: Eva Belmonte y Juan Elosua
-lead: Prevaricación, malversación y delitos contra el medio ambiente, los más indultados.
+lead: Prevaricación, malversación y delitos contra el medio ambiente, los más indultados
 image: /images/posts/prision_870_300.jpg
 ---
 {% include relatividad-libs.html %}
