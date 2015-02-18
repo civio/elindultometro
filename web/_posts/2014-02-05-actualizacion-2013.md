@@ -1,14 +1,12 @@
 ---
 layout: post
-title: 2013, el año con menos indultos desde 1996
+title: 2013, el año en el que el Supremo intentó poner coto a los indultos
 author: Eva Belmonte
-lead: El gobierno ha concedido 204 medidas de gracia mientras dos sentencias del Supremo intentan poner veto a la arbitrariedad de la medida
+lead: El gobierno concedió 204 medidas de gracia ese año, mientras dos sentencias del Supremo intentaban poner veto a la arbitrariedad de la medida
 image: /images/posts/gallardon-870x300.jpg
 ---
 
-El pasado 31 de enero el BOE [publicó][1] los 12 últimos indultos de 2013, concedidos en el Consejo de Ministros del 27 de diciembre. En total, el Gobierno aprobó 204 indultos en todo el año, el primero de vida de El Indultómetro, lo que supone la cifra más baja registrada desde 1996, fecha de arranque de nuestro análisis. 
-
-Para encontrar balances similares debemos volver a 2001, cuando se concedieron 245 medidas de gracia. Al otro lado de la escala está el récord (por arriba) del año 2000. Entonces, gracias sobre todo al [indultazo][2] del fin del milenio, se registraron un total de 1.744 medidas de gracia. Ambos récords, el mayor y el menor, se los llevan los gobiernos del Partido Popular.
+En total, el Gobierno aprobó 204 indultos en todo 2013, el primero de vida de El Indultómetro, lo que suponía la cifra más baja registrada desde 1996, fecha de arranque de nuestro análisis. Para encontrar balances similares debemos volver a 2001, cuando se concedieron 245 medidas de gracia. Al otro lado de la escala está el récord (por arriba) del año 2000. Entonces, gracias sobre todo al [indultazo][2] del fin del milenio, se registraron un total de 1.744 medidas de gracia. Ambos récords, el mayor y el menor, se los llevan los gobiernos del Partido Popular.
 
 Aunque en junio el Gobierno de Rajoy ya sumaba 150 indultos, a partir de entonces el ritmo de concesiones frenó en seco. El consejo de ministros más prolífico fue el del 31 de octubre, en el que se aprobaron 23. Entre ellos se encontraba el empresario canario [Miguel Ángel Ramírez][3], presidente de la Unión Deportiva Las Palmas, que había sido condenado a tres años y un día de cárcel por realizar obras ilegales en una zona de especial protección ambiental. En los últimos meses, este empresario ha resultado adjudicatario de [varios contratos públicos][4], como el de parte de la seguridad del metro de Madrid o el relativo a la vigilancia de varios edificios del Ministerio de Defensa.
 
