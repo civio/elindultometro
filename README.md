@@ -21,9 +21,9 @@ TODO: Documentar esto mucho mejor :/
  
  * Cargar datos: 
 
-       $ rake crime_categories:load
-       $ rake pardon_crime_categories:load
-       $ rake pardons:load
+        $ rake crime_categories:load
+        $ rake pardon_crime_categories:load
+        $ rake pardons:load
  
  * Arrancar el servidor: `./server`
  
