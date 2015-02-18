@@ -17,9 +17,9 @@ Así, las diferencias entre los más rápidos y los que suman mayores demoras so
   <div id="pop-up-content"></div>
 </div>
 
-_\(\*\) Excluidas las categorías con 10 indultos o menos por no resultar significativa su distribución_
+_\(\*\) En el gráfico no se muestran las categorías con 10 indultos o menos por no resultar significativa su distribución. Para el cálculo de la mediana total (a continuación) hemos excluido aquellos indultos para los que no se publica la fecha de la sentencia, como es el caso de los indultos del Ministerio de Defensa._
 
-La [mediana][] total es de 991 días (2,72 años), pero esta cifra varía mucho según el tipo de delito y, sobre todo, el caso concreto. Los indultos para condenados por delitos contra la ordenación del territorio, el urbanismo, la protección del patrimonio histórico y el medio ambiente son los más raudos, con 647 días (1,77 años) de mediana, por ejemplo. También destacan los 799 días (2,19 años) de mediana para los indultados que habían sido condenados por delitos contra los derechos de los trabajadores y, al otro lado de la balanza, la mediana de 1.236 días (3,39 años) que tarda el Gobierno en conceder la medida de gracia a un condenado por delitos contra la Administración Pública, una categoría que incluye los casos de cohecho, prevaricación o fraudes.
+La [mediana][] total es de 976 días (2,67 años), pero esta cifra varía mucho según el tipo de delito y, sobre todo, el caso concreto. Los indultos para condenados por delitos contra la ordenación del territorio, el urbanismo, la protección del patrimonio histórico y el medio ambiente son los más raudos, con 1,77 años de mediana, por ejemplo. También destacan los 2,19 años de mediana para los indultados que habían sido condenados por delitos contra los derechos de los trabajadores y, al otro lado de la balanza, la mediana de 3,38 años que tarda el Gobierno en conceder la medida de gracia a un condenado por delitos contra la Administración Pública, una categoría que incluye los casos de cohecho, prevaricación o fraudes.
 
 [mediana]: http://es.wikipedia.org/wiki/Mediana_(estad%C3%ADstica)
 
@@ -31,7 +31,7 @@ Pero siempre existen casos dispuestos a romper las estadísticas. Entre los más
 
 El número 1 es para la ya mencionada madre de Pozo Alcón, una mujer condenada a alejarse más de 500 metros de su hijo durante más de un año por darle un tortazo y agarrarle del cuello. Pasaron sólo 76 días desde que se dictó la condena, en la que se incluía la reclamación de la medida de gracia, hasta que el Gobierno de Zapatero decidió [concederle el indulto][9].
 
-Dentro de este Top20 de los más veloces en tumbar la condena destacan dos condenados por delitos contra la seguridad del tráfico a los que el indulto levantó la prohibición de conducir durante un año y un día a la que habían sido condenados. [Uno de ellos][10] recibió la medida de gracia en 100 días y, [el otro][11], en 128, unos tiempos muy alejados de la mediana registrada en delitos contra la seguridad colectiva, que es de 889 días. También encontramos condenados por robo ([aquí][12] y [aquí][13]), lesiones ([aquí][14] y [aquí][15]), [negarse a realizar el servicio militar][16] y [quebrantamiento][17] de condena.
+Dentro de este Top20 de los más veloces en tumbar la condena destacan dos condenados por delitos contra la seguridad del tráfico a los que el indulto levantó la prohibición de conducir durante un año y un día a la que habían sido condenados. [Uno de ellos][10] recibió la medida de gracia en 100 días y, [el otro][11], en 128, unos tiempos muy alejados de la mediana registrada en delitos contra la seguridad colectiva, que es de 2,44 años. También encontramos condenados por robo ([aquí][12] y [aquí][13]), lesiones ([aquí][14] y [aquí][15]), [negarse a realizar el servicio militar][16] y [quebrantamiento][17] de condena.
 
 **Pero quienes engrosan esta lista de los 20 más rápidos son, sin duda, diez condenados por malversación de caudales públicos, secuestro y/o detención ilegal relacionados con los GAL. Todos ellos fueron indultados en 1998, justo 147 días después de que se dictara su sentencia.** 
 <div id="sTable"></div>
