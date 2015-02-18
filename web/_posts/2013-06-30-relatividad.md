@@ -31,7 +31,7 @@ Otra de las categorías con mayor porcentaje de indultados es la que engloba los
 
 Durante esos mismos años, fuera ya del ámbito de las administraciones públicas, un total 235 personas fueron condenadas por delitos contra los recursos naturales y el medio ambiente. Hasta el momento, quince de ellas han sido indultadas, un 6,38%. Se trata de condenas por provocar o realizar emisiones, vertidos, radiaciones, extracciones o ruidos que puedan “perjudicar gravemente el equilibrio de los sistemas naturales”.
 
-Todos estos crímenes recibieron la medida de gracia en un porcentaje de casos superior al 1,04% (646 indultos sobre 62.013 condenas) de los delitos contra la salud pública. En casos especialmente llamativos, como los de las torturas, encontramos porcentajes mucho menores pero que muestran el uso de esta prerrogativa: de las 12.575 condenados por torturas entre 2007 y 2011, 22 han sido indultados a día de hoy (un 0,22%).
+Todos estos crímenes recibieron la medida de gracia en un porcentaje de casos superior al 1,04% (646 indultos sobre 62.013 condenas) de los delitos contra la salud pública. En casos especialmente llamativos, como los de las torturas, encontramos porcentajes mucho menores pero que muestran el uso de esta prerrogativa: de las 12.575 condenados por torturas entre 2007 y 2011, 22 han sido indultados a día de hoy (un 0,17%).
 
 Junto a los delitos contra el medio ambiente, son justo aquellos cometidos por funcionarios públicos los que han sido indultados en una proporción más alta que que cualquier otro crimen. Son aquellos en los que la administración, desde el poder Ejecutivo, se perdona a sí misma sus faltas.
 
@@ -56,7 +56,7 @@ _\(\*\) Los botones de la visualización permiten cambiar la vista entre valores
 
 ¿Por qué analizamos los condenados, precisamente, entre 2007 y 2011? ¿Cómo hemos hecho la metodología? Para realizar el análisis conjunto de los datos hemos utilizado dos fuentes: los indultos publicados en el [BOE][] hasta el 9 de febrero de 2015 y las cifras de condenados del [INE][]. Estas últimas sufrieron una variación importante en [2007][], cuando la forma de recabar información fue modificada. Hasta entonces, la recogida de información se realizaba trimestralmente mediante un boletín en papel que cumplimentaban los órganos judiciales. Por eso analizamos los datos desde 2007, justo cuando arrancó ese sistema de medida.
 
-¿Y por qué hasta 2011? El [periodo medio] de espera entre condena e indulto en el global de las medidas de gracia analizadas en El Indultómetro es de casi tres años el periodo de análisis con el que hemos realizado esta investigación comienza en 2011 y termina en 2007 debido al cambio metodológico en el INE.
+¿Y por qué hasta 2011? El [periodo medio] de espera entre condena e indulto en el global de las medidas de gracia analizadas en El Indultómetro es de casi tres años. Así, el periodo de análisis con el que hemos realizado esta investigación comienza en 2007, debido al cambio metodológico en el INE, y termina en 2011.
 
 En el caso de los indultos tomamos como fecha de referencia la fecha de la sentencia del tribunal indicada en cada disposición del BOE.
 

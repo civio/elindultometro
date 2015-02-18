@@ -31,7 +31,7 @@ Another category with a larger percentage of pardoned offences is perversion of 
 
 During the past few years, a total of 235 people were convicted of crimes against natural resources and the environment. So far, fifteen of them, 6.38%, have received pardons. This crime involves provoking or creating emissions, waste, radiation, extraction or noise that could “cause grave harm to the equilibrium of natural systems.”
 
-All of these crimes received pardons at a percentage exceeding the 1.04% (646 pardons out of 62,013 convictions) of pardoned crimes against public health. In especially noteworthy cases, like those of torture, we find much lower, but still significant, rates: 22 of the 12,575 individuals convicted of torture between 2007 and 2011 had received pardons by the publish date of this article (0.22%).
+All of these crimes received pardons at a percentage exceeding the 1.04% (646 pardons out of 62,013 convictions) of pardoned crimes against public health. In especially noteworthy cases, like those of torture, we find much lower, but still significant, rates: 22 of the 12,575 individuals convicted of torture between 2007 and 2011 had received pardons by the publish date of this article (0.17%).
 
 Along with crimes against the environment, crimes committed by public officials have received pardons at a higher rate than pardons for any other crime. Pardoning public officials is the way in which the government, wielding executive power, pardons itself for its own offences.
 
@@ -56,7 +56,7 @@ _\(\*\) The visualization buttons allow you to change the view between absolute 
 
 Why did we analyse pardons specifically between 2007 and 2011? What was our methodology? To conduct the data analysis, we used two sources: the pardons published in the [Official Gazette][] up until February 9, 2015 and the statistics of pardons reported in the [National Institute of Statistics][] (NIS). The latter experienced an important variation in 2007, when the form of collecting information was modified. Prior to [2007][], the NIS collected data three times a year through a paper bulletin created by the judicial branch. Therefore we analysed the data starting in 2007, just after the change in the system occurred.
 
-But why did we stop at 2011? The [average waiting time][] between conviction and pardon in all of the pardons in El Indultómetro is around three years. The analysis period of the investigation began in 2011 (because we are counting pardons up to 2014) and ended in 2007, due to the changes with the NIS.
+But why did we stop at 2011? The [average waiting time][] between conviction and pardon in all of the pardons in El Indultómetro is around three years. The analysis period of the investigation began in 2007 (because we are counting pardons up to 2014) and ended in 2011, due to the changes with the NIS.
 
 In the case of pardons, we took as a reference the sentence date in the tribunal indicated in each ruling in the Official Gazette.
 
