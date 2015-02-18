@@ -120,6 +120,8 @@ class IndultometroApp < Sinatra::Base
           (p.pardon_date - p.trial_date) as diffdays
         FROM
           pardons as p
+        WHERE
+          CAST(pardon_year AS INT) > 1995
         ORDER BY 
           diffdays asc
         LIMIT ?"
@@ -151,7 +153,8 @@ class IndultometroApp < Sinatra::Base
         pardon_crime_categories as pcc
       WHERE 
         p.id = pcc.boe AND
-        p.trial_date IS NOT NULL
+        p.trial_date IS NOT NULL AND
+        CAST(p.pardon_year AS INT) > 1995
       GROUP BY 
         pcc.crime_cat
       ORDER BY 
