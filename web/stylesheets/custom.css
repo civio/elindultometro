@@ -79,7 +79,7 @@ span.help-inline.chzn-tweak {
 [class^="addthis_button_"] {
   background: #333333 url(img/social.png) no-repeat center;
   height: 40px;
-  width: 40px;
+  width: 40px !important;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
