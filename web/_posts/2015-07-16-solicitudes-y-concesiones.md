@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Las solicitudes de indultos se disparan"
-author: Eva Belmonte
+author: Eva Belmonte y David Cabo
 lead: "Han pasado de 5.400 en 2010 a más de 7.800 en 2014. La cifra de concesiones, en cambio, sigue bajando."
 image: /images/posts/solicitudes-870x300.png
 ---
