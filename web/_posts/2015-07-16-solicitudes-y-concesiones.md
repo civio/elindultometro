@@ -24,7 +24,7 @@ El ratio de todos estos años de mujeres va de 13,50 a 2,12% y el de hombres de 
 
 &nbsp;
 
-<iframe src="http://charts.civio.es/Rlilp/" width="280" height="500" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<iframe src="http://charts.civio.es/Rlilp/" width="280" height="500" frameborder="0" allowfullscreen="allowfullscreen" style="margin-right: 60px"></iframe>
 
 <iframe src="http://charts.civio.es/maXqf/" width="280" height="500" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 
