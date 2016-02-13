@@ -146,20 +146,20 @@
     function renderResults(data) {
       $('#indultos tbody').empty();
       var fragments = [];
-      fragments.push('<tr><td>Fecha publicación</td><td>'+data['boe_date']+'</td></tr>');
-      fragments.push('<tr><td>Ministerio</td><td>'+data['ministry']+'</td></tr>');
-      fragments.push('<tr><td>Genero</td><td>'+data['gender']+'</td></tr>');
-      fragments.push('<tr><td>Tribunal sentenciador</td><td>'+data['court']+'</td></tr>');
-      fragments.push('<tr><td>Fecha de sentencia</td><td>'+data['trial_date']+'</td></tr>');
-      fragments.push('<tr><td>Rol del acusado</td><td>'+data['role']+'</td></tr>');
-      fragments.push('<tr><td>Crimen</td><td>'+data['crime']+'</td></tr>');
-      fragments.push('<tr><td>Año del crimen (inicio)</td><td>'+data['crime_start']+'</td></tr>');
-      fragments.push('<tr><td>Año del crimen (final)</td><td>'+data['crime_end']+'</td></tr>');
-      fragments.push('<tr><td>Tipo de indulto</td><td>'+data['pardon_type']+'</td></tr>');
-      fragments.push('<tr><td>Indulto</td><td>'+data['pardon']+'</td></tr>');
-      fragments.push('<tr><td>Condiciones adicionales</td><td>'+data['caveats']+'</td></tr>');
-      fragments.push('<tr><td>Fecha del indulto</td><td>'+data['pardon_date']+'</td></tr>');
-      fragments.push('<tr><td>Ministro responsable</td><td>'+data['signature']+'</td></tr>');
+      fragments.push('<tr><td>Fecha publicación</td><td>'+(data['boe_date']||'')+'</td></tr>');
+      fragments.push('<tr><td>Ministerio</td><td>'+(data['ministry']||'')+'</td></tr>');
+      fragments.push('<tr><td>Genero</td><td>'+(data['gender']||'')+'</td></tr>');
+      fragments.push('<tr><td>Tribunal sentenciador</td><td>'+(data['court']||'')+'</td></tr>');
+      fragments.push('<tr><td>Fecha de sentencia</td><td>'+(data['trial_date']||'')+'</td></tr>');
+      fragments.push('<tr><td>Rol del acusado</td><td>'+(data['role']||'')+'</td></tr>');
+      fragments.push('<tr><td>Crimen</td><td>'+(data['crime']||'')+'</td></tr>');
+      fragments.push('<tr><td>Año del crimen (inicio)</td><td>'+(data['crime_start']||'')+'</td></tr>');
+      fragments.push('<tr><td>Año del crimen (final)</td><td>'+(data['crime_end']||'')+'</td></tr>');
+      fragments.push('<tr><td>Tipo de indulto</td><td>'+(data['pardon_type']||'')+'</td></tr>');
+      fragments.push('<tr><td>Indulto</td><td>'+(data['pardon']||'')+'</td></tr>');
+      fragments.push('<tr><td>Condiciones adicionales</td><td>'+(data['caveats']||'')+'</td></tr>');
+      fragments.push('<tr><td>Fecha del indulto</td><td>'+(data['pardon_date']||'')+'</td></tr>');
+      fragments.push('<tr><td>Ministro responsable</td><td>'+(data['signature']||'')+'</td></tr>');
       $(fragments.join('')).appendTo('#indultos tbody');
     }
 
