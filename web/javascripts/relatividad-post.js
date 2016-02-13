@@ -1,7 +1,7 @@
 $(function() {
   function loadBarChartData(eng) {
     // Get data from server
-    d3.csv("/get/rel_post_crime.csv", function(error, data) {
+    d3.csv("/data/rel_post_crime.csv", function(error, data) {
       if (error) return console.warn(error);
       data.forEach(function(d) {
         d.convicted = +d.convicted;
@@ -16,7 +16,7 @@ $(function() {
   function loadPieChartData(eng) {
     // Get data from server
     var view = $("button.pie").attr("id")
-    d3.csv("/get/rel_post_gender.csv", function(error, data) {
+    d3.csv("/data/rel_post_gender.csv", function(error, data) {
       if (error) return console.warn(error);
       data.forEach(function(d) {
         d.convicted = +d.convicted;
