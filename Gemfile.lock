@@ -1,10 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.5)
-    bcrypt-ruby (3.1.1)
-    daemons (1.1.9)
-    dalli (2.6.4)
+    addressable (2.4.0)
+    bcrypt (3.1.10)
+    bcrypt-ruby (3.1.5)
+      bcrypt (>= 3.1.3)
+    daemons (1.2.3)
+    dalli (2.7.5)
     data_mapper (1.2.0)
       dm-aggregates (~> 1.2.0)
       dm-constraints (~> 1.2.0)
@@ -15,7 +17,7 @@ GEM
       dm-transactions (~> 1.2.0)
       dm-types (~> 1.2.0)
       dm-validations (~> 1.2.0)
-    data_objects (0.10.13)
+    data_objects (0.10.17)
       addressable (~> 2.1)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
@@ -51,32 +53,32 @@ GEM
       uuidtools (~> 2.1)
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
-    do_postgres (0.10.13)
-      data_objects (= 0.10.13)
-    eventmachine (1.0.3)
+    do_postgres (0.10.17)
+      data_objects (= 0.10.17)
+    eventmachine (1.0.9.1)
     fastercsv (1.5.5)
-    json (1.8.0)
-    json_pure (1.8.0)
+    json (1.8.3)
+    json_pure (1.8.3)
     memcachier (0.0.2)
-    multi_json (1.7.8)
-    newrelic_rpm (3.6.6.147)
-    pg (0.16.0)
-    rack (1.5.2)
-    rack-cache (1.2)
+    multi_json (1.11.2)
+    newrelic_rpm (3.14.3.313)
+    pg (0.18.4)
+    rack (1.6.4)
+    rack-cache (1.6.1)
       rack (>= 0.4)
-    rack-protection (1.5.0)
+    rack-protection (1.5.3)
       rack
-    sinatra (1.4.3)
-      rack (~> 1.4)
+    sinatra (1.4.7)
+      rack (~> 1.5)
       rack-protection (~> 1.4)
-      tilt (~> 1.3, >= 1.3.4)
+      tilt (>= 1.3, < 3)
     stringex (1.5.1)
-    thin (1.5.1)
-      daemons (>= 1.0.9)
-      eventmachine (>= 0.12.6)
-      rack (>= 1.0.0)
-    tilt (1.4.1)
-    uuidtools (2.1.4)
+    thin (1.6.4)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (~> 1.0)
+    tilt (2.0.2)
+    uuidtools (2.1.5)
 
 PLATFORMS
   ruby
@@ -92,3 +94,6 @@ DEPENDENCIES
   rack-cache
   sinatra
   thin
+
+BUNDLED WITH
+   1.10.6
