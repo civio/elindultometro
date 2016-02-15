@@ -3,6 +3,7 @@ crime_cat,crime_sub_cat,description
 2,,Aborto
 3,,Lesiones
 4,,Lesiones al feto
+5,,Manipulación genética
 6,,Contra la libertad
 6,1,Detenciones ilegales y secuestro
 6,2,De las amenazas
@@ -64,6 +65,7 @@ crime_cat,crime_sub_cat,description
 19,3,Desobediencia y denegación auxilio
 19,4,Infidelidad custodia documentos
 19,5,Cohecho
+19,6,Tráfico de influencias
 19,7,De la malversación
 19,8,De los fraudes y exacciones ilegales
 19,9,Negociaciones prohibidas a los funcionarios
