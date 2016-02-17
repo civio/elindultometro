@@ -54,13 +54,11 @@ _\(\*\) Los botones de la visualización permiten cambiar la vista entre valores
 
 ## METODOLOGÍA
 
-¿Por qué analizamos los condenados, precisamente, entre 2007 y 2012? ¿Cómo hemos hecho la metodología? Para realizar el análisis conjunto de los datos hemos utilizado dos fuentes: los indultos publicados en el [BOE][] hasta el 12 de febrero de 2016 y las cifras de condenados del [INE][]. Estas últimas sufrieron una variación importante en [2007][], cuando la forma de recabar información fue modificada. Hasta entonces, la recogida de información se realizaba trimestralmente mediante un boletín en papel que cumplimentaban los órganos judiciales. Por eso analizamos los datos desde 2007, justo cuando arrancó ese sistema de medida.
+¿Por qué analizamos los condenados, precisamente, entre 2007 y 2012? ¿Cómo hemos hecho la metodología? Para realizar el análisis conjunto de los datos hemos utilizado dos fuentes: los indultos concedidos hasta el 31 de diciembre de 2015 y publicados en el [BOE][], y las cifras de condenados del [INE][]. Estas últimas sufrieron una variación importante en [2007][], cuando la forma de recabar información fue modificada. Hasta entonces, la recogida de información se realizaba trimestralmente mediante un boletín en papel que cumplimentaban los órganos judiciales. Por eso analizamos los datos desde 2007, justo cuando arrancó ese sistema de medida.
 
 ¿Y por qué hasta 2012? El [periodo medio] de espera entre condena e indulto en el global de las medidas de gracia analizadas en El Indultómetro es de casi tres años. Así, el periodo de análisis con el que hemos realizado esta investigación comienza en 2007, debido al cambio metodológico en el INE, y termina en 2012.
 
 En el caso de los indultos tomamos como fecha de referencia la fecha de la sentencia del tribunal indicada en cada disposición del BOE.
-
-_Nota: La última fecha de publicación del BOE en el que hemos analizado indultos es: 12 de febrero de 2016._
 
 [Código Penal]: https://www.boe.es/buscar/act.php?id=BOE-A-1995-25444
 [metodología]: #metod
