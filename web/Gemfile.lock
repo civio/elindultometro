@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     blankslate (2.1.2.4)
     celluloid (0.16.0)
@@ -72,3 +72,6 @@ DEPENDENCIES
   i18n
   jekyll
   rdiscount
+
+BUNDLED WITH
+   1.10.6
