@@ -158,7 +158,7 @@ class IndultometroApp < Sinatra::Base
       GROUP BY 
         pcc.crime_cat
       ORDER BY 
-        q2 desc')
+        q2 asc')
     result = []
     percentiles.each do |item| 
       result.push({ :crime_cat => item.crime_cat.to_i, :count => item.num_crimes, 
