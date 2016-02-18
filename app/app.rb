@@ -145,9 +145,9 @@ class IndultometroApp < Sinatra::Base
       SELECT 
         pcc.crime_cat as crime_cat,
         count(*) as num_crimes, 
-        percentile_cont(array_agg(p.pardon_date - p.trial_date),0.25) as q1,
-        percentile_cont(array_agg(p.pardon_date - p.trial_date),0.50) as q2,
-        percentile_cont(array_agg(p.pardon_date - p.trial_date),0.75) as q3
+        my_percentile_cont(array_agg(p.pardon_date - p.trial_date),0.25) as q1,
+        my_percentile_cont(array_agg(p.pardon_date - p.trial_date),0.50) as q2,
+        my_percentile_cont(array_agg(p.pardon_date - p.trial_date),0.75) as q3
       FROM
         pardons as p, 
         pardon_crime_categories as pcc

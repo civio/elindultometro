@@ -60,7 +60,7 @@ Para calcular los percentiles, vía la consola de PostgreSQL (`psql` o `heroku p
      );
      $$;
      
-     $ CREATE OR REPLACE FUNCTION percentile_cont(myarray real[], percentile real)
+     $ CREATE OR REPLACE FUNCTION my_percentile_cont(myarray real[], percentile real)
      RETURNS real AS
      $$
      DECLARE
