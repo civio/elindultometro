@@ -3,7 +3,7 @@ layout: post
 title: "Los indultos de Semana Santa son sagrados"
 author: Eva Belmonte
 lead: "Durante 2016 se concedieron 27 indultos, 15 de ellos por parte del Gobierno en funciones. De esos, 13 fueron para las solicitudes de las cofradías, como cada año."
-image: /images/posts/catala-2015-870x300.jpeg
+image: /images/posts/catala-2016-870x300.jpg
 ---
 
 En 2016 el Gobierno concedió **27 indultos**. Una cifra mucho menor que la registrada en años anteriores (75 en 2015, por ejemplo) y en línea con el [descenso](http://elindultometro.es/2016/02/17/actualizacion-2015.html) que arrancó en 2013. Pero, eso sí, **esta cifra tiene truco: de enero a octubre, es decir, durante la mayor parte del año, el Gobierno estuvo en funciones**. 
