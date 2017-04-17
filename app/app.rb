@@ -190,9 +190,7 @@ class IndultometroApp < Sinatra::Base
             p.id = pcc.boe"
 
     # Add extra conditions, if present
-    full_database = true
     unless params['q'].nil? or params['q']==''
-      full_database = false
       # NOTE: You'll need to create the unaccent dictionary and search configuration, as
       # described in the documentation added spanish stemming.
       sql += " AND (to_tsvector('unaccent_spa', p.crime) @@ plainto_tsquery('unaccent_spa', ?) OR \
@@ -202,7 +200,6 @@ class IndultometroApp < Sinatra::Base
     end
 
     unless params['region'].nil? or params['region']==''
-      full_database = false
       # TODO: This handling of NULLs is a hack: we should set a special value in the loader
       if ( params['region'] == 'NULL' )
         sql += " AND p.region IS NULL"
@@ -213,8 +210,6 @@ class IndultometroApp < Sinatra::Base
     end
 
     unless params['category'].nil? or params['category']==''
-      full_database = false
-
       # The given argument could be a subcategory (category.subcategory), so we split along '.'
       category, subcategory = params['category'].split('.')
 
@@ -229,10 +224,13 @@ class IndultometroApp < Sinatra::Base
       end
     end
 
-    # Run the query and return the results. Return nothing if no parameters are sent
+    # Run the query and return the results.
+    # XXX: Returns the whole database if no filters are given: we used to return a blank response,
+    # which was very confusing and had bad UX (since we didn't handle it in the front-end).
+    # The full serialized DB is around 3.5MB, so we'll leave like this for now.
     # TODO: Adding the group by here is a bit of a last minute hack
     result = []
-    result = repository(:default).adapter.select(sql+" GROUP BY p.id", *sql_arguments) unless full_database
+    result = repository(:default).adapter.select(sql+" GROUP BY p.id", *sql_arguments)
     result.collect! {|pardon| pardon_summary(pardon) }
     send_response(response, result, params)
   end
