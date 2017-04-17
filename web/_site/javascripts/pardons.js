@@ -1,4 +1,8 @@
 $(function() {
+
+  // Setup pym in order to embed parons graph
+  var pymChild = new pym.Child();
+
   function populateResultsTable(data, selectedYear) {
     $("#waiting-indicator").hide();
     $("#too-many-results-alert").hide();
@@ -27,6 +31,8 @@ $(function() {
     $(fragments.join('')).appendTo('#indultos tbody');
     $('#search-results-container').fadeIn();
     $('.footable').footable();
+    // send updated height to parent
+    pymChild.sendHeight();
   }
 
   function changeDisplayedYear(year) {
@@ -93,19 +99,21 @@ $(function() {
     $("#search-form-category").val('').trigger("liszt:updated");
     $("#search-form-region").val('').trigger("liszt:updated");
 
-    $('#search-results-container').fadeOut();   // Hide the results table
+    $('#search-results-container').hide();      // Hide the results table
     histogram.clearSelection();                 // Clean histogram selection
     searchResults = null;
 
     // Get yearly summary from server, as a starting point
-    if ( summaryData == null )
+    if ( summaryData == null ) {
       d3.json("/api/summary", function(error, data) {
         if (error) return console.warn(error);
         summaryData = data;
         histogram.draw(data);
       });
-    else
+    }
+    else {
       histogram.draw(summaryData);
+    }
   }
 
   $("#waiting-indicator").hide();
@@ -113,6 +121,10 @@ $(function() {
   summaryData = null;
   searchResults = null;
   histogram = new Histogram('#histogram', changeDisplayedYear);
+  $('#histogram').bind('ready', function(){
+    // send updated height to parent
+    pymChild.sendHeight();
+  });
   resetState();
   $(".chzn-select").chosen({ allow_single_deselect: true });
 
@@ -138,5 +150,9 @@ $(function() {
       histogram.draw(summarizeSearchResults(data));
     });
     return false;
+  });
+
+  $(window).resize(function(){
+    histogram.resize();
   });
 });

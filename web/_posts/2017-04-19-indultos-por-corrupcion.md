@@ -55,3 +55,7 @@ Más allá de las percepciones individuales, o de los propios ministros de Justi
 
 * Miguel Ángel Gavilanes y Javier de Vega han colaborado en la limpieza de datos. 
 * Nota: si sumas los tipos de delitos verás que la cifra que da es 234, y no 227. Esto es así porque un solo indulto puede perdonar condenas que incluyen varios delitos.
+
+<div id="indultos-embed"></div>
+<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>var pymParent = new pym.Parent('indultos-embed', '/indultos_embed.html', {});</script>
