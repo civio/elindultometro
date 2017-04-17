@@ -14,7 +14,7 @@ Pero, entonces, **¿qué es y qué no un delito de corrupción?** La corrupción
 
 El Consejo General del Poder Judicial (**CGPJ**), que está empezando a publicar datos de condenas y procesos por corrupción, ha marcado esa línea y ha establecido [qué es un delito de corrupción](http://www.poderjudicial.es/cgpj/es/Temas/Transparencia/Repositorio-de-datos-sobre-procesos-por-corrupcion/) de cara a publicar esas estadísticas. Así, **establece qué artículos del Código Penal entrarían en esa clasificación**, según su criterio. Un criterio que nada tiene que ver con el del ministro actual y el de su antecesor.
 
-Con esa clasificación en la mano -[METODOLOGÍA](XX)-, podemos establecer que el Gobierno de Rajoy ha concedido 11 indultos a condenados por delitos de corrupción. Son los últimos de una lista de 227 aprobados desde 1996 hasta la fecha.
+Con esa clasificación en la mano -[METODOLOGÍA](/metodologia.html#sNine)-, podemos establecer que el Gobierno de Rajoy ha concedido 11 indultos a condenados por delitos de corrupción. Son los últimos de una lista de 227 aprobados desde 1996 hasta la fecha.
 
 Indultos concedidos desde 1996 hasta la actualidad (última actualización: 15/04/2017), según la [clasificación](http://elindultometro.es/metodologia.html#sNine) de corrupción del CGPJ.
 
