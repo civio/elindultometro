@@ -224,6 +224,10 @@ class IndultometroApp < Sinatra::Base
       end
     end
 
+    unless params['is_corruption'].nil? or params['is_corruption']==''
+      sql += " AND pcc.is_corruption = TRUE"
+    end
+
     # Run the query and return the results.
     # XXX: Returns the whole database if no filters are given: we used to return a blank response,
     # which was very confusing and had bad UX (since we didn't handle it in the front-end).

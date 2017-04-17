@@ -98,6 +98,7 @@ $(function() {
     $("#search-form-query").val("");            // Clean search form
     $("#search-form-category").val('').trigger("liszt:updated");
     $("#search-form-region").val('').trigger("liszt:updated");
+    $("#search-form-corruption").prop('checked', false);
 
     $('#search-results-container').hide();      // Hide the results table
     histogram.clearSelection();                 // Clean histogram selection
