@@ -35,6 +35,7 @@ class PardonCrimeCategory
   property :crime,          String, :length => 100
   property :crime_cat,      String, :length => 2
   property :crime_sub_cat,  String, :length => 3
+  property :is_corruption,  Boolean, :default => false
 end
 
 class CrimeCategory

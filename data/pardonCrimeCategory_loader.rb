@@ -40,10 +40,13 @@ module PardonCrimeCategories
       pYear = field(line, 'pardon_year')
       next if pYear.eql?"1995"
 
+      is_corruption = field(line, 'is_corruption')
+
       PardonCrimeCategory.create!( :boe => field(line, 'boe'), 
                       :crime => field(line, 'crime'),
                       :crime_cat => field(line, 'crime_cat'),
                       :crime_sub_cat => field(line, 'crime_sub_cat'),
+                      :is_corruption => (is_corruption=='y' or is_corruption=='Y')
                       )
     end
   end
