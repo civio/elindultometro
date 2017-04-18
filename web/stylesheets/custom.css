@@ -127,7 +127,7 @@ span.help-inline.chzn-tweak {
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: #999;
   shape-rendering: crispEdges;
 }
 
@@ -153,22 +153,29 @@ rect.selected {
 }
 
 .x.axis text {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .y.axis text {
-  font-size: 12px;
+  font-size: 11px;
+}
+
+@media (max-width: 768px) {
+
+  .x.axis .tick:nth-child(even){
+    display: none;
+  }
 }
 
 #pop-up {
   display: none;
   position:absolute;
   color: white;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.7);
   padding: 5px 10px 5px 10px;
-  -webkit-border-radius: 8px 8px;
-  -moz-border-radius: 8px 8px;
-  border-radius: 8px 8px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
   pointer-events: none;
 }
 
