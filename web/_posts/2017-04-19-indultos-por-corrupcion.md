@@ -58,4 +58,4 @@ Más allá de las percepciones individuales, o de los propios ministros de Justi
 
 <div id="indultos-embed"></div>
 <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
-<script>var pymParent = new pym.Parent('indultos-embed', '/indultos_embed.html', {});</script>
+<script>var pymParent = new pym.Parent('indultos-embed', '/indultos_embed.html?is_corruption=on', {});</script>

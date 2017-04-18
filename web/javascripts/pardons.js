@@ -3,6 +3,9 @@ $(function() {
   // Setup pym in order to embed parons graph
   var pymChild = new pym.Child();
 
+  // Search for is_corruption parameter in url
+  var isCorruption = window.location.search.indexOf('is_corruption=') != -1;
+
   function populateResultsTable(data, selectedYear) {
     $("#waiting-indicator").hide();
     $("#too-many-results-alert").hide();
@@ -106,11 +109,24 @@ $(function() {
 
     // Get yearly summary from server, as a starting point
     if ( summaryData == null ) {
-      d3.json("/api/summary", function(error, data) {
-        if (error) return console.warn(error);
-        summaryData = data;
-        histogram.draw(data);
-      });
+      // Show corruption data if url has is_corruption parameter
+      if (isCorruption) {
+        $.ajax({
+          url: '/api/search',
+          data: 'q=&category=&region=&is_corruption=on' //$("#search-form").serialize()
+        }).success(function(data) {
+          searchResults = data; // Save for later, when filtering by year
+          histogram.draw(summarizeSearchResults(data));
+        });
+      } 
+      // Show all data
+      else {
+        d3.json("/api/summary", function(error, data) {
+          if (error) return console.warn(error);
+          summaryData = data;
+          histogram.draw(data);
+        });
+      }
     }
     else {
       histogram.draw(summaryData);
@@ -121,7 +137,7 @@ $(function() {
   $('#search-results-container').hide();
   summaryData = null;
   searchResults = null;
-  histogram = new Histogram('#histogram', changeDisplayedYear);
+  histogram = new Histogram('#histogram', changeDisplayedYear, isCorruption);
   $('#histogram').bind('ready', function(){
     // send updated height to parent
     pymChild.sendHeight();
