@@ -1,3 +1,10 @@
+GIT
+  remote: git@github.com:dcabo/rack-xframe-options.git
+  revision: 956b3e94e97747fc6923cf2f0023ef0a8d17f1fd
+  specs:
+    rack-xframe-options (0.1.2)
+      rack (>= 0.9.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -68,8 +75,6 @@ GEM
       rack (>= 0.4)
     rack-protection (1.5.3)
       rack
-    rack-xframe-options (0.1.2)
-      rack (>= 0.9.1)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -94,7 +99,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   rack-cache
-  rack-xframe-options
+  rack-xframe-options!
   sinatra
   thin
 
