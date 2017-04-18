@@ -150,7 +150,7 @@ $(function() {
 
   // Populate the categories dropdown
   $.ajax({
-    url: '/api/categories'
+    url: (isCorruption) ? '/files/categories-corruption.json' : '/api/categories'
   }).success(populateCategories);
 
   // Implement button to clear form
