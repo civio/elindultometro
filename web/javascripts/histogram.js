@@ -1,8 +1,8 @@
-function Histogram(container, onClickCallback) {
+function Histogram(container, onClickCallback, isCorruption) {
 
   var $container = $(container);
   
-  var margin = {top: 20, right: 20, bottom: 30, left: 60};
+  var margin = {top: 20, right: 5, bottom: 20, left: 55};
 
   var totalWidth, width, height, extraMargin;
 
@@ -25,6 +25,9 @@ function Histogram(container, onClickCallback) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   var data = null;
+
+  var totalCount;
+
 
   this.draw = function(data) {
     getDimensions();
@@ -61,7 +64,7 @@ function Histogram(container, onClickCallback) {
   }
 
   function createBars(data) {
-    var totalCount = 0;
+    totalCount = 0;
     x.domain(data.map(function(d) { return d.year; }));
     y.domain([0, d3.max(data, function(d) { totalCount += d.count; return d.count; })]);
 
@@ -76,7 +79,7 @@ function Histogram(container, onClickCallback) {
         .call(yAxis)
       .append("text")
         //.attr("transform", "rotate(-90)")
-        .attr("y", -5)
+        .attr("y", -10)
         //.attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("Indultos");
@@ -95,16 +98,15 @@ function Histogram(container, onClickCallback) {
         .on("click", onMouseClick);
 
     svgContainer.append("text")
-        .attr("y", 6)
+        .attr("y", -5)
         .attr("transform", "translate("+width+",0)")
-        .attr("dy", ".71em")
         .style("text-anchor", "end")
         .attr("class", "total-count")
-        .text("Total: "+totalCount+" indultos");
+        .text(getTotalCountLabel());
   }
 
   function updateBars(data) {
-    var totalCount = 0;
+    totalCount = 0;
     y.domain([0, d3.max(data, function(d) { totalCount += d.count; return d.count; })]);
     svgContainer.select("g.y")
         .call(yAxis);
@@ -117,7 +119,7 @@ function Histogram(container, onClickCallback) {
         .attr("height", function(d) { return height - y(d.count); });
 
     svgContainer.selectAll(".total-count")
-        .text("Total: "+totalCount+" indultos");
+        .text(getTotalCountLabel());
   }
 
   function redrawBars() {
@@ -163,5 +165,9 @@ function Histogram(container, onClickCallback) {
       d3.select(this).classed("selected",true);
       onClickCallback(d.year);
     }
+  }
+
+  function getTotalCountLabel() {
+    return (isCorruption) ? "Total: "+totalCount+" indultos a delitos de corrupción" : "Total: "+totalCount+" indultos";;
   }
 }

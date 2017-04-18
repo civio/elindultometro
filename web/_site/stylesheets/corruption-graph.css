@@ -1,0 +1,61 @@
+.corruption-graph{
+  margin: 20px 0;
+}
+.corruption-graph .item{
+  clear: both;
+  margin-bottom: 20px;
+}
+.corruption-graph-content{
+  margin-left: 80px;
+}
+.corruption-graph h3{
+  font-weight: 600;
+  line-height: 30px;
+  margin: 0 0 5px;
+}
+.corruption-graph-picture {
+  position: absolute;
+  margin-right: 15px;
+  border-width: 3px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #A5A5A5;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border: 2px solid gray;
+}
+.corruption-graph-picture.psoe {
+  border-color: #E2001A;
+}
+.corruption-graph-picture.pp {
+  border-color: #0BB2FF;
+}
+.corruption-graph-bar{
+  position: relative;
+	height: 30px;
+	
+}
+.corruption-graph-bar span{
+  display: block;
+  height: 30px;
+  background: #A5A5A5;
+}
+.corruption-graph-bar.psoe span{
+  background: #E2001A;
+}
+.corruption-graph-bar.pp span{
+  background: #0BB2FF;
+}
+.corruption-graph-bar p{
+  position: absolute;
+  left: 6px;
+  top: 0;
+  line-height: 30px;
+  font-weight: bold;
+}

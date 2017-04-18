@@ -3,7 +3,7 @@ layout: post
 title: "227 indultos a condenados por corrupción desde 1996"
 author: Eva Belmonte
 lead: "Aznar concedió 141 y Zapatero, 65. Rajoy lleva 11. La mayoría de ellos perdonan delitos de prevaricación y malversación."
-image: /images/posts/catala-2016-870x300.jpg
+image: /images/posts/acebes-870x300.jpg
 ---
 
 En febrero, el Consejo de Ministros [indultó](http://elboenuestrodecadadia.com/2017/02/13/los-funcionarios-condenados-por-prevaricacion-en-el-ayuntamiento-de-rota-podran-volver-a-sus-puestos-gracias-a-los-indultos/) a seis empleados públicos (un exconcejal y cinco funcionarios, entre ellos el interventor) condenados en el **caso 'horas extra' del Ayuntamiento de Rota**, por el que durante años pagaron a un funcionario vía nómina, en forma de horas extra, trabajos que el Consistorio debía haber adjudicado vía contrato. Los indultos cambiaron sus condenas de inhabilitación por suspensiones temporales, por lo que pueden volver a sus puestos. Son **los últimos de una lista que, desde 1996, suma 227 indultos a condenados por delitos de corrupción**. 
@@ -16,12 +16,16 @@ El Consejo General del Poder Judicial (**CGPJ**), que está empezando a publicar
 
 Con esa clasificación en la mano -[METODOLOGÍA](/metodologia.html#sNine)-, podemos establecer que el Gobierno de Rajoy ha concedido 11 indultos a condenados por delitos de corrupción. Son los últimos de una lista de 227 aprobados desde 1996 hasta la fecha.
 
-Indultos concedidos desde 1996 hasta la actualidad (última actualización: 15/04/2017), según la [clasificación](http://elindultometro.es/metodologia.html#sNine) de corrupción del CGPJ.
+&nbsp;
 
-<div>Gráfico de barras</div>
+**Indultos a delitos de corrupción concedidos desde 1996**
 
-Los datos de 1996 incluyen 10 indultos de los últimos meses del Gobierno de Felipe González.
+{% include corruption_graph.html %}
 
+_(Última actualización: 15/04/2017), según la [clasificación](http://elindultometro.es/metodologia.html#sNine) de corrupción del CGPJ.
+Los datos de 1996 incluyen 10 indultos de los últimos meses del Gobierno de Felipe González._
+
+&nbsp;
 
 ### Aznar lidera la lista con más de la mitad del total
 
@@ -56,6 +60,10 @@ Más allá de las percepciones individuales, o de los propios ministros de Justi
 * Miguel Ángel Gavilanes y Javier de Vega han colaborado en la limpieza de datos. 
 * Nota: si sumas los tipos de delitos verás que la cifra que da es 234, y no 227. Esto es así porque un solo indulto puede perdonar condenas que incluyen varios delitos.
 
+&nbsp;
+
+**Consulta los indultos a delitos de corrupción desde 1996**
+
 <div id="indultos-embed"></div>
 <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
-<script>var pymParent = new pym.Parent('indultos-embed', '/indultos_embed.html', {});</script>
+<script>var pymParent = new pym.Parent('indultos-embed', '/indultos_embed.html?is_corruption=on', {});</script>
