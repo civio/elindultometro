@@ -16,7 +16,8 @@ function Histogram(container, onClickCallback, isCorruption) {
 
   var yAxis = d3.svg.axis()
       .scale(y)
-      .orient("left");
+      .orient("left")
+      .tickFormat(d3.format("d"));
 
   var svg = d3.select(container).append("svg")
       .attr("width", '100%');
@@ -58,6 +59,7 @@ function Histogram(container, onClickCallback, isCorruption) {
     // Set scale dimensions
     x.rangeRoundBands([0, width], 0.1);
     y.range([height, 0]);
+    yAxis.innerTickSize(width);
     // Make sure the container is centered if we're not using the whole width
     extraMargin = Math.max(0, $container.width() - totalWidth) / 2;
     $container.css('margin-left', extraMargin);
@@ -75,10 +77,11 @@ function Histogram(container, onClickCallback, isCorruption) {
 
     svgContainer.append("g")
         .attr("class", "y axis")
-        .attr("transform", "translate(-10," + 0 + ")")
+        .attr("transform", "translate("+width+",0)")
         .call(yAxis)
       .append("text")
-        //.attr("transform", "rotate(-90)")
+        .attr("class", "axis-title")
+        .attr("transform", "translate("+(-width)+",0)")
         .attr("y", -10)
         //.attr("dy", ".71em")
         .style("text-anchor", "end")
@@ -129,7 +132,10 @@ function Histogram(container, onClickCallback, isCorruption) {
         .call(xAxis);
 
     svgContainer.select(".y.axis")
+        .attr("transform", "translate("+width+",0)")
         .call(yAxis)
+      .select(".axis-title")
+        .attr("transform", "translate("+(-width)+",0)");
 
     svgContainer.selectAll(".bar")
         .attr("x", function(d) { return x(d.year); })

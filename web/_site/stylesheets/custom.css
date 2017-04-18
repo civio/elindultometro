@@ -113,7 +113,7 @@ span.help-inline.chzn-tweak {
 .axis path,
 .axis line {
   fill: none;
-  stroke: #999;
+  stroke: #ddd;
   shape-rendering: crispEdges;
 }
 
@@ -138,10 +138,11 @@ rect.selected {
   display: none;
 }
 
-.x.axis text {
-  font-size: 11px;
+.y.axis .domain {
+  display: none;
 }
 
+.x.axis text,
 .y.axis text {
   font-size: 11px;
 }
