@@ -3,7 +3,7 @@ layout: post
 title: "El CGPJ excluye de sus estadísticas sobre corrupción la prevaricación judicial"
 author: Eva Belmonte
 lead: "El órgano de gobierno de la Justicia incluye como corrupción los delitos cometidos por funcionarios públicos y políticos, pero no los cometidos por los propios jueces."
-image: /images/posts/acebes-870x300.jpg
+image: /images/posts/carlos-lesmes-militar-870x300.jpg
 ---
 
 El Consejo General del Poder Judicial (CGPJ) ha empezado a publicar un [repositorio de datos](http://www.poderjudicial.es/cgpj/es/Temas/Transparencia/Repositorio-de-datos-sobre-procesos-por-corrupcion/), que incluye información sobre procesos judiciales abiertos, condenados y reclusos. El objetivo, según su propia página web, es dar a conocer "la acción de la justicia en el marco global de la lucha contra la corrupción". 
