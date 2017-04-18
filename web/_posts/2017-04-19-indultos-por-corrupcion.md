@@ -16,12 +16,16 @@ El Consejo General del Poder Judicial (**CGPJ**), que está empezando a publicar
 
 Con esa clasificación en la mano -[METODOLOGÍA](/metodologia.html#sNine)-, podemos establecer que el Gobierno de Rajoy ha concedido 11 indultos a condenados por delitos de corrupción. Son los últimos de una lista de 227 aprobados desde 1996 hasta la fecha.
 
-Indultos concedidos desde 1996 hasta la actualidad (última actualización: 15/04/2017), según la [clasificación](http://elindultometro.es/metodologia.html#sNine) de corrupción del CGPJ.
+&nbsp;
 
-<div>Gráfico de barras</div>
+**Indultos concedidos desde 1996 hasta la actualidad**
 
-Los datos de 1996 incluyen 10 indultos de los últimos meses del Gobierno de Felipe González.
+{% include corruption_graph.html %}
 
+_(Última actualización: 15/04/2017), según la [clasificación](http://elindultometro.es/metodologia.html#sNine) de corrupción del CGPJ.
+Los datos de 1996 incluyen 10 indultos de los últimos meses del Gobierno de Felipe González._
+
+&nbsp;
 
 ### Aznar lidera la lista con más de la mitad del total
 
