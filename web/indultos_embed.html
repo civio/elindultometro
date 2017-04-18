@@ -6,7 +6,7 @@ layout: base
 
 <!-- Custom styles -->
 <style type="text/css">
-body{ padding-top: 0; }
+body{ padding: 1px; }
 #search-form-query{ max-width: 336px; }
 #histogram .x.axis .tick line{ display: none; }
 </style>
@@ -59,12 +59,7 @@ body{ padding-top: 0; }
           </select>
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="corruption">Mostrar sólo delitos de corrupción</label>
-        <div class="controls">
-          <input type="checkbox" name="is_corruption" id="search-form-corruption">
-        </div>
-      </div>
+      <input type="hidden" name="is_corruption" id="search-form-corruption">
       <div class="control-group">
         <label class="control-label">
           <img id="waiting-indicator" src="/images/waiting.gif">

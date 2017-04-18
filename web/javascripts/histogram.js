@@ -98,9 +98,8 @@ function Histogram(container, onClickCallback, isCorruption) {
         .on("click", onMouseClick);
 
     svgContainer.append("text")
-        .attr("y", 6)
+        .attr("y", -5)
         .attr("transform", "translate("+width+",0)")
-        .attr("dy", ".71em")
         .style("text-anchor", "end")
         .attr("class", "total-count")
         .text(getTotalCountLabel());
@@ -169,6 +168,6 @@ function Histogram(container, onClickCallback, isCorruption) {
   }
 
   function getTotalCountLabel() {
-    return (isCorruption) ? "Total: "+totalCount+" indultos de delitos por corrupción" : "Total: "+totalCount+" indultos";;
+    return (isCorruption) ? "Total: "+totalCount+" indultos a delitos de corrupción" : "Total: "+totalCount+" indultos";;
   }
 }

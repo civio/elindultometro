@@ -101,7 +101,6 @@ $(function() {
     $("#search-form-query").val("");            // Clean search form
     $("#search-form-category").val('').trigger("liszt:updated");
     $("#search-form-region").val('').trigger("liszt:updated");
-    $("#search-form-corruption").prop('checked', false);
 
     $('#search-results-container').hide();      // Hide the results table
     histogram.clearSelection();                 // Clean histogram selection
@@ -142,6 +141,10 @@ $(function() {
     // send updated height to parent
     pymChild.sendHeight();
   });
+  // Check corruption checkbox if isCorruption
+  if (isCorruption) {
+    $("#search-form-corruption").attr('value', 'on');
+  }
   resetState();
   $(".chzn-select").chosen({ allow_single_deselect: true });
 

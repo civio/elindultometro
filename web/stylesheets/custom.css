@@ -106,6 +106,10 @@ span.help-inline.chzn-tweak {
 /* @end */
 
 /* Visualization stuff */
+#histogram{
+  margin-bottom: 10px;
+}
+
 .axis path,
 .axis line {
   fill: none;
