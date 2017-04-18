@@ -68,6 +68,8 @@ GEM
       rack (>= 0.4)
     rack-protection (1.5.3)
       rack
+    rack-xframe-options (0.1.2)
+      rack (>= 0.9.1)
     sinatra (1.4.7)
       rack (~> 1.5)
       rack-protection (~> 1.4)
@@ -92,8 +94,9 @@ DEPENDENCIES
   newrelic_rpm
   pg
   rack-cache
+  rack-xframe-options
   sinatra
   thin
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

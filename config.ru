@@ -16,6 +16,9 @@ if memcache_servers = ENV["MEMCACHIER_SERVERS"]
     entitystore: "memcached://#{memcache_servers}"
 end
 
+# Make sure site can be embedded (ideally just the search form, but...)
+use Rack::XFrameOptions, "ALLOWALL"
+
 # get csv files with Rack
 use Rack::Static, :urls => ["/data"]
 
