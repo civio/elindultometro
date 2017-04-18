@@ -3,7 +3,7 @@ layout: post
 title: "227 indultos a condenados por corrupción desde 1996"
 author: Eva Belmonte
 lead: "Aznar concedió 141 y Zapatero, 65. Rajoy lleva 11. La mayoría de ellos perdonan delitos de prevaricación y malversación."
-image: /images/posts/catala-2016-870x300.jpg
+image: /images/posts/acebes-870x300.jpg
 ---
 
 En febrero, el Consejo de Ministros [indultó](http://elboenuestrodecadadia.com/2017/02/13/los-funcionarios-condenados-por-prevaricacion-en-el-ayuntamiento-de-rota-podran-volver-a-sus-puestos-gracias-a-los-indultos/) a seis empleados públicos (un exconcejal y cinco funcionarios, entre ellos el interventor) condenados en el **caso 'horas extra' del Ayuntamiento de Rota**, por el que durante años pagaron a un funcionario vía nómina, en forma de horas extra, trabajos que el Consistorio debía haber adjudicado vía contrato. Los indultos cambiaron sus condenas de inhabilitación por suspensiones temporales, por lo que pueden volver a sus puestos. Son **los últimos de una lista que, desde 1996, suma 227 indultos a condenados por delitos de corrupción**. 
