@@ -2,7 +2,7 @@ function Histogram(container, onClickCallback, isCorruption) {
 
   var $container = $(container);
   
-  var margin = {top: 20, right: 5, bottom: 20, left: 55};
+  var margin = {top: 20, right: 5, bottom: 20, left: 50};
 
   var totalWidth, width, height, extraMargin;
 

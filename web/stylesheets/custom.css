@@ -175,3 +175,9 @@ rect.selected {
 #pop-up-content {
   font-size: 12px;
 }
+
+@media (max-width: 980px) {
+  .row-fluid .blog-post .offset2{
+    margin-left: 0;
+  }
+}
