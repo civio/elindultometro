@@ -253,17 +253,9 @@ class IndultometroApp < Sinatra::Base
   end
 
   def send_response(response, result, params)
-    if params['callback']
-      response.headers['Content-Type'] = 'text/javascript; charset=utf8'
-      response.headers['Access-Control-Allow-Origin'] = '*'
-      # TODO: Is this needed? Not using JSONP now anyway
-      # response.headers['Access-Control-Max-Age'] = '3600'
-      response.headers['Access-Control-Allow-Methods'] = 'GET'
-
-      "#{params['callback']}(#{result.to_json})"
-    else
-      content_type :json
-      result.to_json
-    end
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET'
+    content_type :json
+    result.to_json
   end
 end

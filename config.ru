@@ -19,14 +19,6 @@ end
 # Make sure site can be embedded (ideally just the search form, but...)
 use Rack::XFrameOptions, "ALLOWALL"
 
-# Set up CORS headers to allow Ajax calls
-use Rack::Cors do
-  allow do
-    origins '*'
-    resource '/*', :headers => :any, :methods => :get
-  end
-end
-
 # get csv files with Rack
 use Rack::Static, :urls => ["/data"]
 
