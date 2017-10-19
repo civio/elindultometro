@@ -15,26 +15,26 @@ body{ padding: 1px; }
   <form id="search-form" class="form-horizontal chosen">
     <fieldset>
       <div class="control-group">
-        <label class="control-label" for="search-form-query">Texto libre</label>
+        <label class="control-label" for="search-form-query">Free text</label>
         <div class="controls">
           <input name="q" class="input-xlarge" id="search-form-query" type="text">
-            <span class="help-inline">No incluye el nombre del indultado. <a href="https://civio.es/el-indultometro/preguntas-frecuentes/#por-que-no-mostrais-los-nombres-de-los-indultados" target="_blank">¿Por qué?</a></span>
+            <span class="help-inline">Does not include the name of the pardoned. <a href="https://civio.es/el-indultometro/preguntas-frecuentes/#por-que-no-mostrais-los-nombres-de-los-indultados" target="_blank">Why?</a></span>
           </input>
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="category">Categoría</label>
+        <label class="control-label" for="category">Category</label>
         <div class="controls">
-          <select name="category" data-placeholder="Elige una categoría" id="search-form-category" class="chzn-select span6">
+          <select name="category" data-placeholder="Choose a category" id="search-form-category" class="chzn-select span6">
             <option value=""></option>
           </select>
-          <span class="help-inline chzn-tweak">Según el Código Penal</span>
+          <span class="help-inline chzn-tweak">According to the Penal Code</span>
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="region">Comunidad</label>
+        <label class="control-label" for="region">Region</label>
         <div class="controls">
-          <select name="region" data-placeholder="Elige una comunidad autónoma" id="search-form-region" class="chzn-select span6">
+          <select name="region" data-placeholder="Choose a Autonomous Community" id="search-form-region" class="chzn-select span6">
             <option value=""></option>
             <option value="01">Andalucía</option>
             <option value="02">Aragón</option>
@@ -55,7 +55,7 @@ body{ padding: 1px; }
             <option value="17">La Rioja</option>
             <option value="18">Ceuta</option>
             <option value="19">Melilla</option>
-            <option value="NULL">Otros</option>
+            <option value="NULL">Others</option>
           </select>
         </div>
       </div>
@@ -65,8 +65,8 @@ body{ padding: 1px; }
           <img id="waiting-indicator" src="/images/waiting.gif">
         </label>
         <div class="controls">
-          <button type="submit" class="btn btn-primary">Filtrar</button>
-          <button class="btn" id="clear-form-button">Quitar filtros</button>
+          <button type="submit" class="btn btn-primary">Filter</button>
+          <button class="btn" id="clear-form-button">Remove filters</button>
         </div>
       </div>
     </fieldset>
@@ -75,14 +75,14 @@ body{ padding: 1px; }
 
 <div class="alert alert-info alert-block fade in">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <p>Pincha en cualquier barra para ver todos los indultos de ese año. También puedes filtrar los resultados por palabra o categoría.</p>
+  <p>Click on any bar to see all pardons that year. You can also filter the results by word or category.</p>
 </div>
 
 <div id="histogram"></div>
 
 <div id="pop-up">
   <div id="pop-up-title"></div>
-  <div id="pop-up-content">Haz click para verlos en detalle</div>
+  <div id="pop-up-content">Click to see them in detail</div>
 </div>
 
 <div id="search-results-container">
@@ -90,17 +90,17 @@ body{ padding: 1px; }
     <table class="table table-bordered table-striped footable" id="indultos">
       <thead>
         <tr>
-          <th data-sort-initial="true">Fecha</th>
-          <th data-hide="phone">Tipo</th>
-          <th data-hide="phone">Delito</th>
-          <th data-class="expand" data-sort-ignore="true">Detalle</th>
+          <th data-sort-initial="true">Date</th>
+          <th data-hide="phone">Type</th>
+          <th data-hide="phone">Crime</th>
+          <th data-class="expand" data-sort-ignore="true">Detail</th>
         </tr>
       </thead>
       <tbody>
       </tbody>
     </table>
     <div class="alert alert-info alert-block fade in" id="too-many-results-alert">
-      <p>Nota: La tabla sólo muestra los primeros 500 resultados.</p>
+      <p>Note: The table only shows the first 500 results.</p>
     </div>
   </small>
 </div>
