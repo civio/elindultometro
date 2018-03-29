@@ -182,7 +182,7 @@ class IndultometroApp < Sinatra::Base
     # Define basic query. We need custom SQL for free-text stuff
     sql_arguments = []
     sql = "SELECT
-            p.id, p.pardon_date, p.pardon_type, p.crime, p.pardon_year
+            p.id, p.pardon_date, p.pardon_type, p.crime, p.pardon_year, p.trial_date, p.gender, p.ministry, p.signature
           FROM 
             pardons p,
             pardon_crime_categories as pcc
