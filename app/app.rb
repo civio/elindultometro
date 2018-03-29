@@ -182,7 +182,7 @@ class IndultometroApp < Sinatra::Base
     # Define basic query. We need custom SQL for free-text stuff
     sql_arguments = []
     sql = "SELECT
-            p.id, p.pardon_date, p.pardon_type, p.crime, p.pardon_year, p.trial_date, p.gender, p.ministry, p.signature
+            p.id, p.pardon_date, p.pardon_year, p.pardon_type, p.crime, p.trial_date, p.gender, p.ministry, p.signature
           FROM 
             pardons p,
             pardon_crime_categories as pcc
@@ -241,7 +241,7 @@ class IndultometroApp < Sinatra::Base
 
   def pardon_summary(pardon)
     summary = {}
-    [:id, :pardon_date, :pardon_type, :trial_date, :gender, :ministry, :signature, :crime].each do |field|
+    [:id, :pardon_date, :pardon_year, :pardon_type, :trial_date, :gender, :ministry, :signature, :crime].each do |field|
       summary[field] = pardon[field]
     end
     summary
