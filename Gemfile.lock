@@ -69,7 +69,7 @@ GEM
     memcachier (0.0.2)
     multi_json (1.11.2)
     newrelic_rpm (3.14.3.313)
-    pg (0.18.4)
+    pg (0.20.0)
     rack (1.6.4)
     rack-cache (1.6.1)
       rack (>= 0.4)
@@ -97,11 +97,11 @@ DEPENDENCIES
   json
   memcachier
   newrelic_rpm
-  pg
+  pg (= 0.20)
   rack-cache
   rack-xframe-options!
   sinatra
   thin
 
 BUNDLED WITH
-   1.11.2
+   1.13.6
