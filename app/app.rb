@@ -203,6 +203,11 @@ class IndultometroApp < Sinatra::Base
       sql_arguments.push params['q']
     end
 
+    unless params['year'].nil? or params['year']==''
+      sql += " AND p.pardon_year = ?"
+      sql_arguments.push params['year']
+    end
+
     unless params['region'].nil? or params['region']==''
       # TODO: This handling of NULLs is a hack: we should set a special value in the loader
       if ( params['region'] == 'NULL' )
