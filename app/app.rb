@@ -29,15 +29,12 @@ class IndultometroApp < Sinatra::Base
     set_cache_headers
 
     sql =   'SELECT
-              p.pardon_year,
-              count(p.pardon_year)
+              pardon_year,
+              count(pardon_year)
             FROM
-              pardons p,
-              pardon_crime_categories as pcc
-            WHERE
-              p.id = pcc.boe '
+              pardons p '
     unless params['is_corruption'].nil? or params['is_corruption']==''
-      sql += 'AND pcc.is_corruption = TRUE '
+      sql += 'WHERE id IN (SELECT boe FROM pardon_crime_categories WHERE is_corruption = TRUE)'
     end
     sql += 'GROUP BY p.pardon_year
             ORDER BY p.pardon_year ASC'
