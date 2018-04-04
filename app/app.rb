@@ -28,14 +28,18 @@ class IndultometroApp < Sinatra::Base
   get '/api/summary' do
     set_cache_headers
 
-    count = repository(:default).adapter.select('
-      SELECT 
-        pardon_year, 
-        count(pardon_year) 
-      FROM 
-        pardons 
-      GROUP BY pardon_year 
-      ORDER BY pardon_year ASC')
+    sql =   'SELECT 
+              pardon_year, 
+              count(pardon_year) 
+            FROM 
+              pardons '
+    unless params['is_corruption'].nil? or params['is_corruption']==''
+      sql += 'WHERE pcc.is_corruption = TRUE '
+    end
+    sql += 'GROUP BY pardon_year 
+            ORDER BY pardon_year ASC'
+
+    count = repository(:default).adapter.select(sql)
     result = []
     count.each do |item| 
       result.push({ :year => item.pardon_year.to_i, :count => item.count })
