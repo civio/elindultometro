@@ -7,7 +7,7 @@ Bundler.require(:default, RACK_ENV)
 require 'sinatra'
 require './app/app'
 
-# Defined in ENV on Heroku. To try locally, start memcached and uncomment:
+# Defined in ENV. To try locally, start memcached and uncomment:
 # ENV["MEMCACHE_SERVERS"] = "localhost"
 if memcache_servers = ENV["MEMCACHIER_SERVERS"]
   use Rack::Cache,
