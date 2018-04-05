@@ -29,7 +29,7 @@ TODO: Documentar esto mucho mejor :/
         $ rake pardon_crime_categories:load
         $ rake pardons:load
  
- * Arrancar el servidor: `./server`
+ * Arrancar el servidor: `./bin/server`
  
 #### Configuración de la búsqueda en PostgreSQL
 
