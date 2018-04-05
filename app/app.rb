@@ -28,16 +28,16 @@ class IndultometroApp < Sinatra::Base
   get '/api/summary' do
     set_cache_headers
 
-    sql =   'SELECT 
-              pardon_year, 
-              count(pardon_year) 
-            FROM 
-              pardons '
+    sql =   'SELECT
+              pardon_year,
+              count(pardon_year)
+            FROM
+              pardons p '
     unless params['is_corruption'].nil? or params['is_corruption']==''
-      sql += 'WHERE pcc.is_corruption = TRUE '
+      sql += 'WHERE id IN (SELECT boe FROM pardon_crime_categories WHERE is_corruption = TRUE)'
     end
-    sql += 'GROUP BY pardon_year 
-            ORDER BY pardon_year ASC'
+    sql += 'GROUP BY p.pardon_year
+            ORDER BY p.pardon_year ASC'
 
     count = repository(:default).adapter.select(sql)
     result = []
@@ -201,6 +201,11 @@ class IndultometroApp < Sinatra::Base
                   to_tsvector('unaccent_spa', p.signature) @@ plainto_tsquery('unaccent_spa', ?))"
       sql_arguments.push params['q']
       sql_arguments.push params['q']
+    end
+
+    unless params['year'].nil? or params['year']==''
+      sql += " AND p.pardon_year = ?"
+      sql_arguments.push params['year']
     end
 
     unless params['region'].nil? or params['region']==''
