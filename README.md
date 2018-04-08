@@ -29,11 +29,11 @@ TODO: Documentar esto mucho mejor :/
         $ rake pardon_crime_categories:load
         $ rake pardons:load
  
- * Arrancar el servidor: `./server`
+ * Arrancar el servidor: `./bin/server`
  
 #### Configuración de la búsqueda en PostgreSQL
 
-Para poder hacer búsquedas sin tener en cuenta los acentos, vía la consola de PostgreSQL (`psql` o `heroku pg:psql`):
+Para poder hacer búsquedas sin tener en cuenta los acentos, vía la consola de PostgreSQL (`psql`):
 
      $ CREATE EXTENSION unaccent;
      
@@ -47,7 +47,7 @@ via [esto](https://devcenter.heroku.com/articles/heroku-postgres-extensions-post
 
 #### Configuración para el uso de percentiles en PostgreSQL
 
-Para calcular los percentiles, vía la consola de PostgreSQL (`psql` o `heroku pg:psql`):
+Para calcular los percentiles, vía la consola de PostgreSQL (`psql`):
 
      $ CREATE OR REPLACE FUNCTION array_sort (ANYARRAY)
      RETURNS ANYARRAY LANGUAGE SQL

@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-thin -p 3000 -R config.ru start
