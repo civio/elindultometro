@@ -2,8 +2,6 @@ require "rubygems"
 require "bundler/setup"
 
 require 'sinatra/base'
-require 'dalli'
-
 require 'json'
 require './app/model'
 
@@ -13,8 +11,6 @@ configure :production do
 end
 
 class IndultometroApi < Sinatra::Base
-
-  set :cache, Dalli::Client.new
 
   # Return a yearly pardon count
   get '/api/summary' do
