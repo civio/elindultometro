@@ -5,7 +5,7 @@ require 'bundler'
 Bundler.require(:default, RACK_ENV)
 
 require 'sinatra'
-require './app/app'
+require './app/api'
 
 # Defined in ENV. To try locally, start memcached and uncomment:
 # ENV["MEMCACHE_SERVERS"] = "localhost"
@@ -22,4 +22,4 @@ use Rack::XFrameOptions, "ALLOWALL"
 # get csv files with Rack
 use Rack::Static, :urls => ["/data"]
 
-run IndultometroApp
+run IndultometroApi

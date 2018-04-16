@@ -1,23 +1,9 @@
-El indultometro 
-===============
+El indultometro API
+===================
 
 TODO: Documentar esto mucho mejor :/
 
-#### Instalación del front-end
-
- * Instalar [Jekyll][1] and its dependencies:
-
-        $ cd web
-        $ bundle install
-        
- * Arrancar Jekyll:
-
-        $ cd web
-        $ jekyll serve --watch
-
-[1]: http://jekyllbootstrap.com/usage/jekyll-quick-start.html
-
-#### Instalación del back-end
+#### Instalación
 
  * `bundle install`
  

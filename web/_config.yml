@@ -1,3 +1,0 @@
-markdown: rdiscount
-rdiscount:
-    extensions: [smart]

@@ -12,17 +12,9 @@ configure :production do
   require 'newrelic_rpm'
 end
 
-class IndultometroApp < Sinatra::Base
+class IndultometroApi < Sinatra::Base
 
-  # Enable serving of static files
-  set :static, true
-  set :static_cache_control, [:public, :must_revalidate, :max_age => 3600]
-  set :public_folder, 'web/_site'
   set :cache, Dalli::Client.new
-
-  get '/' do
-    redirect '/index.html'
-  end
 
   # Return a yearly pardon count
   get '/api/summary' do
@@ -41,34 +33,34 @@ class IndultometroApp < Sinatra::Base
 
     count = repository(:default).adapter.select(sql)
     result = []
-    count.each do |item| 
+    count.each do |item|
       result.push({ :year => item.pardon_year.to_i, :count => item.count })
     end
 
     send_response(response, result, params)
   end
-  
+
   # TODO: This is for treemap only. Remove if not used
   get '/api/cat_summary' do
     set_cache_headers
     count = repository(:default).adapter.select('
-      SELECT 
-        pcc.crime_cat, 
-        cc.description, 
-        count(*) as count 
-      FROM 
-        pardon_crime_categories as pcc, 
+      SELECT
+        pcc.crime_cat,
+        cc.description,
+        count(*) as count
+      FROM
+        pardon_crime_categories as pcc,
         crime_categories as cc
-      WHERE 
+      WHERE
         pcc.crime_cat = cc.crime_cat AND
         cc.crime_sub_cat IS NULL
-      GROUP BY 
+      GROUP BY
         pcc.crime_cat,
-        cc.description 
-      ORDER BY 
+        cc.description
+      ORDER BY
         pcc.crime_cat')
     result = []
-    count.each do |item| 
+    count.each do |item|
       result.push({ :crime_cat => item.crime_cat.to_i, :description => item.description, :count => item.count })
     end
 
@@ -100,15 +92,15 @@ class IndultometroApp < Sinatra::Base
     pardons = []
     if ( params['year'] ) # Otherwise returning the whole DB is too much
       pardons = Pardon.all(:pardon_year => params['year'])
-      # Keep only a summary of the data. I tried using DataMapper's field option, 
+      # Keep only a summary of the data. I tried using DataMapper's field option,
       # but didn't work, it kept populating the JSON with all the fields (!?)
       result = pardons.map {|pardon| pardon_summary(pardon) }
     end
 
     send_response(response, result, params)
   end
-  
-  # Return <limit> pardons with the least timeDiff between trial and sentence dates 
+
+  # Return <limit> pardons with the least timeDiff between trial and sentence dates
   get '/api/pardons/timediff/:limit' do
     set_cache_headers
 
@@ -116,56 +108,56 @@ class IndultometroApp < Sinatra::Base
     if ( params['limit'] ) # Otherwise returning the whole DB is too much
       # Define basic query. We need custom SQL for free-text stuff
       sql_arguments = []
-      sql = "SELECT 
+      sql = "SELECT
           p.id,
           p.pardon_date,
-          p.pardon_type, 
-          p.crime, 
+          p.pardon_type,
+          p.crime,
           (p.pardon_date - p.trial_date) as diffdays
         FROM
           pardons as p
         WHERE
           CAST(pardon_year AS INT) > 1995
-        ORDER BY 
+        ORDER BY
           diffdays asc
         LIMIT ?"
       sql_arguments.push params['limit']
       result = []
       pardons = repository(:default).adapter.select(sql, *sql_arguments)
-      pardons.each do |item| 
-        result.push({ :id => item.id, :pardon_date => item.pardon_date, 
+      pardons.each do |item|
+        result.push({ :id => item.id, :pardon_date => item.pardon_date,
                       :pardon_type => item.pardon_type, :crime => item.crime, :diffdays => item.diffdays.to_i})
       end
     end
 
     send_response(response, result, params)
   end
-  
-  # Return percentiles timeDiff by crime category 
+
+  # Return percentiles timeDiff by crime category
   get '/api/categories/percentiles' do
     set_cache_headers
 
     percentiles = repository(:default).adapter.select('
-      SELECT 
+      SELECT
         pcc.crime_cat as crime_cat,
-        count(*) as num_crimes, 
+        count(*) as num_crimes,
         my_percentile_cont(array_agg(p.pardon_date - p.trial_date),0.25) as q1,
         my_percentile_cont(array_agg(p.pardon_date - p.trial_date),0.50) as q2,
         my_percentile_cont(array_agg(p.pardon_date - p.trial_date),0.75) as q3
       FROM
-        pardons as p, 
+        pardons as p,
         pardon_crime_categories as pcc
-      WHERE 
+      WHERE
         p.id = pcc.boe AND
         p.trial_date IS NOT NULL AND
         CAST(p.pardon_year AS INT) > 1995
-      GROUP BY 
+      GROUP BY
         pcc.crime_cat
-      ORDER BY 
+      ORDER BY
         q2 asc')
     result = []
-    percentiles.each do |item| 
-      result.push({ :crime_cat => item.crime_cat.to_i, :count => item.num_crimes, 
+    percentiles.each do |item|
+      result.push({ :crime_cat => item.crime_cat.to_i, :count => item.num_crimes,
                     :q1 => item.q1, :q2 => item.q2, :q3 => item.q3})
     end
 
@@ -187,10 +179,10 @@ class IndultometroApp < Sinatra::Base
     sql_arguments = []
     sql = "SELECT
             p.id, p.pardon_date, p.pardon_year, p.pardon_type, p.crime, p.trial_date, p.gender, p.ministry, p.signature
-          FROM 
+          FROM
             pardons p,
             pardon_crime_categories as pcc
-          WHERE 
+          WHERE
             p.id = pcc.boe"
 
     # Add extra conditions, if present
