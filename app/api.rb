@@ -1,14 +1,7 @@
-require "rubygems"
-require "bundler/setup"
-
 require 'sinatra/base'
 require 'json'
-require './app/model'
 
-# Enable New Relic plugin
-configure :production do
-  require 'newrelic_rpm'
-end
+require_relative 'model'
 
 class IndultometroApi < Sinatra::Base
 

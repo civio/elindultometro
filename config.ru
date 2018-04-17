@@ -1,11 +1,6 @@
-RACK_ENV='development' if not defined?(RACK_ENV)
+require 'newrelic_rpm'
 
-require 'rubygems'
-require 'bundler'
-Bundler.require(:default, RACK_ENV)
-
-require 'sinatra'
-require './app/api'
+require_relative 'app/api'
 
 # get csv files with Rack
 use Rack::Static, :urls => ["/data"]
