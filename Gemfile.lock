@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/dcabo/rack-xframe-options.git
-  revision: 956b3e94e97747fc6923cf2f0023ef0a8d17f1fd
-  specs:
-    rack-xframe-options (0.1.2)
-      rack (>= 0.9.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -96,7 +89,6 @@ DEPENDENCIES
   json (= 1.8.6)
   newrelic_rpm
   pg (= 0.20)
-  rack-xframe-options!
   sinatra
   thin
 
