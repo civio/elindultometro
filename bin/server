@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-bundle exec thin -p 3000 -R config.ru start
+bundle exec rackup -p 3000
