@@ -5,10 +5,12 @@ require_relative 'model'
 
 class IndultometroApi < Sinatra::Base
 
+  before do
+    cache_control :public, :must_revalidate, :max_age => 3600
+  end
+
   # Return a yearly pardon count
   get '/api/summary' do
-    set_cache_headers
-
     sql =   'SELECT
               pardon_year,
               count(pardon_year)
@@ -31,7 +33,6 @@ class IndultometroApi < Sinatra::Base
 
   # TODO: This is for treemap only. Remove if not used
   get '/api/cat_summary' do
-    set_cache_headers
     count = repository(:default).adapter.select('
       SELECT
         pcc.crime_cat,
@@ -59,8 +60,6 @@ class IndultometroApi < Sinatra::Base
   # Return all categories and subcategories.
   # Subcategories are expressed in the form <category id>.<subcategory id>
   get '/api/categories' do
-    set_cache_headers
-
     categories = CrimeCategory.all
     result = {}
     categories.each do |category|
@@ -76,8 +75,6 @@ class IndultometroApi < Sinatra::Base
 
   # Return all pardons for a given year
   get '/api/pardons/year/:year' do
-    set_cache_headers
-
     pardons = []
     if ( params['year'] ) # Otherwise returning the whole DB is too much
       pardons = Pardon.all(:pardon_year => params['year'])
@@ -91,8 +88,6 @@ class IndultometroApi < Sinatra::Base
 
   # Return <limit> pardons with the least timeDiff between trial and sentence dates
   get '/api/pardons/timediff/:limit' do
-    set_cache_headers
-
     pardons = []
     if ( params['limit'] ) # Otherwise returning the whole DB is too much
       # Define basic query. We need custom SQL for free-text stuff
@@ -124,8 +119,6 @@ class IndultometroApi < Sinatra::Base
 
   # Return percentiles timeDiff by crime category
   get '/api/categories/percentiles' do
-    set_cache_headers
-
     percentiles = repository(:default).adapter.select('
       SELECT
         pcc.crime_cat as crime_cat,
@@ -155,15 +148,12 @@ class IndultometroApi < Sinatra::Base
 
   # Return all known details for a given pardon id
   get '/api/pardons/:id' do
-    set_cache_headers
     pardon = Pardon.get(params[:id])
     send_response(response, pardon, params)
   end
 
   # Search for pardons fulfilling a variable number of criteria
   get '/api/search' do
-    set_cache_headers
-
     # Define basic query. We need custom SQL for free-text stuff
     sql_arguments = []
     sql = "SELECT
@@ -229,17 +219,14 @@ class IndultometroApi < Sinatra::Base
     send_response(response, result, params)
   end
 
+  private
+
   def pardon_summary(pardon)
     summary = {}
     [:id, :pardon_date, :pardon_year, :pardon_type, :trial_date, :gender, :ministry, :signature, :crime].each do |field|
       summary[field] = pardon[field]
     end
     summary
-  end
-
-  def set_cache_headers
-    # TODO: Improve caching with ETags http://www.sinatrarb.com/intro#Cache%20Control
-    cache_control :public, :must_revalidate, :max_age => 3600
   end
 
   def send_response(response, result, params)
