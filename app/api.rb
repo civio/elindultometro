@@ -29,7 +29,7 @@ class IndultometroApi < Sinatra::Base
       result.push({ :year => item.pardon_year.to_i, :count => item.count })
     end
 
-    send_response(response, result, params)
+    json(result)
   end
 
   # TODO: This is for treemap only. Remove if not used
@@ -55,7 +55,7 @@ class IndultometroApi < Sinatra::Base
       result.push({ :crime_cat => item.crime_cat.to_i, :description => item.description, :count => item.count })
     end
 
-    send_response(response, result, params)
+    json(result)
   end
 
   # Return all categories and subcategories.
@@ -71,26 +71,26 @@ class IndultometroApi < Sinatra::Base
       end
     end
 
-    send_response(response, result, params)
+    json(result)
   end
 
   # Return all pardons for a given year
   get '/api/pardons/year/:year' do
     pardons = []
-    if ( params['year'] ) # Otherwise returning the whole DB is too much
+    if params['year'] # Otherwise returning the whole DB is too much
       pardons = Pardon.all(:pardon_year => params['year'])
       # Keep only a summary of the data. I tried using DataMapper's field option,
       # but didn't work, it kept populating the JSON with all the fields (!?)
       result = pardons.map {|pardon| pardon_summary(pardon) }
     end
 
-    send_response(response, result, params)
+    json(result)
   end
 
   # Return <limit> pardons with the least timeDiff between trial and sentence dates
   get '/api/pardons/timediff/:limit' do
     pardons = []
-    if ( params['limit'] ) # Otherwise returning the whole DB is too much
+    if params['limit'] # Otherwise returning the whole DB is too much
       # Define basic query. We need custom SQL for free-text stuff
       sql_arguments = []
       sql = "SELECT
@@ -115,7 +115,7 @@ class IndultometroApi < Sinatra::Base
       end
     end
 
-    send_response(response, result, params)
+    json(result)
   end
 
   # Return percentiles timeDiff by crime category
@@ -144,13 +144,14 @@ class IndultometroApi < Sinatra::Base
                     :q1 => item.q1, :q2 => item.q2, :q3 => item.q3})
     end
 
-    send_response(response, result, params)
+    json(result)
   end
 
   # Return all known details for a given pardon id
   get '/api/pardons/:id' do
     pardon = Pardon.get(params[:id])
-    send_response(response, pardon, params)
+
+    json(pardon)
   end
 
   # Search for pardons fulfilling a variable number of criteria
@@ -182,7 +183,7 @@ class IndultometroApi < Sinatra::Base
 
     unless params['region'].nil? or params['region']==''
       # TODO: This handling of NULLs is a hack: we should set a special value in the loader
-      if ( params['region'] == 'NULL' )
+      if params['region'] == 'NULL'
         sql += " AND p.region IS NULL"
       else
         sql += " AND p.region = ?"
@@ -217,7 +218,8 @@ class IndultometroApi < Sinatra::Base
     result = []
     result = repository(:default).adapter.select(sql+" GROUP BY p.id", *sql_arguments)
     result.collect! {|pardon| pardon_summary(pardon) }
-    send_response(response, result, params)
+
+    json(result)
   end
 
   private
@@ -236,8 +238,8 @@ class IndultometroApi < Sinatra::Base
       'Access-Control-Allow-Methods' => methods.map{ |m| m.to_s.upcase }.join(", ")
   end
 
-  def send_response(response, result, params)
+  def json(data)
     content_type :json
-    result.to_json
+    JSON.dump(data)
   end
 end
