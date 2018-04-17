@@ -7,6 +7,7 @@ class IndultometroApi < Sinatra::Base
 
   before do
     cache_control :public, :must_revalidate, :max_age => 3600
+    enable_cors :*, :GET
   end
 
   # Return a yearly pardon count
@@ -229,9 +230,13 @@ class IndultometroApi < Sinatra::Base
     summary
   end
 
+  def enable_cors(origin, *methods)
+    headers \
+      'Access-Control-Allow-Origin' => origin.to_s,
+      'Access-Control-Allow-Methods' => methods.map{ |m| m.to_s.upcase }.join(", ")
+  end
+
   def send_response(response, result, params)
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'GET'
     content_type :json
     result.to_json
   end
