@@ -74,19 +74,6 @@ class IndultometroApi < Sinatra::Base
     json(result)
   end
 
-  # Return all pardons for a given year
-  get '/api/pardons/year/:year' do
-    pardons = []
-    if params['year'] # Otherwise returning the whole DB is too much
-      pardons = Pardon.all(:pardon_year => params['year'])
-      # Keep only a summary of the data. I tried using DataMapper's field option,
-      # but didn't work, it kept populating the JSON with all the fields (!?)
-      result = pardons.map {|pardon| pardon_summary(pardon) }
-    end
-
-    json(result)
-  end
-
   # Return <limit> pardons with the least timeDiff between trial and sentence dates
   get '/api/pardons/timediff/:limit' do
     pardons = []
