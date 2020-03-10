@@ -62,7 +62,7 @@ GEM
     newrelic_rpm (5.0.0.342)
     pg (0.20.0)
     public_suffix (3.0.2)
-    rack (2.0.4)
+    rack (2.2.2)
     rack-protection (2.0.1)
       rack
     rake (12.3.2)
